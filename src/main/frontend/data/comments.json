@@ -1,0 +1,135 @@
+[
+  {
+    "id": 1,
+    "author": "王伟",
+    "blogId": 1,
+    "content": "这篇文章很有帮助，我学到了很多提升编程技能的方法。",
+    "isReported": true
+  },
+  {
+    "id": 2,
+    "author": "李娜",
+    "blogId": 1,
+    "content": "感谢分享！实践确实是提升编程技能的关键。",
+    "isReported": false
+  },
+  {
+    "id": 3,
+    "author": "刘敏",
+    "blogId": 2,
+    "content": "Vue.js的最佳实践部分讲得很详细，受益匪浅。",
+    "isReported": false
+  },
+  {
+    "id": 4,
+    "author": "陈强",
+    "blogId": 2,
+    "content": "我一直在寻找这样的Vue.js最佳实践文章，谢谢分享。",
+    "isReported": false
+  },
+  {
+    "id": 5,
+    "author": "赵敏",
+    "blogId": 3,
+    "content": "JavaScript新特性介绍得很清楚，对我的工作很有帮助。",
+    "isReported": false
+  },
+  {
+    "id": 6,
+    "author": "张丽",
+    "blogId": 3,
+    "content": "希望能有更多这样的JavaScript新特性介绍文章。",
+    "isReported": false
+  },
+  {
+    "id": 7,
+    "author": "孙强",
+    "blogId": 4,
+    "content": "前端性能优化技巧很实用，已经在项目中应用了。",
+    "isReported": false
+  },
+  {
+    "id": 8,
+    "author": "周敏",
+    "blogId": 4,
+    "content": "前端性能优化是一个非常重要的话题，谢谢分享。",
+    "isReported": false
+  },
+  {
+    "id": 9,
+    "author": "李静",
+    "blogId": 5,
+    "content": "如何准备技术面试的内容非常实用，对我帮助很大。",
+    "isReported": false
+  },
+  {
+    "id": 10,
+    "author": "刘峰",
+    "blogId": 5,
+    "content": "面试准备技巧很棒，我会尝试这些方法。",
+    "isReported": false
+  },
+  {
+    "id": 11,
+    "author": "陈磊",
+    "blogId": 6,
+    "content": "现代Web开发工具介绍得很全面，我学到了很多新知识。",
+    "isReported": false
+  },
+  {
+    "id": 12,
+    "author": "赵丽",
+    "blogId": 6,
+    "content": "这篇文章让我了解了更多的现代Web开发工具，谢谢。",
+    "isReported": true
+  },
+  {
+    "id": 13,
+    "author": "孙伟",
+    "blogId": 7,
+    "content": "React的入门指南很详细，对初学者非常友好。",
+    "isReported": false
+  },
+  {
+    "id": 14,
+    "author": "周强",
+    "blogId": 7,
+    "content": "一直想学习React，这篇入门指南太好了。",
+    "isReported": false
+  },
+  {
+    "id": 15,
+    "author": "李丽",
+    "blogId": 8,
+    "content": "高效代码的编写技巧真是受益匪浅，我会多加练习。",
+    "isReported": false
+  },
+  {
+    "id": 16,
+    "author": "张华",
+    "blogId": 3,
+    "content": "已阅，狗屁不通！",
+    "isReported": true
+  },
+  {
+    "id": 17,
+    "author": "孙悦",
+    "blogId": 5,
+    "content": "呵呵，就这",
+    "isReported": true
+  },
+  {
+    "id": 18,
+    "author": "杰克",
+    "blogId": 11,
+    "content": "1111",
+    "isReported": false
+  },
+  {
+    "id": 19,
+    "author": "杰克",
+    "blogId": 12,
+    "content": "11111",
+    "isReported": false
+  }
+]

@@ -1,0 +1,440 @@
+[
+  {
+    "id": 1,
+    "name": "校内读书分享会",
+    "initiator": "李明",
+    "time": [
+      2024,
+      7,
+      25,
+      10,
+      0
+    ],
+    "location": "学校图书馆",
+    "description": "分享你最喜欢的一本书，听听其他人的读书心得。",
+    "maxParticipants": 10,
+    "currentParticipants": 10,
+    "participantList": [
+      "user1",
+      "user2",
+      "user3",
+      "user4",
+      "user5",
+      "user6",
+      "user7",
+      "user8",
+      "1",
+      "杰克"
+    ],
+    "status": "通过"
+  },
+  {
+    "id": 2,
+    "name": "校外烧烤活动",
+    "initiator": "杰克",
+    "time": [
+      2024,
+      7,
+      28,
+      16,
+      0
+    ],
+    "location": "郊外公园",
+    "description": "一起享受美食和阳光。",
+    "maxParticipants": 15,
+    "currentParticipants": 13,
+    "participantList": [
+      "user9",
+      "user10",
+      "user11",
+      "user12",
+      "user13",
+      "user14",
+      "user15",
+      "user16",
+      "user17",
+      "user18",
+      "1"
+    ],
+    "status": "通过"
+  },
+  {
+    "id": 3,
+    "name": "编程学习小组",
+    "initiator": "陈晓",
+    "time": [
+      2024,
+      8,
+      5,
+      14,
+      0
+    ],
+    "location": "计算机实验室",
+    "description": "一起学习和交流编程技巧。",
+    "maxParticipants": 8,
+    "currentParticipants": 6,
+    "participantList": [
+      "user19",
+      "user20",
+      "user21",
+      "user22",
+      "user23",
+      "1"
+    ],
+    "status": "审核中"
+  },
+  {
+    "id": 4,
+    "name": "校内篮球赛",
+    "initiator": "张强",
+    "time": [
+      2024,
+      8,
+      10,
+      18,
+      0
+    ],
+    "location": "学校篮球场",
+    "description": "展示你的篮球技术。",
+    "maxParticipants": 10,
+    "currentParticipants": 7,
+    "participantList": [
+      "user24",
+      "user25",
+      "user26",
+      "user27",
+      "user28",
+      "user29",
+      "user30"
+    ],
+    "status": "审核中"
+  },
+  {
+    "id": 5,
+    "name": "周末爬山活动",
+    "initiator": "刘洋",
+    "time": [
+      2024,
+      7,
+      29,
+      6,
+      0
+    ],
+    "location": "近郊山脉",
+    "description": "享受大自然的美丽风光。",
+    "maxParticipants": 10,
+    "currentParticipants": 7,
+    "participantList": [
+      "user31",
+      "user32",
+      "user33",
+      "user34",
+      "user35",
+      "user36",
+      "1"
+    ],
+    "status": "通过"
+  },
+  {
+    "id": 6,
+    "name": "校内DIY手工坊",
+    "initiator": "孙敏",
+    "time": [
+      2024,
+      8,
+      1,
+      15,
+      0
+    ],
+    "location": "学校手工教室",
+    "description": "一起动手制作各种手工艺品。",
+    "maxParticipants": 12,
+    "currentParticipants": 11,
+    "participantList": [
+      "user37",
+      "user38",
+      "user39",
+      "user1",
+      "user2",
+      "user3",
+      "user4",
+      "user5",
+      "user6",
+      "user7",
+      "1"
+    ],
+    "status": "通过"
+  },
+  {
+    "id": 7,
+    "name": "校外骑行活动",
+    "initiator": "赵丽",
+    "time": [
+      2024,
+      7,
+      27,
+      7,
+      0
+    ],
+    "location": "城市绿道",
+    "description": "健康骑行，乐享生活。",
+    "maxParticipants": 8,
+    "currentParticipants": 6,
+    "participantList": [
+      "user8",
+      "user9",
+      "user10",
+      "user11",
+      "user12",
+      "user13"
+    ],
+    "status": "不通过"
+  },
+  {
+    "id": 8,
+    "name": "校内音乐会",
+    "initiator": "吴刚",
+    "time": [
+      2024,
+      8,
+      20,
+      19,
+      0
+    ],
+    "location": "学校礼堂",
+    "description": "享受美妙的音乐。",
+    "maxParticipants": 20,
+    "currentParticipants": 15,
+    "participantList": [
+      "user14",
+      "user15",
+      "user16",
+      "user17",
+      "user18",
+      "user19",
+      "user20",
+      "user21",
+      "user22",
+      "user23",
+      "user24",
+      "user25",
+      "user26",
+      "user27",
+      "user28"
+    ],
+    "status": "通过"
+  },
+  {
+    "id": 9,
+    "name": "校内电影放映",
+    "initiator": "钱峰",
+    "time": [
+      2024,
+      8,
+      25,
+      20,
+      0
+    ],
+    "location": "学校大礼堂",
+    "description": "一起观看最新的电影。",
+    "maxParticipants": 30,
+    "currentParticipants": 25,
+    "participantList": [
+      "user28",
+      "user29",
+      "user30",
+      "user31",
+      "user32",
+      "user33",
+      "user34",
+      "user35",
+      "user36",
+      "user37",
+      "user38",
+      "user39",
+      "user1",
+      "user2",
+      "user3",
+      "user4",
+      "user5",
+      "user6",
+      "user7",
+      "user8",
+      "user9",
+      "user10",
+      "user11",
+      "user12",
+      "user13"
+    ],
+    "status": "通过"
+  },
+  {
+    "id": 10,
+    "name": "校外摄影比赛",
+    "initiator": "周杰",
+    "time": [
+      2024,
+      8,
+      18,
+      9,
+      0
+    ],
+    "location": "城市公园",
+    "description": "用镜头记录美丽的瞬间。",
+    "maxParticipants": 12,
+    "currentParticipants": 10,
+    "participantList": [
+      "user6",
+      "user7",
+      "user8",
+      "user9",
+      "user10",
+      "user11",
+      "user12",
+      "user13",
+      "user14",
+      "user15"
+    ],
+    "status": "通过"
+  },
+  {
+    "id": 11,
+    "name": "校内编程大赛",
+    "initiator": "郑秀文",
+    "time": [
+      2024,
+      7,
+      31,
+      10,
+      0
+    ],
+    "location": "计算机实验室",
+    "description": "展示你的编程技能。",
+    "maxParticipants": 15,
+    "currentParticipants": 12,
+    "participantList": [
+      "user16",
+      "user17",
+      "user18",
+      "user19",
+      "user20",
+      "user21",
+      "user22",
+      "user23",
+      "user24",
+      "user25",
+      "user26",
+      "user27"
+    ],
+    "status": "审核中"
+  },
+  {
+    "id": 12,
+    "name": "校内歌唱比赛",
+    "initiator": "何炯",
+    "time": [
+      2024,
+      7,
+      26,
+      14,
+      0
+    ],
+    "location": "学校音乐厅",
+    "description": "展示你的歌唱天赋。",
+    "maxParticipants": 10,
+    "currentParticipants": 8,
+    "participantList": [
+      "user26",
+      "user27",
+      "user28",
+      "user29",
+      "user30",
+      "user31",
+      "user32",
+      "user33"
+    ],
+    "status": "不通过"
+  },
+  {
+    "id": 13,
+    "name": "校外露营活动",
+    "initiator": "杨阳",
+    "time": [
+      2024,
+      7,
+      30,
+      17,
+      0
+    ],
+    "location": "郊外露营地",
+    "description": "享受自然，体验露营生活。",
+    "maxParticipants": 10,
+    "currentParticipants": 8,
+    "participantList": [
+      "user34",
+      "user35",
+      "user36",
+      "user37",
+      "user38",
+      "user39",
+      "user1",
+      "杰克"
+    ],
+    "status": "通过"
+  },
+  {
+    "id": 14,
+    "name": "校内美术展览",
+    "initiator": "方芳",
+    "time": [
+      2024,
+      8,
+      2,
+      10,
+      0
+    ],
+    "location": "学校美术馆",
+    "description": "展示同学们的艺术作品。",
+    "maxParticipants": 20,
+    "currentParticipants": 15,
+    "participantList": [
+      "user2",
+      "user3",
+      "user4",
+      "user5",
+      "user6",
+      "user7",
+      "user8",
+      "user9",
+      "user10",
+      "user11",
+      "user12",
+      "user13",
+      "user14",
+      "user15",
+      "user16"
+    ],
+    "status": "审核中"
+  },
+  {
+    "id": 1721976252667,
+    "name": "企业实训",
+    "time": [
+      2024,
+      8,
+      10,
+      14,
+      48
+    ],
+    "location": "大连",
+    "maxParticipants": 10,
+    "description": "无",
+    "initiator": "杰克",
+    "currentParticipants": 2,
+    "participantList": [
+      "1",
+      "杰克"
+    ],
+    "status": "通过"
+  }
+]

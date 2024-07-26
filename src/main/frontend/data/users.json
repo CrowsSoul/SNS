@@ -1,0 +1,20 @@
+[
+  {
+    "username": "1",
+    "password": "1",
+    "nickname": "杰克",
+    "role": "student"
+  },
+  {
+    "username": "2",
+    "password": "2",
+    "nickname": "姚神",
+    "role": "admin"
+  },
+  {
+    "username": "3",
+    "password": "3",
+    "nickname": "坤坤",
+    "role": "employed_student"
+  }
+]
