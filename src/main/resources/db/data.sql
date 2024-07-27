@@ -133,18 +133,18 @@ VALUES
 
 
 
-INSERT INTO activities (activity_name, activity_type, activity_time, activity_address, activity_content, activity_amount)
+INSERT INTO activities (activity_name,initiator, activity_type, activity_time, activity_location, activity_description,maxParticipants, currentParticipants,status)
 VALUES
-    ('Tech Talk', 'Seminar', NOW(), 'San Francisco', 'A seminar on the latest tech trends and innovations.', 50),
-    ('Hackathon', 'Event', NOW(), 'New York', 'A weekend-long coding competition with prizes.', 100),
-    ('Networking Event', 'Social', NOW(), 'Los Angeles', 'An evening of networking with industry professionals.', 75),
-    ('Workshop', 'Training', NOW(), 'Chicago', 'A hands-on workshop on cloud computing.', 30),
-    ('Book Club Meeting', 'Discussion', NOW(), 'Boston', 'Monthly book club meeting discussing tech books.', 20),
-    ('Startup Pitch Night', 'Event', NOW(), 'Seattle', 'A night where startups pitch their ideas to investors.', 150),
-    ('Coding Bootcamp', 'Training', NOW(), 'Austin', 'A two-week intensive bootcamp for aspiring developers.', 25),
-    ('Charity Run', 'Event', NOW(), 'Atlanta', 'A charity run to support local tech education initiatives.', 300),
-    ('Product Launch Party', 'Celebration', NOW(), 'Denver', 'A party celebrating the launch of a new product.', 100),
-    ('Volunteer Day', 'Community', NOW(), 'Philadelphia', 'A day dedicated to volunteering at local tech nonprofits.', 40);
+    ('Tech Talk', 'jack','Seminar', NOW(), 'San Francisco', 'A seminar on the latest tech trends and innovations.', 50,30,'approved'),
+    ('Hackathon','john', 'Event', NOW(), 'New York', 'A weekend-long coding competition with prizes.', 100,45,'approved'),
+    ('Networking Event','alice', 'Social', NOW(), 'Los Angeles', 'An evening of networking with industry professionals.', 75,20,'approved'),
+    ('Workshop', 'bob','Training', NOW(), 'Chicago', 'A hands-on workshop on cloud computing.', 30,29,'approved'),
+    ('Book Club Meeting', 'carol','Discussion', NOW(), 'Boston', 'Monthly book club meeting discussing tech books.', 20,12,'rejected'),
+    ('Startup Pitch Night','david', 'Event', NOW(), 'Seattle', 'A night where startups pitch their ideas to investors.', 150,120,'pending'),
+    ('Coding Bootcamp','elizabeth', 'Training', NOW(), 'Austin', 'A two-week intensive bootcamp for aspiring developers.', 25,20,'pending'),
+    ('Charity Run', 'frank','Event', NOW(), 'Atlanta', 'A charity run to support local tech education initiatives.', 300,225,'approved'),
+    ('Product Launch Party', 'george','Celebration', NOW(), 'Denver', 'A party celebrating the launch of a new product.', 100,89,'rejected'),
+    ('Volunteer Day', 'helen','Community', NOW(), 'Philadelphia', 'A day dedicated to volunteering at local tech nonprofits.', 40,33,'approved');
 
 
 

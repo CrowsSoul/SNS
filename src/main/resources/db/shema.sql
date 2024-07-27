@@ -143,11 +143,14 @@ CREATE TABLE pushinfor_reviews (
 CREATE TABLE activities (
     activity_id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     activity_name VARCHAR(20) NOT NULL,
-    activity_type VARCHAR(20) NOT NULL,
+    initiator varchar(30) ,
+    activity_type VARCHAR(20) ,
     activity_time DATETIME NOT NULL,
-    activity_address VARCHAR(20) NOT NULL,
-    activity_content TEXT NOT NULL,
-    activity_amount INT NOT NULL
+    activity_location VARCHAR(20) NOT NULL,
+    activity_description TEXT NOT NULL,
+    maxParticipants INT NOT NULL,
+    currentParticipants int not null,
+    status varchar(20) not null
 );
 
 
