@@ -69,7 +69,7 @@ CREATE TABLE reports (
     status VARCHAR(20) NOT NULL,
     created_time DATETIME NOT NULL,
     updated_time DATETIME NOT NULL,
-    FOREIGN KEY (comment_id) REFERENCES comments(comment_id),
+    FOREIGN KEY (comment_id) REFERENCES comments(comment_id) on delete cascade,
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
