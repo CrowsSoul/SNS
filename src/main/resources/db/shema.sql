@@ -81,7 +81,7 @@ CREATE TABLE reviews (
     result VARCHAR(20) NOT NULL,
     comment VARCHAR(50) NOT NULL,
     reviewed_time DATETIME NOT NULL,
-    FOREIGN KEY (post_id) REFERENCES posts(post_id),
+    FOREIGN KEY (post_id) REFERENCES posts(post_id) on delete cascade,
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
