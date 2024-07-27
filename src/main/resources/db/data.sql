@@ -1,15 +1,15 @@
-INSERT INTO users (username, password, email, role, created_time, updated_time)
+INSERT INTO users (username,nickname, password, email, role, created_time, updated_time)
 VALUES
-    ('jack', 'pass123', 'jack@example.com', 'user', NOW(), NOW()),
-    ('john', 'pass456', 'john@example.com', 'user', NOW(), NOW()),
-    ('alice', 'pass789', 'alice@example.com', 'admin', NOW(), NOW()),
-    ('bob', 'pass101', 'bob@example.com', 'user', NOW(), NOW()),
-    ('carol', 'pass202', 'carol@example.com', 'user', NOW(), NOW()),
-    ('david', 'pass303', 'david@example.com', 'moderator', NOW(), NOW()),
-    ('elizabeth', 'pass404', 'elizabeth@example.com', 'user', NOW(), NOW()),
-    ('frank', 'pass505', 'frank@example.com', 'user', NOW(), NOW()),
-    ('george', 'pass606', 'george@example.com', 'user', NOW(), NOW()),
-    ('helen', 'pass707', 'helen@example.com', 'user', NOW(), NOW());
+    ('jack','hello', 'Pass123', 'jack@example.com', 'user', NOW(), NOW()),
+    ('john', 'hello000','Pass456', 'john@example.com', 'user', NOW(), NOW()),
+    ('alice', 'helloooo','Pass789', 'alice@example.com', 'admin', NOW(), NOW()),
+    ('bob', 'oooello','Pass101', 'bob@example.com', 'user', NOW(), NOW()),
+    ('carol','hellooo', 'Pass202', 'carol@example.com', 'user', NOW(), NOW()),
+    ('david','helggjlo', 'Pass303', 'david@example.com', 'moderator', NOW(), NOW()),
+    ('elizabeth', 'hjfjfello','Pass404', 'elizabeth@example.com', 'user', NOW(), NOW()),
+    ('frank', 'helthlo','Pass505', 'frank@example.com', 'user', NOW(), NOW()),
+    ('george', 'hefthllo','Pass606', 'george@example.com', 'user', NOW(), NOW()),
+    ('helen', 'helfhtlo','Pass707', 'helen@example.com', 'user', NOW(), NOW());
 
 
 
