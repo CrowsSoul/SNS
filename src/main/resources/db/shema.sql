@@ -26,7 +26,7 @@ CREATE TABLE users (
     username VARCHAR(10) NOT NULL,
     nickname VARCHAR(10) NOT NULL,
     password VARCHAR(15) NOT NULL,
-    email VARCHAR(30) NOT NULL,
+    email VARCHAR(30) ,
     role VARCHAR(10) NOT NULL,
     created_time DATETIME NOT NULL,
     updated_time DATETIME NOT NULL
@@ -35,9 +35,11 @@ CREATE TABLE users (
 CREATE TABLE posts (
     post_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
+    author varchar(10) not null ,
     title VARCHAR(200) NOT NULL,
     content TEXT NOT NULL,
     status VARCHAR(20) NOT NULL,
+    isRecommended boolean not null ,
     created_time DATETIME NOT NULL,
     updated_time DATETIME NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(user_id)
@@ -48,8 +50,10 @@ CREATE TABLE comments (
     comment_id INT AUTO_INCREMENT PRIMARY KEY,
     post_id INT NOT NULL,
     user_id INT NOT NULL,
+    author varchar(10) not null,
     content TEXT NOT NULL,
     status VARCHAR(20) NOT NULL,
+    isReported boolean not null,
     created_time DATETIME NOT NULL,
     updated_time DATETIME NOT NULL,
     FOREIGN KEY (post_id) REFERENCES posts(post_id),
@@ -95,14 +99,19 @@ CREATE TABLE navs (
 
 CREATE TABLE pushinfor (
     pushinfor_id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    companyName varchar(20) not null ,
     user_id INT  NOT NULL,
+    author varchar(10) not null,
     title VARCHAR(200) NOT NULL,
     content TEXT NOT NULL,
     abstract TINYTEXT NOT NULL,
+    summary varchar(20) not null,
     location VARCHAR(20) NOT NULL,
     status VARCHAR(20) NOT NULL,
     created_time DATETIME NOT NULL,
     publish_time DATETIME NOT NULL,
+    max_salary int not null,
+    min_salary int not null,
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 

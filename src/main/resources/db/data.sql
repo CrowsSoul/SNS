@@ -1,44 +1,44 @@
 INSERT INTO users (username,nickname, password, email, role, created_time, updated_time)
 VALUES
-    ('jack','hello', 'Pass123', 'jack@example.com', 'user', NOW(), NOW()),
-    ('john', 'hello000','Pass456', 'john@example.com', 'user', NOW(), NOW()),
-    ('alice', 'helloooo','Pass789', 'alice@example.com', 'admin', NOW(), NOW()),
-    ('bob', 'oooello','Pass101', 'bob@example.com', 'user', NOW(), NOW()),
-    ('carol','hellooo', 'Pass202', 'carol@example.com', 'user', NOW(), NOW()),
-    ('david','helggjlo', 'Pass303', 'david@example.com', 'moderator', NOW(), NOW()),
-    ('elizabeth', 'hjfjfello','Pass404', 'elizabeth@example.com', 'user', NOW(), NOW()),
-    ('frank', 'helthlo','Pass505', 'frank@example.com', 'user', NOW(), NOW()),
-    ('george', 'hefthllo','Pass606', 'george@example.com', 'user', NOW(), NOW()),
-    ('helen', 'helfhtlo','Pass707', 'helen@example.com', 'user', NOW(), NOW());
+    ('jack112','jack', 'Pass123', 'jack@example.com', 'user', NOW(), NOW()),
+    ('john223', 'john','Pass456', 'john@example.com', 'user', NOW(), NOW()),
+    ('alice114', 'alice','Pass789', 'alice@example.com', 'admin', NOW(), NOW()),
+    ('bob514', 'bob','Pass101', 'bob@example.com', 'user', NOW(), NOW()),
+    ('carol666','carol', 'Pass202', 'carol@example.com', 'user', NOW(), NOW()),
+    ('david23345','david', 'Pass303', 'david@example.com', 'moderator', NOW(), NOW()),
+    ('elizabeth9089', 'elizabeth','Pass404', 'elizabeth@example.com', 'user', NOW(), NOW()),
+    ('frank4060', 'frank','Pass505', 'frank@example.com', 'user', NOW(), NOW()),
+    ('george345', 'george','Pass606', 'george@example.com', 'user', NOW(), NOW()),
+    ('helen1234', 'helen','Pass707', 'helen@example.com', 'user', NOW(), NOW());
 
 
 
-INSERT INTO posts (user_id, title, content, status, created_time, updated_time)
+INSERT INTO posts (user_id, author,title, content, status,isRecommended, created_time, updated_time)
 VALUES
-    (1, 'My First Post', 'This is my first blog post about getting started with blogging.', 'published', NOW(), NOW()),
-    (2, 'Exploring New Technologies', 'A detailed exploration of the latest technologies and how they can be used in web development.', 'published', NOW(), NOW()),
-    (3, 'Admin Tips and Tricks', 'Tips for managing users and moderating content on your website.', 'published', NOW(), NOW()),
-    (4, 'Learning Programming', 'A beginner\'s guide to programming and some useful resources.', 'draft', NOW(), NOW()),
-    (5, 'The Importance of Security', 'Why security is crucial for any online platform and how to improve it.', 'published', NOW(), NOW()),
-    (6, 'Moderation Best Practices', 'Best practices for moderating comments and maintaining a healthy community.', 'published', NOW(), NOW()),
-    (7, 'Advanced Features Unlocked', 'Unlocking advanced features in the blogging platform for power users.', 'draft', NOW(), NOW()),
-    (8, 'Community Engagement Strategies', 'Strategies for engaging with your community and building a loyal following.', 'published', NOW(), NOW()),
-    (9, 'Managing Large Datasets', 'How to manage and analyze large datasets efficiently.', 'draft', NOW(), NOW()),
-    (10, 'Creating a Positive Online Environment', 'Tips for creating a positive and welcoming environment for all users.', 'published', NOW(), NOW());
+    (1,'jack', 'My First Post', 'This is my first blog post about getting started with blogging.', 'published','1', NOW(), NOW()),
+    (2, 'john','Exploring New Technologies', 'A detailed exploration of the latest technologies and how they can be used in web development.', 'published', '0',NOW(), NOW()),
+    (3, 'alice','Admin Tips and Tricks', 'Tips for managing users and moderating content on your website.', 'published','1', NOW(), NOW()),
+    (4, 'bob','Learning Programming', 'A beginner\'s guide to programming and some useful resources.', 'pending', '0',NOW(), NOW()),
+    (5, 'carol','The Importance of Security', 'Why security is crucial for any online platform and how to improve it.', 'rejected','0', NOW(), NOW()),
+    (6, 'david','Moderation Best Practices', 'Best practices for moderating comments and maintaining a healthy community.', 'published','1', NOW(), NOW()),
+    (7, 'elizabeth','Advanced Features Unlocked', 'Unlocking advanced features in the blogging platform for power users.', 'pending','0', NOW(), NOW()),
+    (8, 'frank','Community Engagement Strategies', 'Strategies for engaging with your community and building a loyal following.', 'rejected','0', NOW(), NOW()),
+    (9, 'george','Managing Large Datasets', 'How to manage and analyze large datasets efficiently.', 'pending','0', NOW(), NOW()),
+    (10, 'helen','Creating a Positive Online Environment', 'Tips for creating a positive and welcoming environment for all users.', 'published','0', NOW(), NOW());
 
 
-INSERT INTO comments (post_id, user_id, content, status, created_time, updated_time)
+INSERT INTO comments (post_id, user_id,author, content, status, isReported,created_time, updated_time)
 VALUES
-    (1, 1, 'Great post! I learned a lot about blogging.', 'approved', NOW(), NOW()),
-    (1, 2, 'I agree, starting with blogging can be challenging but rewarding.', 'approved', NOW(), NOW()),
-    (2, 3, 'Thanks for the tips on exploring new technologies!', 'approved', NOW(), NOW()),
-    (3, 4, 'Admin tips are always appreciated. Thanks for sharing!', 'approved', NOW(), NOW()),
-    (4, 5, 'I found the learning programming guide very helpful.', 'approved', NOW(), NOW()),
-    (5, 6, 'Security is indeed important. Good read!', 'approved', NOW(), NOW()),
-    (6, 7, 'Moderation best practices are essential for community management.', 'approved', NOW(), NOW()),
-    (7, 8, 'Advanced features are great for power users. Looking forward to trying them out.', 'approved', NOW(), NOW()),
-    (8, 9, 'Community engagement strategies are key to building a strong community.', 'approved', NOW(), NOW()),
-    (9, 10, 'Managing large datasets is a challenge I face often. Thanks for the advice.', 'approved', NOW(), NOW());
+    (1, 1,'jack', 'Great post! I learned a lot about blogging.', 'approved',0, NOW(), NOW()),
+    (1, 2,'john', 'I agree, starting with blogging can be challenging but rewarding.', 'approved', 1,NOW(), NOW()),
+    (2, 3,'alice', 'Thanks for the tips on exploring new technologies!', 'approved',0, NOW(), NOW()),
+    (3, 4,'bob','Admin tips are always appreciated. Thanks for sharing!', 'approved',0, NOW(), NOW()),
+    (4, 5,'carol', 'I found the learning programming guide very helpful.', 'approved',0, NOW(), NOW()),
+    (5, 6,'david', 'Security is indeed important. Good read!', 'approved', 0,NOW(), NOW()),
+    (6, 7,'elizabeth', 'Moderation best practices are essential for community management.', 'approved',0, NOW(), NOW()),
+    (7, 8,'frank', 'Advanced features are great for power users. Looking forward to trying them out.', 'approved',0, NOW(), NOW()),
+    (8, 9,'george', 'Community engagement strategies are key to building a strong community.', 'approved', 1,NOW(), NOW()),
+    (9, 10,'helen', 'Managing large datasets is a challenge I face often. Thanks for the advice.', 'approved',0, NOW(), NOW());
 
 
 
@@ -88,18 +88,18 @@ VALUES
 
 
 
-INSERT INTO pushinfor (user_id, title, content, abstract, location, status, created_time, publish_time)
+INSERT INTO pushinfor (companyName,user_id,author, title, content, abstract, summary,location, status, created_time, publish_time,max_salary,min_salary)
 VALUES
-    (1, 'Software Engineer Internship', 'We are looking for talented software engineers to join our team...', 'Looking for software engineers...', 'San Francisco', 'open', NOW(), NOW()),
-    (2, 'Product Manager Role', 'Exciting opportunity for a product manager to lead our new product launch...', 'Opportunity for a product manager...', 'New York', 'closed', NOW(), NOW()),
-    (3, 'UI/UX Designer Position', 'Join our design team and help shape the future of our product...', 'Join our design team...', 'Los Angeles', 'open', NOW(), NOW()),
-    (4, 'Frontend Developer Needed', 'We need experienced frontend developers who can build responsive web applications...', 'Experienced frontend developers needed...', 'Chicago', 'open', NOW(), NOW()),
-    (5, 'Backend Developer Wanted', 'Seeking backend developers with experience in Java and Python...', 'Seeking backend developers...', 'Boston', 'open', NOW(), NOW()),
-    (6, 'Data Scientist Opportunity', 'Looking for data scientists to analyze large datasets and provide insights...', 'Data scientist opportunity...', 'Seattle', 'closed', NOW(), NOW()),
-    (7, 'DevOps Engineer Role', 'Join our DevOps team and help us automate and optimize our infrastructure...', 'Join our DevOps team...', 'Austin', 'open', NOW(), NOW()),
-    (8, 'Quality Assurance Tester', 'We need testers to ensure the quality of our software releases...', 'Quality assurance tester needed...', 'Atlanta', 'open', NOW(), NOW()),
-    (9, 'Full Stack Developer Position', 'Seeking full stack developers with experience in both frontend and backend technologies...', 'Full stack developer position...', 'Denver', 'open', NOW(), NOW()),
-    (10, 'Technical Writer Job', 'Join our documentation team and help us create clear and concise technical documentation...', 'Technical writer job...', 'Philadelphia', 'open', NOW(), NOW());
+    ('huawei',1, 'jack','Software Engineer Internship', 'We are looking for talented software engineers to join our team...', 'Looking for software engineers...','employee', 'San Francisco', 'approved', NOW(), NOW(),'10000','5000'),
+    ('ali',2, 'john','Product Manager Role', 'Exciting opportunity for a product manager to lead our new product launch...', 'Opportunity for a product manager...', 'employee','New York', 'approved', NOW(), NOW(),'8000','6000'),
+    ('tengxun',3,'alice', 'UI/UX Designer Position', 'Join our design team and help shape the future of our product...', 'Join our design team...','leader', 'Los Angeles', 'approved', NOW(), NOW(),'6000','4000'),
+    ('xiaomi',4,'bob', 'Frontend Developer Needed', 'We need experienced frontend developers who can build responsive web applications...', 'Experienced frontend developers needed...','employee', 'Chicago', 'notapproved', NOW(), NOW(),'8000','6000'),
+    ('huawei',5,'carol', 'Backend Developer Wanted', 'Seeking backend developers with experience in Java and Python...', 'Seeking backend developers...', 'leader','Boston', 'approved', NOW(), NOW(),'9000','6000'),
+    ('tiktok',6,'david', 'Data Scientist Opportunity', 'Looking for data scientists to analyze large datasets and provide insights...', 'Data scientist opportunity...', 'employee','Seattle', 'approved', NOW(), NOW(),'6000','3000'),
+    ('tiktok',7, 'elizabeth','DevOps Engineer Role', 'Join our DevOps team and help us automate and optimize our infrastructure...', 'Join our DevOps team...', 'employee','Austin', 'approved', NOW(), NOW(),'9000','5000'),
+    ('byd',8, 'frank','Quality Assurance Tester', 'We need testers to ensure the quality of our software releases...', 'Quality assurance tester needed...', 'leader','Atlanta', 'approved', NOW(), NOW(),'12000','6000'),
+    ('huawei',9,'george', 'Full Stack Developer Position', 'Seeking full stack developers with experience in both frontend and backend technologies...', 'Full stack developer position...', 'employee','Denver', 'notapproved', NOW(), NOW(),'11000','10000'),
+    ('xiaomi',10, 'helen','Technical Writer Job', 'Join our documentation team and help us create clear and concise technical documentation...', 'Technical writer job...', 'employee','Philadelphia', 'approved', NOW(), NOW(),'9000','8000');
 
 
 
