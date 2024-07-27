@@ -15,16 +15,16 @@ VALUES
 
 INSERT INTO posts (user_id, author,title, content, status,isRecommended, created_time, updated_time)
 VALUES
-    (1,'jack', 'My First Post', 'This is my first blog post about getting started with blogging.', 'published','1', NOW(), NOW()),
-    (2, 'john','Exploring New Technologies', 'A detailed exploration of the latest technologies and how they can be used in web development.', 'published', '0',NOW(), NOW()),
-    (3, 'alice','Admin Tips and Tricks', 'Tips for managing users and moderating content on your website.', 'published','1', NOW(), NOW()),
-    (4, 'bob','Learning Programming', 'A beginner\'s guide to programming and some useful resources.', 'pending', '0',NOW(), NOW()),
-    (5, 'carol','The Importance of Security', 'Why security is crucial for any online platform and how to improve it.', 'rejected','0', NOW(), NOW()),
-    (6, 'david','Moderation Best Practices', 'Best practices for moderating comments and maintaining a healthy community.', 'published','1', NOW(), NOW()),
-    (7, 'elizabeth','Advanced Features Unlocked', 'Unlocking advanced features in the blogging platform for power users.', 'pending','0', NOW(), NOW()),
-    (8, 'frank','Community Engagement Strategies', 'Strategies for engaging with your community and building a loyal following.', 'rejected','0', NOW(), NOW()),
-    (9, 'george','Managing Large Datasets', 'How to manage and analyze large datasets efficiently.', 'pending','0', NOW(), NOW()),
-    (10, 'helen','Creating a Positive Online Environment', 'Tips for creating a positive and welcoming environment for all users.', 'published','0', NOW(), NOW());
+    (1,'jack', 'My First Post', 'This is my first blog post about getting started with blogging.', 'published',true, NOW(), NOW()),
+    (2, 'john','Exploring New Technologies', 'A detailed exploration of the latest technologies and how they can be used in web development.', 'published', false,NOW(), NOW()),
+    (3, 'alice','Admin Tips and Tricks', 'Tips for managing users and moderating content on your website.', 'published',true, NOW(), NOW()),
+    (4, 'bob','Learning Programming', 'A beginner\'s guide to programming and some useful resources.', 'pending', false,NOW(), NOW()),
+    (5, 'carol','The Importance of Security', 'Why security is crucial for any online platform and how to improve it.', 'rejected',false, NOW(), NOW()),
+    (6, 'david','Moderation Best Practices', 'Best practices for moderating comments and maintaining a healthy community.', 'published',true, NOW(), NOW()),
+    (7, 'elizabeth','Advanced Features Unlocked', 'Unlocking advanced features in the blogging platform for power users.', 'pending',false, NOW(), NOW()),
+    (8, 'frank','Community Engagement Strategies', 'Strategies for engaging with your community and building a loyal following.', 'rejected',false, NOW(), NOW()),
+    (9, 'george','Managing Large Datasets', 'How to manage and analyze large datasets efficiently.', 'pending',true, NOW(), NOW()),
+    (10, 'helen','Creating a Positive Online Environment', 'Tips for creating a positive and welcoming environment for all users.', 'published',false, NOW(), NOW());
 
 
 INSERT INTO comments (post_id, user_id,author, content, status, isReported,created_time, updated_time)
