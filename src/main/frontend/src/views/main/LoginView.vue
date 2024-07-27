@@ -66,7 +66,7 @@ export default {
           this.error = response.data.message;
         }
       } catch (error) {
-        this.error = "登录失败，请稍后再试";
+        this.error = error;
       } finally {
         this.loading = false;
       }
