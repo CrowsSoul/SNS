@@ -12,10 +12,18 @@ import java.time.LocalDateTime;
 public class User {
     private int id;
     private String username;
-    private String password;
     private String nickname;
+    private String password;
     private String email;
     private String role;
     private LocalDateTime created_time;
     private LocalDateTime updated_time;
+
+    public User(String username,String password,String nickname,String role)
+    {
+        this.username = username;
+        this.password = password;
+        this.nickname = nickname;
+        this.role = role;
+    }
 }

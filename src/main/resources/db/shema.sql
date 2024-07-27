@@ -26,7 +26,7 @@ CREATE TABLE users (
     username VARCHAR(10) NOT NULL,
     nickname VARCHAR(10) NOT NULL,
     password VARCHAR(15) NOT NULL,
-    email VARCHAR(30) NOT NULL,
+    email VARCHAR(30),
     role VARCHAR(10) NOT NULL,
     created_time DATETIME NOT NULL,
     updated_time DATETIME NOT NULL
