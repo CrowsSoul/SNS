@@ -19,4 +19,13 @@ public interface PostMapper {
     })
     public List<Post> getAllPostsWithAuthorName();
 
+    @Select("SELECT p.post_id,p.status, p.title, p.content, u.username AS author, p.created_time,p.isRecommended " +
+            "FROM posts p " +
+            "JOIN users u ON p.user_id = u.user_id"+
+            " WHERE p.post_id = #{postId}")
+    @Results({
+            @Result(property = "id", column = "post_id"),
+            @Result(property = "publishedAt", column = "created_time")
+    })
+    public Post getPostById(int postId);
 }
