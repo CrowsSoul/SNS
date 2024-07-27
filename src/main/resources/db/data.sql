@@ -282,3 +282,11 @@ VALUES
     (8, 'Thank you for applying. Your application has been accepted. Please check your email for more details.', NOW()),
     (9, 'Unfortunately, your application was not accepted. Please consider applying for other opportunities.', NOW()),
     (10, 'Your application has been successfully reviewed and accepted. Welcome to the team!', NOW());
+
+
+
+
+/*向用户收藏内推的中间表中加入数据*/
+INSERT INTO user_pushinfor_favorites (user_id, pushinfor_id)
+VALUES (1, 1), (1, 2), (2, 3), (2, 4), (3, 5),
+       (3, 1), (4, 2), (4, 4), (5, 1), (5, 3);

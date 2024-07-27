@@ -252,3 +252,13 @@ CREATE TABLE application_success_messages (
     FOREIGN KEY (review_id) REFERENCES review_requests(review_id)
 );
 
+
+
+/*用户收藏内推所用的中间表*/
+CREATE TABLE user_pushinfor_favorites (
+  user_id INT NOT NULL,
+  pushinfor_id INT UNSIGNED NOT NULL,
+  PRIMARY KEY (user_id, pushinfor_id),
+  FOREIGN KEY (user_id) REFERENCES users(user_id),
+  FOREIGN KEY (pushinfor_id) REFERENCES pushinfor(pushinfor_id)
+);
