@@ -24,6 +24,7 @@ DROP TABLE IF EXISTS application_success_messages;
 CREATE TABLE users (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(10) NOT NULL,
+    nickname VARCHAR(10) NOT NULL,
     password VARCHAR(15) NOT NULL,
     email VARCHAR(30) NOT NULL,
     role VARCHAR(10) NOT NULL,
