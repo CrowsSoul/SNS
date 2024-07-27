@@ -12,6 +12,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class Post {
     private String id;
+    private int userId;
     private String author;
     private String title;
     private String content;
