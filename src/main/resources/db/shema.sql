@@ -90,7 +90,7 @@ CREATE TABLE navs (
     nav_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
     nav_order INT NOT NULL,
-    nav_name VARCHAR(10) NOT NULL,
+    nav_name VARCHAR(30) NOT NULL,
     created_time DATETIME NOT NULL,
     updated_time DATETIME NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(user_id)
@@ -101,7 +101,7 @@ CREATE TABLE pushinfor (
     pushinfor_id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     companyName varchar(20) not null ,
     user_id INT  NOT NULL,
-    author varchar(10) not null,
+    author varchar(30) not null,
     title VARCHAR(200) NOT NULL,
     content TEXT NOT NULL,
     abstract TINYTEXT NOT NULL,
