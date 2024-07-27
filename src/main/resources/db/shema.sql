@@ -23,11 +23,11 @@ DROP TABLE IF EXISTS application_success_messages;
 
 CREATE TABLE users (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(10) NOT NULL,
-    nickname VARCHAR(10) NOT NULL,
-    password VARCHAR(15) NOT NULL,
+    username VARCHAR(30) NOT NULL,
+    nickname VARCHAR(30) NOT NULL,
+    password VARCHAR(30) NOT NULL,
     email VARCHAR(30) ,
-    role VARCHAR(10) NOT NULL,
+    role VARCHAR(30) NOT NULL,
     created_time DATETIME NOT NULL,
     updated_time DATETIME NOT NULL
 );
@@ -35,7 +35,7 @@ CREATE TABLE users (
 CREATE TABLE posts (
     post_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
-    author varchar(10) not null ,
+    author varchar(30) not null ,
     title VARCHAR(200) NOT NULL,
     content TEXT NOT NULL,
     status VARCHAR(20) NOT NULL,
@@ -50,7 +50,7 @@ CREATE TABLE comments (
     comment_id INT AUTO_INCREMENT PRIMARY KEY,
     post_id INT NOT NULL,
     user_id INT NOT NULL,
-    author varchar(10) not null,
+    author varchar(30) not null,
     content TEXT NOT NULL,
     status VARCHAR(20) NOT NULL,
     isReported boolean not null,
