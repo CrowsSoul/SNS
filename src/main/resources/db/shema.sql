@@ -56,7 +56,7 @@ CREATE TABLE comments (
     isReported boolean not null,
     created_time DATETIME NOT NULL,
     updated_time DATETIME NOT NULL,
-    FOREIGN KEY (post_id) REFERENCES posts(post_id),
+    FOREIGN KEY (post_id) REFERENCES posts(post_id) on delete cascade,
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
