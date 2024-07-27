@@ -7,7 +7,7 @@ import java.util.List;
 
 @Mapper
 public interface PostMapper {
-//    @Select("SELECT p.post_id,p.status, p.title, p.content, u.username AS author, p.created_time,p.isRecommended " +
+    //    @Select("SELECT p.post_id,p.status, p.title, p.content, u.username AS author, p.created_time,p.isRecommended " +
 //            "FROM posts p " +
 //            "JOIN users u ON p.user_id = u.user_id")
     @Select("SELECT * FROM posts ")
@@ -17,7 +17,7 @@ public interface PostMapper {
     })
     public List<Post> getAllPostsWithAuthorName();
 
-//    @Select("SELECT p.post_id,p.status, p.title, p.content, u.username AS author, p.created_time,p.isRecommended " +
+    //    @Select("SELECT p.post_id,p.status, p.title, p.content, u.username AS author, p.created_time,p.isRecommended " +
 //            "FROM posts p " +
 //            "JOIN users u ON p.user_id = u.user_id"+
 //            " WHERE p.post_id = #{postId}")
@@ -36,4 +36,14 @@ public interface PostMapper {
             @Result(property = "publishedAt", column = "created_time")
     })
     public void addPost(Post post);
+
+    @Update("UPDATE posts SET title = #{title}, " +
+            "content = #{content}, status = #{status}, updated_time = NOW(), " +
+            "author = #{author} WHERE post_id = #{id}")
+    @Options(useGeneratedKeys = true, keyProperty = "id")
+    @Results({
+            @Result(property = "id", column = "post_id"),
+            @Result(property = "publishedAt", column = "created_time")
+    })
+    public void updatePost(Post post);
 }
