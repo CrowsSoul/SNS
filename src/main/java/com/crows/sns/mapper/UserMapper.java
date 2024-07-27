@@ -13,4 +13,10 @@ public interface UserMapper {
     @Insert("INSERT INTO users (username, nickname, password, email, role, created_time, updated_time) " +
             "VALUES (#{username}, #{nickname}, #{password}, #{email}, #{role}, NOW(), NOW())")
     void insertUser(User user);
+
+    @Select("SELECT nickname FROM users WHERE id = #{id}")
+    public String findNicknameById(int id);
+
+    @Select("SELECT user_id FROM users WHERE nickname = #{nickname}")
+    public int findUserIdByNickname(String nickname);
 }
