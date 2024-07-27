@@ -7,9 +7,6 @@ import java.util.List;
 
 @Mapper
 public interface PostMapper {
-    //    @Select("SELECT p.post_id,p.status, p.title, p.content, u.username AS author, p.created_time,p.isRecommended " +
-//            "FROM posts p " +
-//            "JOIN users u ON p.user_id = u.user_id")
     @Select("SELECT * FROM posts ")
     @Results({
             @Result(property = "id", column = "post_id"),
@@ -17,10 +14,6 @@ public interface PostMapper {
     })
     public List<Post> getAllPostsWithAuthorName();
 
-    //    @Select("SELECT p.post_id,p.status, p.title, p.content, u.username AS author, p.created_time,p.isRecommended " +
-//            "FROM posts p " +
-//            "JOIN users u ON p.user_id = u.user_id"+
-//            " WHERE p.post_id = #{postId}")
     @Select("SELECT * FROM posts WHERE post_id = #{postId}")
     @Results({
             @Result(property = "id", column = "post_id"),
@@ -46,4 +39,7 @@ public interface PostMapper {
             @Result(property = "publishedAt", column = "created_time")
     })
     public void updatePost(Post post);
+
+    @Delete("DELETE FROM posts WHERE post_id = #{id}")
+    public void deletePost(int id);
 }

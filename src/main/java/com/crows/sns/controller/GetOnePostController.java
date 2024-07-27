@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/blogs")
-public class GetOnePost {
+public class GetOnePostController {
 
     @Autowired
     private PostMapper postMapper;
