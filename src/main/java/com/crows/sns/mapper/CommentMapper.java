@@ -28,21 +28,12 @@ public interface CommentMapper {
     })
     public List<Comment> getCommentsByPostId(int id);
 
-//    @Insert("INSERT INTO comments (comments.post_id, " +
-//            "comments.user_id, comments.author, " +
-//            "comments.content, comments.status, " +
-//            "comments.isReported, comments.created_time, " +
-//            "comments.updated_time)\n" +
-//            "VALUES (" +
-//            "#{blogId}," +
-//            "(SELECT user_id FROM users WHERE nickname = '用户昵称'),#{author}," +
-//            "#{content},'approved'," +
-//            "#{isReported},Now()," +
-//            "NOW()" +
-//            ");")
     @Insert("INSERT INTO comments (post_id, user_id, author, content, status, isReported, created_time, updated_time) " +
         "VALUES (#{blogId}, #{userId}, #{author}, #{content}, 'approved', #{isReported}, NOW(), NOW())")
     @Options(useGeneratedKeys = true, keyProperty = "id")
     public int addComment(Comment comment);
+
+    @Delete("DELETE FROM comments WHERE comment_id = #{id}")
+    public void deleteCommentById(int id);
 
 }

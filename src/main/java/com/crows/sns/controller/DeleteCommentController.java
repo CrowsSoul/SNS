@@ -1,33 +1,33 @@
 package com.crows.sns.controller;
 
-import com.crows.sns.mapper.PostMapper;
+import com.crows.sns.mapper.CommentMapper;
+import com.crows.sns.pojo.Comment;
 import com.crows.sns.pojo.DeleteResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.crows.sns.pojo.Post;
 
 @RestController
-@RequestMapping("/blogs")
-public class DeletePostController {
+@RequestMapping("/comments")
+public class DeleteCommentController {
     @Autowired
-    PostMapper postMapper;
+    private CommentMapper commentMapper;
 
     @DeleteMapping("/{id}")
-    public DeleteResponse deletePost(@PathVariable("id") int id)
+    public DeleteResponse deleteComment(@PathVariable("id") int id)
     {
-        Post post = postMapper.getPostById(id);
-        if(post!= null)
+        Comment comment = commentMapper.getCommentById(id);
+        if(comment == null)
         {
-            postMapper.deletePost(id);
-            return new DeleteResponse("Post deleted successfully");
+            return new DeleteResponse("Comment not found");
         }
         else
         {
-            return new DeleteResponse("Post not found");
+            commentMapper.deleteCommentById(id);
+            return new DeleteResponse("Comment deleted");
         }
-
     }
+
 }
