@@ -30,7 +30,7 @@
           起薪范围: {{ recommend.salaryRange.min }} -
           {{ recommend.salaryRange.max }}
         </p>
-        <p>简介: {{ recommend.summary }}</p>
+        <p>职务: {{ recommend.summary }}</p>
         <router-link
           :to="{ name: 'RecommendDetail', params: { id: recommend.id } }"
           class="action-button"

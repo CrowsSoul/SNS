@@ -80,7 +80,8 @@ export default {
   computed: {
     filteredActivities() {
       let filtered = this.activities.filter(
-        (activity) => activity.status === "通过"
+        (activity) =>
+          activity.status === "通过" && this.isUpcoming(activity.time)
       );
 
       if (this.searchQuery) {
@@ -96,15 +97,22 @@ export default {
       if (this.dateFilter !== "all") {
         const now = new Date();
         filtered = filtered.filter((activity) => {
-          const activityDate = new Date(...activity.time);
+          const activityDate = new Date(
+            activity.time[0],
+            activity.time[1] - 1,
+            activity.time[2],
+            activity.time[3],
+            activity.time[4]
+          );
+          const timeDiff = activityDate - now;
           if (this.dateFilter === "3days") {
-            return now - activityDate <= 3 * 24 * 60 * 60 * 1000;
+            return timeDiff <= 3 * 24 * 60 * 60 * 1000 && timeDiff >= 0;
           } else if (this.dateFilter === "7days") {
-            return now - activityDate <= 7 * 24 * 60 * 60 * 1000;
+            return timeDiff <= 7 * 24 * 60 * 60 * 1000 && timeDiff >= 0;
           } else if (this.dateFilter === "30days") {
-            return now - activityDate <= 30 * 24 * 60 * 60 * 1000;
+            return timeDiff <= 30 * 24 * 60 * 60 * 1000 && timeDiff >= 0;
           } else if (this.dateFilter === "180days") {
-            return now - activityDate <= 180 * 24 * 60 * 60 * 1000;
+            return timeDiff <= 180 * 24 * 60 * 60 * 1000 && timeDiff >= 0;
           }
           return true;
         });
@@ -169,6 +177,17 @@ export default {
       const [year, month, day, hour, minute] = timeArray;
       const formattedMinute = minute < 10 ? `0${minute}` : minute;
       return `${year}-${month}-${day} ${hour}:${formattedMinute}`;
+    },
+    isUpcoming(timeArray) {
+      const now = new Date();
+      const activityDate = new Date(
+        timeArray[0],
+        timeArray[1] - 1,
+        timeArray[2],
+        timeArray[3],
+        timeArray[4]
+      );
+      return activityDate > now;
     },
     setMenu() {
       this.$store.dispatch("setActiveSubMenu", "activity");

@@ -33,6 +33,7 @@ import MyParticipation from '../views/activity/user/MyParticipation.vue';
 import ActivityRecord from '../views/activity/user/ActivityRecord.vue';
 import AdminActivityReview from '../views/activity/admin/AdminActivityReview.vue';
 import AdminActivityDelete from '../views/activity/admin/AdminActivityDelete.vue';
+import ActivityDetailWithParticipants from '../views/activity/user/ActivityDetailWithParticipants.vue';
 
 const routes = [
   {
@@ -220,7 +221,11 @@ const routes = [
     name: 'AdminActivityDelete',
     component: AdminActivityDelete
   },
-  
+  {
+    path: '/activity-detail-with-participants/:id',
+    name: 'ActivityDetailWithParticipants',
+    component: ActivityDetailWithParticipants,
+  },
 ];
 
 const router = createRouter({

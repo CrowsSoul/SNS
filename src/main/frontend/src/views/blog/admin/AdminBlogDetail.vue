@@ -45,6 +45,7 @@ export default {
       try {
         const response = await axios.put(`/blogs/${this.blog.id}`, {
           title: this.blog.title,
+          author: this.blog.author,
           content: this.blog.content,
           status: "published", // 设置status为published
         });
@@ -58,6 +59,7 @@ export default {
       try {
         const response = await axios.put(`/blogs/${this.blog.id}`, {
           title: this.blog.title,
+          author: this.blog.author,
           content: this.blog.content,
           status: "rejected", // 设置status为rejected
         });
