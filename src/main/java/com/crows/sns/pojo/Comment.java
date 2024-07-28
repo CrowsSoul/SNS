@@ -15,4 +15,5 @@ public class Comment {
     private String content;
     @JsonProperty("isReported")
     private boolean isReported;
+    private int userId;
 }

@@ -1,10 +1,7 @@
 package com.crows.sns.mapper;
 
 import com.crows.sns.pojo.Comment;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -30,4 +27,22 @@ public interface CommentMapper {
             @Result(property = "blogId", column = "post_id")
     })
     public List<Comment> getCommentsByPostId(int id);
+
+//    @Insert("INSERT INTO comments (comments.post_id, " +
+//            "comments.user_id, comments.author, " +
+//            "comments.content, comments.status, " +
+//            "comments.isReported, comments.created_time, " +
+//            "comments.updated_time)\n" +
+//            "VALUES (" +
+//            "#{blogId}," +
+//            "(SELECT user_id FROM users WHERE nickname = '用户昵称'),#{author}," +
+//            "#{content},'approved'," +
+//            "#{isReported},Now()," +
+//            "NOW()" +
+//            ");")
+    @Insert("INSERT INTO comments (post_id, user_id, author, content, status, isReported, created_time, updated_time) " +
+        "VALUES (#{blogId}, #{userId}, #{author}, #{content}, 'approved', #{isReported}, NOW(), NOW())")
+    @Options(useGeneratedKeys = true, keyProperty = "id")
+    public int addComment(Comment comment);
+
 }

@@ -42,4 +42,6 @@ public interface PostMapper {
 
     @Delete("DELETE FROM posts WHERE post_id = #{id}")
     public void deletePost(int id);
+
+
 }
