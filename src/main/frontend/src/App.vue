@@ -122,16 +122,32 @@
             </ul>
           </li>
           <li>
-            <a @click="toggleSubMenu('task')">
+            <a @click="toggleSubMenu('order')">
               <font-awesome-icon icon="tasks" class="nav-icon" /> 发包
             </a>
-            <ul v-if="activeSubMenu === 'task'" class="submenu">
-              <li>
-                <router-link to="/task1">发包内容1</router-link>
-              </li>
-              <li>
-                <router-link to="/task2">发包内容2</router-link>
-              </li>
+            <ul v-if="activeSubMenu === 'order'" class="submenu">
+              <template v-if="isAdmin">
+                <li>
+                  <router-link to="/admin/order-review">审核订单</router-link>
+                </li>
+                <li>
+                  <router-link to="/admin/resume-review">审核简历</router-link>
+                </li>
+              </template>
+              <template v-else>
+                <li>
+                  <router-link to="/order-hall">订单大厅</router-link>
+                </li>
+                <li>
+                  <router-link to="/resume-management">简历管理</router-link>
+                </li>
+                <li>
+                  <router-link to="/my-orders">我的发包</router-link>
+                </li>
+                <li>
+                  <router-link to="/my-tasks">我的接单</router-link>
+                </li>
+              </template>
             </ul>
           </li>
         </ul>
@@ -201,6 +217,8 @@ export default {
         this.$store.dispatch("setActiveSubMenu", "activity");
       } else if (this.$route.path.startsWith("/task")) {
         this.$store.dispatch("setActiveSubMenu", "task");
+      } else if (this.$route.path.startsWith("/order")) {
+        this.$store.dispatch("setActiveSubMenu", "order");
       } else {
         this.$store.dispatch("setActiveSubMenu", null);
       }

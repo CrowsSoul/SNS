@@ -99,7 +99,9 @@ export default {
   },
   computed: {
     pendingActivities() {
-      return this.activities.filter((activity) => activity.status === "审核中");
+      return this.activities.filter(
+        (activity) => activity.status === "pending"
+      );
     },
     paginatedActivities() {
       const start = (this.currentPage - 1) * this.activitiesPerPage;
@@ -159,7 +161,7 @@ export default {
     async executeApprove() {
       try {
         await axios.put(`/activities/${this.selectedActivity.id}`, {
-          status: "通过",
+          status: "approved",
         });
         this.fetchActivities();
         this.closeModal();
@@ -171,7 +173,7 @@ export default {
     async executeReject() {
       try {
         await axios.put(`/activities/${this.selectedActivity.id}`, {
-          status: "未过审",
+          status: "rejected",
         });
         this.fetchActivities();
         this.closeModal();

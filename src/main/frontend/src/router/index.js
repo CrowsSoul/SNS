@@ -35,6 +35,13 @@ import AdminActivityReview from '../views/activity/admin/AdminActivityReview.vue
 import AdminActivityDelete from '../views/activity/admin/AdminActivityDelete.vue';
 import ActivityDetailWithParticipants from '../views/activity/user/ActivityDetailWithParticipants.vue';
 
+import OrderHall from '../views/order/OrderHall.vue';
+import ResumeManagement from '../views/order/ResumeManagement.vue';
+import MyOrders from '../views/order/MyOrders.vue';
+import MyTasks from '../views/order/MyTasks.vue';
+import AdminOrderReview from '../views/order/AdminOrderReview.vue';
+import AdminResumeReview from '../views/order/AdminResumeReview.vue';
+
 const routes = [
   {
     path: '/login',
@@ -226,6 +233,36 @@ const routes = [
     name: 'ActivityDetailWithParticipants',
     component: ActivityDetailWithParticipants,
   },
+  {
+    path: '/order-hall',
+    name: 'OrderHall',
+    component: OrderHall
+  },
+  {
+    path: '/resume-management',
+    name: 'ResumeManagement',
+    component: ResumeManagement
+  },
+  {
+    path: '/my-orders',
+    name: 'MyOrders',
+    component: MyOrders
+  },
+  {
+    path: '/my-tasks',
+    name: 'MyTasks',
+    component: MyTasks
+  },
+  {
+    path: '/admin/order-review',
+    name: 'AdminOrderReview',
+    component: AdminOrderReview
+  },
+  {
+    path: '/admin/resume-review',
+    name: 'AdminResumeReview',
+    component: AdminResumeReview
+  }
 ];
 
 const router = createRouter({
