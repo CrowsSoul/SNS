@@ -23,4 +23,11 @@ public interface CommentMapper {
             @Result(property = "blogId", column = "post_id")
     })
     public Comment getCommentById(int id);
+
+    @Select("SELECT * FROM comments WHERE post_id = #{id}")
+    @Results({
+            @Result(property = "id", column = "comment_id"),
+            @Result(property = "blogId", column = "post_id")
+    })
+    public List<Comment> getCommentsByPostId(int id);
 }
