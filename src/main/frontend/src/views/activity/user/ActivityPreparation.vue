@@ -6,12 +6,12 @@
         <h2>
           {{ activity.name }}
           <span
-            v-if="activity.status === '审核中'"
+            v-if="activity.status === 'pending'"
             class="status status-pending"
             >审核中</span
           >
           <span
-            v-if="activity.status === '未过审'"
+            v-if="activity.status === 'rejected'"
             class="status status-rejected"
             >未过审</span
           >

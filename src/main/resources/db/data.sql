@@ -1,15 +1,15 @@
 INSERT INTO users (username,nickname, password, email, role, created_time, updated_time)
 VALUES
-    ('jack112','jack', 'Pass123', 'jack@example.com', 'user', NOW(), NOW()),
-    ('john223', 'john','Pass456', 'john@example.com', 'user', NOW(), NOW()),
-    ('alice114', 'alice','Pass789', 'alice@example.com', 'admin', NOW(), NOW()),
-    ('bob514', 'bob','Pass101', 'bob@example.com', 'user', NOW(), NOW()),
-    ('carol666','carol', 'Pass202', 'carol@example.com', 'user', NOW(), NOW()),
-    ('david23345','david', 'Pass303', 'david@example.com', 'moderator', NOW(), NOW()),
-    ('elizabeth9089', 'elizabeth','Pass404', 'elizabeth@example.com', 'user', NOW(), NOW()),
-    ('frank4060', 'frank','Pass505', 'frank@example.com', 'user', NOW(), NOW()),
-    ('george345', 'george','Pass606', 'george@example.com', 'user', NOW(), NOW()),
-    ('helen1234', 'helen','Pass707', 'helen@example.com', 'user', NOW(), NOW());
+    ('2','jack', '2', 'jack@example.com', 'student', NOW(), NOW()),
+    ('john223', 'john','Pass456', 'john@example.com', 'student', NOW(), NOW()),
+    ('1', 'alice','1', 'alice@example.com', 'admin', NOW(), NOW()),
+    ('bob514', 'bob','Pass101', 'bob@example.com', 'student', NOW(), NOW()),
+    ('carol666','carol', 'Pass202', 'carol@example.com', 'student', NOW(), NOW()),
+    ('3','david', '3', 'david@example.com', 'employed_student', NOW(), NOW()),
+    ('elizabeth9089', 'elizabeth','Pass404', 'elizabeth@example.com', 'student', NOW(), NOW()),
+    ('frank4060', 'frank','Pass505', 'frank@example.com', 'student', NOW(), NOW()),
+    ('george345', 'george','Pass606', 'george@example.com', 'student', NOW(), NOW()),
+    ('helen1234', 'helen','Pass707', 'helen@example.com', 'student', NOW(), NOW());
 
 
 
@@ -135,16 +135,16 @@ VALUES
 
 INSERT INTO activities (activity_name,initiator, activity_type, activity_time, activity_location, activity_description,maxParticipants, currentParticipants,status)
 VALUES
-    ('Tech Talk', 'jack','Seminar', NOW(), 'San Francisco', 'A seminar on the latest tech trends and innovations.', 50,30,'approved'),
-    ('Hackathon','john', 'Event', NOW(), 'New York', 'A weekend-long coding competition with prizes.', 100,45,'approved'),
-    ('Networking Event','alice', 'Social', NOW(), 'Los Angeles', 'An evening of networking with industry professionals.', 75,20,'approved'),
-    ('Workshop', 'bob','Training', NOW(), 'Chicago', 'A hands-on workshop on cloud computing.', 30,29,'approved'),
-    ('Book Club Meeting', 'carol','Discussion', NOW(), 'Boston', 'Monthly book club meeting discussing tech books.', 20,12,'rejected'),
-    ('Startup Pitch Night','david', 'Event', NOW(), 'Seattle', 'A night where startups pitch their ideas to investors.', 150,120,'pending'),
-    ('Coding Bootcamp','elizabeth', 'Training', NOW(), 'Austin', 'A two-week intensive bootcamp for aspiring developers.', 25,20,'pending'),
-    ('Charity Run', 'frank','Event', NOW(), 'Atlanta', 'A charity run to support local tech education initiatives.', 300,225,'approved'),
-    ('Product Launch Party', 'george','Celebration', NOW(), 'Denver', 'A party celebrating the launch of a new product.', 100,89,'rejected'),
-    ('Volunteer Day', 'helen','Community', NOW(), 'Philadelphia', 'A day dedicated to volunteering at local tech nonprofits.', 40,33,'approved');
+    ('Tech Talk', 'jack','Seminar', '2025-12-22 20:12:10', 'San Francisco', 'A seminar on the latest tech trends and innovations.', 50,30,'approved'),
+    ('Hackathon','john', 'Event','2024-11-22 20:12:10', 'New York', 'A weekend-long coding competition with prizes.', 100,45,'approved'),
+    ('Networking Event','alice', 'Social', '2024-12-22 20:12:10', 'Los Angeles', 'An evening of networking with industry professionals.', 75,20,'approved'),
+    ('Workshop', 'bob','Training', '2024-08-22 20:12:10', 'Chicago', 'A hands-on workshop on cloud computing.', 30,29,'approved'),
+    ('Book Club Meeting', 'carol','Discussion', '2024-10-22 20:12:10', 'Boston', 'Monthly book club meeting discussing tech books.', 20,12,'rejected'),
+    ('Startup Pitch Night','david', 'Event', '2025-06-22 20:12:10', 'Seattle', 'A night where startups pitch their ideas to investors.', 150,120,'pending'),
+    ('Coding Bootcamp','elizabeth', 'Training', '2025-04-22 20:12:10', 'Austin', 'A two-week intensive bootcamp for aspiring developers.', 25,20,'pending'),
+    ('Charity Run', 'frank','Event', '2025-01-22 20:12:10', 'Atlanta', 'A charity run to support local tech education initiatives.', 300,225,'approved'),
+    ('Product Launch Party', 'george','Celebration', '2025-02-22 20:12:10', 'Denver', 'A party celebrating the launch of a new product.', 100,89,'rejected'),
+    ('Volunteer Day', 'helen','Community', '2026-10-22 20:12:10', 'Philadelphia', 'A day dedicated to volunteering at local tech nonprofits.', 40,33,'approved');
 
 
 
@@ -163,18 +163,18 @@ VALUES
 
 
 
-INSERT INTO resumes (user_id, content, status, created_time, updated_time)
+INSERT INTO resumes (user_id, content, status, created_time)
 VALUES
-    (1, 'Objective: Seeking a software engineer position with XYZ Corp. Skills include Java, Python, and C++. Education: B.S. in Computer Science from University of California, Berkeley.', 'active', NOW(), NOW()),
-    (2, 'Objective: A highly motivated product manager with over 5 years of experience in launching successful products. Skills include Agile methodologies, product strategy, and stakeholder management. Education: MBA from Stanford Graduate School of Business.', 'active', NOW(), NOW()),
-    (3, 'Objective: Experienced UI/UX designer with a passion for creating intuitive and user-friendly interfaces. Skills include Adobe Creative Suite, Sketch, and Figma. Education: B.F.A. in Graphic Design from Rhode Island School of Design.', 'active', NOW(), NOW()),
-    (4, 'Objective: Talented front-end developer with expertise in React, Angular, and Vue.js. Strong background in responsive web design and accessibility. Education: B.S. in Information Technology from Georgia Tech.', 'active', NOW(), NOW()),
-    (5, 'Objective: Seasoned back-end developer with extensive knowledge of Java, Python, and Node.js. Experience in database design and RESTful API development. Education: M.S. in Computer Science from Carnegie Mellon University.', 'active', NOW(), NOW()),
-    (6, 'Objective: Data scientist with a proven track record of leveraging machine learning algorithms to drive business decisions. Skills include Python, R, and SQL. Education: Ph.D. in Statistics from University of Michigan.', 'active', NOW(), NOW()),
-    (7, 'Objective: DevOps engineer with a focus on automation and infrastructure as code. Proficient in CI/CD pipelines, Kubernetes, and Docker. Education: B.S. in Computer Engineering from University of Texas at Austin.', 'active', NOW(), NOW()),
-    (8, 'Objective: Quality assurance specialist with a strong attention to detail and a commitment to delivering high-quality software. Experience in manual and automated testing. Education: Certificate in Software Testing from Udacity.', 'active', NOW(), NOW()),
-    (9, 'Objective: Full-stack developer with experience in both front-end and back-end technologies. Skills include JavaScript, TypeScript, and Ruby on Rails. Education: B.S. in Computer Science from University of Illinois at Urbana-Champaign.', 'active', NOW(), NOW()),
-    (10, 'Objective: Technical writer with a knack for simplifying complex concepts into clear and concise documentation. Experience in writing user manuals, tutorials, and API documentation. Education: B.A. in English from University of Wisconsin-Madison.', 'active', NOW(), NOW());
+    (1, 'Objective: Seeking a software engineer position with XYZ Corp. Skills include Java, Python, and C++. Education: B.S. in Computer Science from University of California, Berkeley.', 'active', NOW()),
+    (2, 'Objective: A highly motivated product manager with over 5 years of experience in launching successful products. Skills include Agile methodologies, product strategy, and stakeholder management. Education: MBA from Stanford Graduate School of Business.', 'active', NOW()),
+    (3, 'Objective: Experienced UI/UX designer with a passion for creating intuitive and user-friendly interfaces. Skills include Adobe Creative Suite, Sketch, and Figma. Education: B.F.A. in Graphic Design from Rhode Island School of Design.', 'active', NOW()),
+    (4, 'Objective: Talented front-end developer with expertise in React, Angular, and Vue.js. Strong background in responsive web design and accessibility. Education: B.S. in Information Technology from Georgia Tech.', 'active', NOW()),
+    (5, 'Objective: Seasoned back-end developer with extensive knowledge of Java, Python, and Node.js. Experience in database design and RESTful API development. Education: M.S. in Computer Science from Carnegie Mellon University.', 'active', NOW()),
+    (6, 'Objective: Data scientist with a proven track record of leveraging machine learning algorithms to drive business decisions. Skills include Python, R, and SQL. Education: Ph.D. in Statistics from University of Michigan.', 'active', NOW()),
+    (7, 'Objective: DevOps engineer with a focus on automation and infrastructure as code. Proficient in CI/CD pipelines, Kubernetes, and Docker. Education: B.S. in Computer Engineering from University of Texas at Austin.', 'active', NOW()),
+    (8, 'Objective: Quality assurance specialist with a strong attention to detail and a commitment to delivering high-quality software. Experience in manual and automated testing. Education: Certificate in Software Testing from Udacity.', 'active', NOW()),
+    (9, 'Objective: Full-stack developer with experience in both front-end and back-end technologies. Skills include JavaScript, TypeScript, and Ruby on Rails. Education: B.S. in Computer Science from University of Illinois at Urbana-Champaign.', 'active', NOW()),
+    (10, 'Objective: Technical writer with a knack for simplifying complex concepts into clear and concise documentation. Experience in writing user manuals, tutorials, and API documentation. Education: B.A. in English from University of Wisconsin-Madison.', 'active', NOW());
 
 INSERT INTO resume_reviews (resume_id, user_id, result, comment, reviewed_time)
 VALUES
@@ -223,18 +223,18 @@ VALUES
 
 
 
-INSERT INTO orders (user_id, orders_name, orders_introduction, orders_status, created_time)
+INSERT INTO orders (user_id, orders_name,orders_price, orders_introduction, orders_status, created_time)
 VALUES
-    (1, 'Order 101', 'This order includes 5 units of Product A and 3 units of Product B.', 'processing', NOW()),
-    (2, 'Order 102', 'This order includes 2 units of Product C and 1 unit of Product D.', 'processing', NOW()),
-    (3, 'Order 103', 'This order includes 10 units of Product E and 5 units of Product F.', 'completed', NOW()),
-    (4, 'Order 104', 'This order includes 1 unit of Product G and 2 units of Product H.', 'processing', NOW()),
-    (5, 'Order 105', 'This order includes 3 units of Product I and 4 units of Product J.', 'canceled', NOW()),
-    (6, 'Order 106', 'This order includes 4 units of Product K and 2 units of Product L.', 'processing', NOW()),
-    (7, 'Order 107', 'This order includes 7 units of Product M and 5 units of Product N.', 'completed', NOW()),
-    (8, 'Order 108', 'This order includes 6 units of Product O and 1 unit of Product P.', 'processing', NOW()),
-    (9, 'Order 109', 'This order includes 2 units of Product Q and 3 units of Product R.', 'processing', NOW()),
-    (10, 'Order 110', 'This order includes 8 units of Product S and 4 units of Product T.', 'completed', NOW());
+    (1, 'Order 101',1000, 'This order includes 5 units of Product A and 3 units of Product B.', 'processing', NOW()),
+    (2, 'Order 102',5000, 'This order includes 2 units of Product C and 1 unit of Product D.', 'processing', NOW()),
+    (3, 'Order 103',400, 'This order includes 10 units of Product E and 5 units of Product F.', 'completed', NOW()),
+    (4, 'Order 104',1900, 'This order includes 1 unit of Product G and 2 units of Product H.', 'processing', NOW()),
+    (5, 'Order 105',8000, 'This order includes 3 units of Product I and 4 units of Product J.', 'canceled', NOW()),
+    (6, 'Order 106',12000, 'This order includes 4 units of Product K and 2 units of Product L.', 'processing', NOW()),
+    (7, 'Order 107',6500, 'This order includes 7 units of Product M and 5 units of Product N.', 'completed', NOW()),
+    (8, 'Order 108',1200, 'This order includes 6 units of Product O and 1 unit of Product P.', 'processing', NOW()),
+    (9, 'Order 109',200, 'This order includes 2 units of Product Q and 3 units of Product R.', 'processing', NOW()),
+    (10, 'Order 110',750, 'This order includes 8 units of Product S and 4 units of Product T.', 'completed', NOW());
 
 
 
