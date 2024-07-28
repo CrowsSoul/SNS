@@ -36,4 +36,7 @@ public interface CommentMapper {
     @Delete("DELETE FROM comments WHERE comment_id = #{id}")
     public void deleteCommentById(int id);
 
+    @Update("UPDATE comments SET isReported = true WHERE comment_id = #{id}")
+    public void reportCommentById(int id);
+
 }

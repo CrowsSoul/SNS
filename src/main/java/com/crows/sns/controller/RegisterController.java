@@ -1,6 +1,6 @@
 package com.crows.sns.controller;
 
-import com.crows.sns.pojo.RegisterResponse;
+import com.crows.sns.pojo.Response;
 import com.crows.sns.pojo.RegisterRequest; // 引入 RegisterRequest 类
 import com.crows.sns.service.Impl.RegisterServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +14,7 @@ public class RegisterController {
     private RegisterServiceImpl registerService;
 
     @PostMapping("/register")
-    public RegisterResponse register(@RequestBody RegisterRequest registerRequest) {
+    public Response register(@RequestBody RegisterRequest registerRequest) {
         String username = registerRequest.getUsername();
         String password = registerRequest.getPassword();
         String nickname = registerRequest.getNickname();
