@@ -1,11 +1,11 @@
 INSERT INTO users (username,nickname, password, email, role, created_time, updated_time)
 VALUES
-    ('2','jack', 'Pass123', 'jack@example.com', 'student', NOW(), NOW()),
+    ('2','jack', '2', 'jack@example.com', 'student', NOW(), NOW()),
     ('john223', 'john','Pass456', 'john@example.com', 'student', NOW(), NOW()),
-    ('1', 'alice','Pass789', 'alice@example.com', 'admin', NOW(), NOW()),
+    ('1', 'alice','1', 'alice@example.com', 'admin', NOW(), NOW()),
     ('bob514', 'bob','Pass101', 'bob@example.com', 'student', NOW(), NOW()),
     ('carol666','carol', 'Pass202', 'carol@example.com', 'student', NOW(), NOW()),
-    ('3','david', 'Pass303', 'david@example.com', 'employed_student', NOW(), NOW()),
+    ('3','david', '3', 'david@example.com', 'employed_student', NOW(), NOW()),
     ('elizabeth9089', 'elizabeth','Pass404', 'elizabeth@example.com', 'student', NOW(), NOW()),
     ('frank4060', 'frank','Pass505', 'frank@example.com', 'student', NOW(), NOW()),
     ('george345', 'george','Pass606', 'george@example.com', 'student', NOW(), NOW()),
