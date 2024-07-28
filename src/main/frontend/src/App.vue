@@ -1,7 +1,12 @@
 <template>
   <div id="app">
-    <header v-if="showHeader">
+    <header v-if="showHeader" class="header">
+      <img src="./assets/icon.png" alt="Logo" class="logo" />
       <h1>超级无敌SNS平台</h1>
+      <div class="user-info">
+        <span>{{ user ? user.username : "访客" }}</span>
+        <button @click="logout">退出</button>
+      </div>
     </header>
     <div class="main-container">
       <nav v-if="showNav">
@@ -210,6 +215,10 @@ export default {
         this.$router.push({ name: "PublishBlog" });
       }
     },
+    logout() {
+      localStorage.removeItem("user");
+      this.$router.push("/login");
+    },
   },
   created() {
     this.loadUser();
@@ -231,17 +240,19 @@ export default {
   height: 100%;
 }
 
-header {
-  background-color: #01ad27;
-  color: white;
-  padding: 10px;
-  text-align: center;
-}
-
 .logo {
   width: 50px;
   height: 50px;
   margin-right: 10px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-info span {
+  margin-right: 20px;
 }
 
 .main-container {
@@ -262,6 +273,8 @@ nav ul {
 
 nav ul li {
   margin-bottom: 10px;
+  background-color: #4c6886;
+  border-radius: 10px;
 }
 
 nav ul li a {
@@ -307,5 +320,48 @@ main {
   padding: 20px;
   background-color: #f5f5f5;
   overflow: auto;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #1a1718ce;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+.header img.logo {
+  margin-right: 10px;
+}
+
+.header h1 {
+  flex: 1;
+  text-align: left;
+}
+
+.header .user-info {
+  display: flex;
+  align-items: center;
+}
+
+.header .user-info span {
+  margin-right: 10px;
+  font-size: 18px; /* 调整字体大小 */
+}
+
+.header .user-info button {
+  padding: 10px 20px; /* 调整按钮大小 */
+  background-color: rgb(196, 109, 109); /* 调整按钮背景颜色 */
+  color: white;
+  border: none;
+  border-radius: 10px; /* 调整按钮圆角 */
+  font-size: 18px; /* 调整按钮字体大小 */
+  cursor: pointer;
+}
+
+.header .user-info button:hover {
+  background-color: rgb(121, 75, 75); /* 调整按钮悬停背景颜色 */
 }
 </style>
