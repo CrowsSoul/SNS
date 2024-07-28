@@ -334,6 +334,22 @@ app.delete('/activities/:id', (req, res) => {
   }
 });
 
+// 处理订单相关请求
+app.get('/orders', (req, res) => {
+  const orders = readJsonFile('./data/orders.json');
+  res.json(orders);
+});
+
+app.get('/orders/:id', (req, res) => {
+  const orders = readJsonFile('./data/orders.json');
+  const order = orders.orders.find(o => o.orders_id === parseInt(req.params.id));
+  if (order) {
+    res.json(order);
+  } else {
+    res.status(404).json({ message: '订单未找到' });
+  }
+});
+
 app.listen(port, () => {
   console.log(`Mock server running at http://localhost:${port}`);
 });

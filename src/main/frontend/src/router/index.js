@@ -36,6 +36,7 @@ import AdminActivityDelete from '../views/activity/admin/AdminActivityDelete.vue
 import ActivityDetailWithParticipants from '../views/activity/user/ActivityDetailWithParticipants.vue';
 
 import OrderHall from '../views/order/OrderHall.vue';
+import OrderDetail from '../views/order/OrderDetail.vue';
 import ResumeManagement from '../views/order/ResumeManagement.vue';
 import MyOrders from '../views/order/MyOrders.vue';
 import MyTasks from '../views/order/MyTasks.vue';
@@ -262,7 +263,12 @@ const routes = [
     path: '/admin/resume-review',
     name: 'AdminResumeReview',
     component: AdminResumeReview
-  }
+  },
+  {
+    path: '/order-detail/:id',
+    name: 'OrderDetail',
+    component: OrderDetail
+  },
 ];
 
 const router = createRouter({
