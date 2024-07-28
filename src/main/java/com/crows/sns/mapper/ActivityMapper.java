@@ -14,7 +14,8 @@ public interface ActivityMapper {
     @Results({
             @Result(property = "participantList", javaType = List.class,
                     column = "activity_id",
-                    many = @Many(select = "selectParticipants"))
+                    many = @Many(select = "selectParticipants")),
+            @Result(property = "activity_id", column = "activity_id")
     })
     List<Activity> getAllActivitiesWithParticipants();
 
@@ -22,4 +23,17 @@ public interface ActivityMapper {
             "JOIN user_activities ua ON u.user_id = ua.user_id " +
             "WHERE ua.activity_id = #{activityId}")
     List<String> selectParticipants(int activityId);
+
+    @Select("SELECT a.*, ua.activity_id " +
+            "FROM activities a " +
+            "LEFT JOIN user_activities ua ON a.activity_id = ua.activity_id " +
+            "WHERE a.activity_id = #{id}"
+    )
+    @Results({
+            @Result(property = "participantList", javaType = List.class,
+                    column = "activity_id",
+                    many = @Many(select = "selectParticipants")),
+            @Result(property = "activity_id", column = "activity_id")
+    })
+    public Activity getOneActivitiesWithParticipantsById(int id);
 }
