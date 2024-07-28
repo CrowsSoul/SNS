@@ -132,7 +132,7 @@ export default {
 }
 
 .my-participation h1 {
-  text-align: center;
+  text-align: center;1
 }
 
 ul {
