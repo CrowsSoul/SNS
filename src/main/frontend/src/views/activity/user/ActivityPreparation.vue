@@ -1,9 +1,21 @@
 <template>
   <div class="activity-preparation">
     <h1>活动筹备</h1>
-    <ul v-if="paginatedActivities.length">
+    <ul>
       <li v-for="activity in paginatedActivities" :key="activity.id">
-        <h2>{{ activity.name }}</h2>
+        <h2>
+          {{ activity.name }}
+          <span
+            v-if="activity.status === '审核中'"
+            class="status status-pending"
+            >审核中</span
+          >
+          <span
+            v-if="activity.status === '未过审'"
+            class="status status-rejected"
+            >未过审</span
+          >
+        </h2>
         <p>时间: {{ formatDate(activity.time) }}</p>
         <p>地点: {{ activity.location }}</p>
         <p>
@@ -14,66 +26,22 @@
         <div class="action-buttons">
           <router-link
             :to="{
-              name: 'ActivityDetail',
+              name: 'ActivityDetailWithParticipants',
               params: { id: activity.id },
-              query: { from: 'preparation' },
+              query: { page: currentPage, from: 'preparing' },
             }"
             class="detail-button"
             >查看详情</router-link
           >
-          <button
-            @click="viewParticipants(activity)"
-            class="participants-button"
-          >
-            查看报名情况
-          </button>
         </div>
       </li>
     </ul>
-    <div v-else>
-      <p>暂无活动</p>
-    </div>
-    <div class="pagination" v-if="totalPages > 1">
+    <div class="pagination">
       <button @click="prevPage" :disabled="currentPage === 1">上一页</button>
       <span>第 {{ currentPage }} 页，共 {{ totalPages }} 页</span>
       <button @click="nextPage" :disabled="currentPage === totalPages">
         下一页
       </button>
-    </div>
-
-    <div v-if="showParticipantsModal" class="participants-modal">
-      <div class="participants-modal-box">
-        <h2>报名情况</h2>
-        <ul v-if="paginatedParticipants.length">
-          <li v-for="participant in paginatedParticipants" :key="participant">
-            {{ participant }}
-          </li>
-        </ul>
-        <div v-else>
-          <p>暂无报名</p>
-        </div>
-        <div class="pagination" v-if="participantTotalPages > 1">
-          <button
-            @click="prevParticipantPage"
-            :disabled="participantCurrentPage === 1"
-          >
-            上一页
-          </button>
-          <span
-            >第 {{ participantCurrentPage }} 页，共
-            {{ participantTotalPages }} 页</span
-          >
-          <button
-            @click="nextParticipantPage"
-            :disabled="participantCurrentPage === participantTotalPages"
-          >
-            下一页
-          </button>
-        </div>
-        <button @click="closeParticipantsModal" class="close-button">
-          关闭
-        </button>
-      </div>
     </div>
   </div>
 </template>
@@ -89,29 +57,29 @@ export default {
       user: null,
       currentPage: 1,
       activitiesPerPage: 3,
-      showParticipantsModal: false,
-      participants: [],
-      participantCurrentPage: 1,
-      participantsPerPage: 5,
     };
   },
   computed: {
+    upcomingActivities() {
+      const now = new Date();
+      return this.activities.filter((activity) => {
+        const activityDate = new Date(
+          activity.time[0],
+          activity.time[1] - 1,
+          activity.time[2],
+          activity.time[3],
+          activity.time[4]
+        );
+        return activityDate > now;
+      });
+    },
     paginatedActivities() {
       const start = (this.currentPage - 1) * this.activitiesPerPage;
       const end = start + this.activitiesPerPage;
-      return this.activities.slice(start, end);
+      return this.upcomingActivities.slice(start, end);
     },
     totalPages() {
-      return Math.ceil(this.activities.length / this.activitiesPerPage);
-    },
-    paginatedParticipants() {
-      const start =
-        (this.participantCurrentPage - 1) * this.participantsPerPage;
-      const end = start + this.participantsPerPage;
-      return this.participants.slice(start, end);
-    },
-    participantTotalPages() {
-      return Math.ceil(this.participants.length / this.participantsPerPage);
+      return Math.ceil(this.upcomingActivities.length / this.activitiesPerPage);
     },
   },
   methods: {
@@ -135,14 +103,6 @@ export default {
       ).padStart(2, "0")}:${String(timeArray[4]).padStart(2, "0")}`;
       return formattedTime;
     },
-    viewParticipants(activity) {
-      this.participants = activity.participantList;
-      this.participantCurrentPage = 1;
-      this.showParticipantsModal = true;
-    },
-    closeParticipantsModal() {
-      this.showParticipantsModal = false;
-    },
     nextPage() {
       if (this.currentPage < this.totalPages) {
         this.currentPage++;
@@ -151,16 +111,6 @@ export default {
     prevPage() {
       if (this.currentPage > 1) {
         this.currentPage--;
-      }
-    },
-    nextParticipantPage() {
-      if (this.participantCurrentPage < this.participantTotalPages) {
-        this.participantCurrentPage++;
-      }
-    },
-    prevParticipantPage() {
-      if (this.participantCurrentPage > 1) {
-        this.participantCurrentPage--;
       }
     },
     setMenu() {
@@ -210,6 +160,26 @@ li {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+li h2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.status {
+  padding: 5px 10px;
+  border-radius: 10px;
+  color: white;
+}
+
+.status-pending {
+  background-color: #f0ad4e;
+}
+
+.status-rejected {
+  background-color: #d9534f;
+}
+
 h2 {
   margin: 0;
 }
@@ -229,7 +199,7 @@ p {
   background-color: #007bff;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   cursor: pointer;
   font-size: 16px;
   transition: background 0.3s;
@@ -267,64 +237,5 @@ p {
 
 .pagination button:hover {
   background-color: #358a66;
-}
-
-.participants-modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.8);
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.participants-modal-box {
-  background: #2c3e50;
-  padding: 40px;
-  border-radius: 30px;
-  text-align: center;
-  width: 400px;
-  max-height: 80vh;
-  overflow-y: auto;
-}
-
-.participants-modal-box h2 {
-  margin-top: 0;
-}
-
-.participants-modal-box ul {
-  list-style: none;
-  padding: 0;
-}
-
-.participants-modal-box li {
-  background: white;
-  color: black;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.participants-modal-box .pagination {
-  margin-top: 10px;
-}
-
-.participants-modal-box .close-button {
-  padding: 10px 20px;
-  background-color: #e74c3c;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  margin-top: 20px;
-}
-
-.participants-modal-box .close-button:hover {
-  background-color: #c0392b;
 }
 </style>

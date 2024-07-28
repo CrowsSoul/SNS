@@ -232,7 +232,7 @@ export default {
 }
 
 header {
-  background-color: #42b983;
+  background-color: #01ad27;
   color: white;
   padding: 10px;
   text-align: center;

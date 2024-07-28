@@ -22,6 +22,62 @@ const writeJsonFile = (filePath, data) => {
   fs.writeFileSync(path.resolve(__dirname, filePath), JSON.stringify(data, null, 2), 'utf-8');
 };
 
+
+
+
+// 用户登录
+app.post('/login', (req, res) => {
+  const users = readJsonFile('./data/users.json');
+  const user = users.find(u => u.username === req.body.username && u.password === req.body.password);
+  if (user) {
+    res.json({
+      success: true,
+      nickname: user.nickname,
+      role: user.role
+    });
+  } else {
+    res.json({
+      success: false,
+      message: '用户名或密码错误'
+    });
+  }
+});
+
+// 用户注册
+app.post('/register', (req, res) => {
+  const users = readJsonFile('./data/users.json');
+  const userExists = users.some(u => u.username === req.body.username);
+  if (userExists) {
+    res.json({
+      success: false,
+      message: '用户名已存在'
+    });
+  } else {
+    const newUser = {
+      username: req.body.username,
+      password: req.body.password,
+      nickname: req.body.nickname,
+      role: req.body.role
+    };
+    users.push(newUser);
+    writeJsonFile('./data/users.json', users);
+    res.json({
+      success: true,
+      message: '注册成功'
+    });
+  }
+});
+
+// 检查用户名是否已存在
+app.get('/check-username', (req, res) => {
+  const users = readJsonFile('./data/users.json');
+  const userExists = users.some(u => u.username === req.query.username);
+  res.json({ available: !userExists });
+});
+
+
+
+
 // 获取所有博文
 app.get('/blogs', (req, res) => {
   const blogs = readJsonFile('./data/blogs.json');
@@ -86,6 +142,9 @@ app.delete('/blogs/:id', (req, res) => {
   }
 });
 
+
+
+
 // 获取所有评论
 app.get('/comments', (req, res) => {
   const comments = readJsonFile('./data/comments.json');
@@ -110,7 +169,6 @@ app.get('/blogs/:id/comments', (req, res) => {
   res.json(blogComments);
 });
 
-
 // 发布新评论
 app.post('/comments', (req, res) => {
   const comments = readJsonFile('./data/comments.json');
@@ -124,22 +182,6 @@ app.post('/comments', (req, res) => {
   comments.push(newComment);
   writeJsonFile('./data/comments.json', comments);
   res.json(newComment);
-});
-
-// 修改评论
-app.put('/comments/:id', (req, res) => {
-  const comments = readJsonFile('./data/comments.json');
-  const commentIndex = comments.findIndex(c => c.id === parseInt(req.params.id));
-  if (commentIndex !== -1) {
-    comments[commentIndex] = {
-      ...comments[commentIndex],
-      ...req.body
-    };
-    writeJsonFile('./data/comments.json', comments);
-    res.json(comments[commentIndex]);
-  } else {
-    res.status(404).json({ message: '评论未找到' });
-  }
 });
 
 // 删除评论
@@ -166,6 +208,8 @@ app.put('/comments/:id/report', (req, res) => {
     res.status(404).json({ message: '评论未找到' });
   }
 });
+
+
 
 
 // 获取所有内推
@@ -232,7 +276,6 @@ app.delete('/recommendations/:id', (req, res) => {
   }
 });
 
-
 // 获取用户收藏的内推
 app.get('/favorites/:userId', (req, res) => {
   const favorites = readJsonFile('./data/favorites.json');
@@ -248,57 +291,10 @@ app.put('/favorites/:userId', (req, res) => {
   res.json({ message: '收藏更新成功' });
 });
 
-// 检查用户名是否已存在
-app.get('/check-username', (req, res) => {
-  const users = readJsonFile('./data/users.json');
-  const userExists = users.some(u => u.username === req.query.username);
-  res.json({ available: !userExists });
-});
-
-// 用户登录
-app.post('/login', (req, res) => {
-  const users = readJsonFile('./data/users.json');
-  const user = users.find(u => u.username === req.body.username && u.password === req.body.password);
-  if (user) {
-    res.json({
-      success: true,
-      nickname: user.nickname,
-      role: user.role,
-      id: user.username // 返回用户 ID
-    });
-  } else {
-    res.json({
-      success: false,
-      message: '用户名或密码错误'
-    });
-  }
-});
 
 
-// 用户注册
-app.post('/register', (req, res) => {
-  const users = readJsonFile('./data/users.json');
-  const userExists = users.some(u => u.username === req.body.username);
-  if (userExists) {
-    res.json({
-      success: false,
-      message: '用户名已存在'
-    });
-  } else {
-    const newUser = {
-      username: req.body.username,
-      password: req.body.password,
-      nickname: req.body.nickname,
-      role: req.body.role
-    };
-    users.push(newUser);
-    writeJsonFile('./data/users.json', users);
-    res.json({
-      success: true,
-      message: '注册成功'
-    });
-  }
-});
+
+
 
 // 获取所有活动
 app.get('/activities', (req, res) => {
@@ -326,22 +322,6 @@ app.post('/activities', (req, res) => {
   res.json(newActivity);
 });
 
-// 修改活动
-app.put('/activities/:id', (req, res) => {
-  const activities = readJsonFile('./data/activities.json');
-  const activityIndex = activities.findIndex(a => a.id === parseInt(req.params.id));
-  if (activityIndex !== -1) {
-    const updatedActivity = {
-      ...activities[activityIndex],
-      ...req.body
-    };
-    activities[activityIndex] = updatedActivity;
-    writeJsonFile('./data/activities.json', activities);
-    res.json(activities[activityIndex]);
-  } else {
-    res.status(404).json({ message: '活动未找到' });
-  }
-});
 // 删除活动
 app.delete('/activities/:id', (req, res) => {
   const activities = readJsonFile('./data/activities.json');

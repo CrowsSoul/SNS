@@ -68,16 +68,17 @@ export default {
         return;
       }
 
+      const activityTime = new Date(this.time);
       const activity = {
         id: Date.now(),
         name: this.name,
         initiator: user.nickname,
         time: [
-          parseInt(this.year),
-          parseInt(this.month),
-          parseInt(this.day),
-          parseInt(this.hour),
-          parseInt(this.minute),
+          activityTime.getFullYear(),
+          activityTime.getMonth() + 1, // 月份从0开始，所以需要加1
+          activityTime.getDate(),
+          activityTime.getHours(),
+          activityTime.getMinutes(),
         ],
         location: this.location,
         description: this.description,
@@ -89,7 +90,7 @@ export default {
 
       try {
         await axios.post("/activities", activity);
-        this.$router.push("/activity-preparation");
+        this.showSuccess = true;
       } catch (error) {
         this.error = "发布活动失败，请稍后再试";
       }
@@ -155,7 +156,7 @@ button {
   background: #42b983;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   cursor: pointer;
   font-size: 16px;
   font-weight: bold;

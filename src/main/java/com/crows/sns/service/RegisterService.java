@@ -1,7 +1,7 @@
 package com.crows.sns.service;
 
-import com.crows.sns.pojo.RegisterResponse;
+import com.crows.sns.pojo.Response;
 
 public interface RegisterService {
-    public RegisterResponse register(String nickname,String role, String password, String username);
+    public Response register(String nickname, String role, String password, String username);
 }
