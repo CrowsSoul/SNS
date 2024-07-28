@@ -155,12 +155,14 @@ CREATE TABLE activities (
 
 
 CREATE TABLE user_activities (
-    user_id INT  NOT NULL,
-    activity_id INT UNSIGNED NOT NULL,
-    activity_status VARCHAR(20) NOT NULL,
-    PRIMARY KEY (user_id, activity_id),
-    FOREIGN KEY (user_id) REFERENCES users(user_id),
-    FOREIGN KEY (activity_id) REFERENCES activities(activity_id)
+     user_id INT  NOT NULL,
+     /*nickname varchar(30),*/
+     activity_id INT UNSIGNED NOT NULL,
+     activity_status VARCHAR(20) ,
+     PRIMARY KEY (user_id, activity_id),
+     FOREIGN KEY (user_id) REFERENCES users(user_id),
+     /*FOREIGN KEY (nickname) REFERENCES users(nickname),*/
+     FOREIGN KEY (activity_id) REFERENCES activities(activity_id)
 );
 
 

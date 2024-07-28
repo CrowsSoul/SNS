@@ -81,7 +81,7 @@ export default {
     filteredActivities() {
       let filtered = this.activities.filter(
         (activity) =>
-          activity.status === "通过" && this.isUpcoming(activity.time)
+          activity.status === "approved" && this.isUpcoming(activity.time)
       );
 
       if (this.searchQuery) {
