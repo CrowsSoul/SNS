@@ -135,16 +135,16 @@ VALUES
 
 INSERT INTO activities (activity_name,initiator, activity_type, activity_time, activity_location, activity_description,maxParticipants, currentParticipants,status)
 VALUES
-    ('Tech Talk', 'jack','Seminar', NOW(), 'San Francisco', 'A seminar on the latest tech trends and innovations.', 50,30,'approved'),
-    ('Hackathon','john', 'Event', NOW(), 'New York', 'A weekend-long coding competition with prizes.', 100,45,'approved'),
-    ('Networking Event','alice', 'Social', NOW(), 'Los Angeles', 'An evening of networking with industry professionals.', 75,20,'approved'),
-    ('Workshop', 'bob','Training', NOW(), 'Chicago', 'A hands-on workshop on cloud computing.', 30,29,'approved'),
-    ('Book Club Meeting', 'carol','Discussion', NOW(), 'Boston', 'Monthly book club meeting discussing tech books.', 20,12,'rejected'),
-    ('Startup Pitch Night','david', 'Event', NOW(), 'Seattle', 'A night where startups pitch their ideas to investors.', 150,120,'pending'),
-    ('Coding Bootcamp','elizabeth', 'Training', NOW(), 'Austin', 'A two-week intensive bootcamp for aspiring developers.', 25,20,'pending'),
-    ('Charity Run', 'frank','Event', NOW(), 'Atlanta', 'A charity run to support local tech education initiatives.', 300,225,'approved'),
-    ('Product Launch Party', 'george','Celebration', NOW(), 'Denver', 'A party celebrating the launch of a new product.', 100,89,'rejected'),
-    ('Volunteer Day', 'helen','Community', NOW(), 'Philadelphia', 'A day dedicated to volunteering at local tech nonprofits.', 40,33,'approved');
+    ('Tech Talk', 'jack','Seminar', '2025-12-22 20:12:10', 'San Francisco', 'A seminar on the latest tech trends and innovations.', 50,30,'approved'),
+    ('Hackathon','john', 'Event','2024-11-22 20:12:10', 'New York', 'A weekend-long coding competition with prizes.', 100,45,'approved'),
+    ('Networking Event','alice', 'Social', '2024-12-22 20:12:10', 'Los Angeles', 'An evening of networking with industry professionals.', 75,20,'approved'),
+    ('Workshop', 'bob','Training', '2024-08-22 20:12:10', 'Chicago', 'A hands-on workshop on cloud computing.', 30,29,'approved'),
+    ('Book Club Meeting', 'carol','Discussion', '2024-10-22 20:12:10', 'Boston', 'Monthly book club meeting discussing tech books.', 20,12,'rejected'),
+    ('Startup Pitch Night','david', 'Event', '2025-06-22 20:12:10', 'Seattle', 'A night where startups pitch their ideas to investors.', 150,120,'pending'),
+    ('Coding Bootcamp','elizabeth', 'Training', '2025-04-22 20:12:10', 'Austin', 'A two-week intensive bootcamp for aspiring developers.', 25,20,'pending'),
+    ('Charity Run', 'frank','Event', '2025-01-22 20:12:10', 'Atlanta', 'A charity run to support local tech education initiatives.', 300,225,'approved'),
+    ('Product Launch Party', 'george','Celebration', '2025-02-22 20:12:10', 'Denver', 'A party celebrating the launch of a new product.', 100,89,'rejected'),
+    ('Volunteer Day', 'helen','Community', '2026-10-22 20:12:10', 'Philadelphia', 'A day dedicated to volunteering at local tech nonprofits.', 40,33,'approved');
 
 
 
