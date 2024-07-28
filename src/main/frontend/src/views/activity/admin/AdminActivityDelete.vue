@@ -66,7 +66,7 @@ export default {
   computed: {
     filteredActivities() {
       let filtered = this.activities.filter(
-        (activity) => activity.status === "通过"
+        (activity) => activity.status === "approved"
       );
 
       if (this.searchQuery) {
