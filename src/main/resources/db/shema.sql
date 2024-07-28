@@ -172,7 +172,6 @@ CREATE TABLE resumes (
     content TEXT NOT NULL,
     status VARCHAR(20) NOT NULL,
     created_time DATETIME NOT NULL,
-    updated_time DATETIME NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
@@ -216,6 +215,7 @@ CREATE TABLE orders (
     orders_id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     user_id INT  NOT NULL,
     orders_name VARCHAR(20) NOT NULL,
+    orders_price int not null,
     orders_introduction TEXT NOT NULL,
     orders_status VARCHAR(20) NOT NULL,
     created_time DATETIME NOT NULL,
