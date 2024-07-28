@@ -160,9 +160,11 @@ export default {
     },
     async executeApprove() {
       try {
-        await axios.put(`/activities/${this.selectedActivity.id}`, {
-          status: "approved",
-        });
+        this.selectedActivity.status = "approved";
+        await axios.put(
+          `/activities/${this.selectedActivity.id}`,
+          this.selectedActivity
+        );
         this.fetchActivities();
         this.closeModal();
       } catch (error) {
@@ -172,9 +174,11 @@ export default {
     },
     async executeReject() {
       try {
-        await axios.put(`/activities/${this.selectedActivity.id}`, {
-          status: "rejected",
-        });
+        this.selectedActivity.status = "rejected";
+        await axios.put(
+          `/activities/${this.selectedActivity.id}`,
+          this.selectedActivity
+        );
         this.fetchActivities();
         this.closeModal();
       } catch (error) {
