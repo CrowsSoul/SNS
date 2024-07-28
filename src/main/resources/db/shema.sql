@@ -17,7 +17,7 @@ DROP TABLE IF EXISTS orders;
 DROP TABLE IF EXISTS order_reviews;
 DROP TABLE IF EXISTS review_requests;
 DROP TABLE IF EXISTS application_success_messages;
-
+DROP TABLE IF EXISTS user_pushinfor_favorites;
 
 
 
@@ -162,7 +162,7 @@ CREATE TABLE user_activities (
      PRIMARY KEY (user_id, activity_id),
      FOREIGN KEY (user_id) REFERENCES users(user_id),
      /*FOREIGN KEY (nickname) REFERENCES users(nickname),*/
-     FOREIGN KEY (activity_id) REFERENCES activities(activity_id)
+     FOREIGN KEY (activity_id) REFERENCES activities(activity_id) on delete cascade
 );
 
 
