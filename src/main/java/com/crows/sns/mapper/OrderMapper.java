@@ -22,11 +22,11 @@ public interface OrderMapper {
     @Delete("DELETE FROM orders WHERE orders_id = #{orderId}")
     public void deleteOrderById(int orderId);
 
-    @Insert("INSERT INTO orders(orders_id, user_id, " +
+    @Insert("INSERT INTO orders(user_id, " +
             "nickname, orders_name, " +
             "orders_price, orders_introduction, " +
             "orders_status, created_time, successful_bidder) VALUES " +
-            "(#{orders_id}, #{user_id}, #{nickname}, #{orders_name}, " +
+            "(#{user_id}, #{nickname}, #{orders_name}, " +
             "#{orders_price}, #{orders_introduction}, " +
             "#{orders_status}, #{created_time}, #{successful_bidder})")
     public void insertOrder(Order order);
@@ -34,7 +34,7 @@ public interface OrderMapper {
     @Update("UPDATE orders SET " +
             "nickname = #{nickname}, orders_name = #{orders_name}, " +
             "orders_price = #{orders_price}, orders_introduction = #{orders_introduction}, " +
-            "orders_status = #{orders_status}, created_time = #{created_time}, " +
+            "orders_status = #{orders_status}, created_time = now(), " +
             "successful_bidder = #{successful_bidder} WHERE orders_id = #{orders_id}")
     public void updateOrder(Order order);
 

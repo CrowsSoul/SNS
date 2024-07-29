@@ -1,6 +1,7 @@
 package com.crows.sns.controller;
 
 import com.crows.sns.mapper.OrderMapper;
+import com.crows.sns.mapper.UserMapper;
 import com.crows.sns.pojo.Order;
 import com.crows.sns.pojo.Response;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,9 +15,16 @@ import org.springframework.web.bind.annotation.RestController;
 public class PostOrderController {
     @Autowired
     private OrderMapper orderMapper;
+    @Autowired
+    private UserMapper userMapper;
 
     @PostMapping()
     public Response postOrder(@RequestBody Order order) {
+        //先在user表中获取id
+        int userId = userMapper.findUserIdByNickname(order.getNickname());
+        //修改order的userId
+        order.setUser_id(userId);
+        //插入order
         orderMapper.insertOrder(order);
         return new Response(true, "order created");
     }
