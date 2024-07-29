@@ -116,7 +116,6 @@ export default {
       return this.orders.filter(
         (order) =>
           order.bidders.includes(this.user.nickname) &&
-          order.successful_bidder === "null" &&
           order.orders_status !== "completed"
       );
     },
