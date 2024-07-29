@@ -272,7 +272,7 @@ CREATE TABLE user_recommendation_favorites (
 
 
 /*订单竞标的中间表,多对多*/
-CREATE TABLE user_order_complete(
+CREATE TABLE user_order(
     user_id int not null,
     orders_id int UNSIGNED not null,
     PRIMARY KEY(user_id,orders_id),
