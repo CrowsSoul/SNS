@@ -165,7 +165,7 @@ export default {
 }
 
 .status-badge.bidding {
-  background-color: #ff0000;
+  background-color: #8bd8fc;
   color: white;
 }
 

@@ -48,6 +48,12 @@
             <button @click="viewResume(bidder)" class="view-resume-button">
               查看简历
             </button>
+            <button
+              @click="confirmSelectBidder(bidder)"
+              class="select-bidder-button"
+            >
+              选择TA
+            </button>
           </li>
         </ul>
         <div class="pagination">
@@ -92,6 +98,15 @@
         </div>
       </div>
     </div>
+    <div v-if="showSelectConfirm" class="confirm-box">
+      <div class="confirm-box-content">
+        <p>确认选择{{ selectedBidder }}来接单吗？</p>
+        <div class="confirm-buttons">
+          <button @click="selectBidder" class="confirm-button">是</button>
+          <button @click="cancelSelectConfirm" class="cancel-button">否</button>
+        </div>
+      </div>
+    </div>
   </div>
   <div v-else>
     <p>加载中...</p>
@@ -113,6 +128,8 @@ export default {
       biddersPerPage: 5,
       showDeleteConfirm: false,
       showCompleteConfirm: false,
+      showSelectConfirm: false,
+      selectedBidder: null,
     };
   },
   computed: {
@@ -176,6 +193,12 @@ export default {
     viewSuccessfulBidderResume() {
       this.viewResume(this.order.successful_bidder);
     },
+    confirmDeleteOrder() {
+      this.showDeleteConfirm = true;
+    },
+    cancelDeleteConfirm() {
+      this.showDeleteConfirm = false;
+    },
     async deleteOrder() {
       try {
         await axios.delete(`/orders/${this.order.orders_id}`);
@@ -187,11 +210,11 @@ export default {
         console.error("删除订单失败", error);
       }
     },
-    confirmDeleteOrder() {
-      this.showDeleteConfirm = true;
+    confirmCompleteOrder() {
+      this.showCompleteConfirm = true;
     },
-    cancelDeleteConfirm() {
-      this.showDeleteConfirm = false;
+    cancelCompleteConfirm() {
+      this.showCompleteConfirm = false;
     },
     async completeOrder() {
       try {
@@ -203,11 +226,24 @@ export default {
         console.error("完成订单失败", error);
       }
     },
-    confirmCompleteOrder() {
-      this.showCompleteConfirm = true;
+    confirmSelectBidder(bidder) {
+      this.selectedBidder = bidder;
+      this.showSelectConfirm = true;
     },
-    cancelCompleteConfirm() {
-      this.showCompleteConfirm = false;
+    cancelSelectConfirm() {
+      this.showSelectConfirm = false;
+      this.selectedBidder = null;
+    },
+    async selectBidder() {
+      try {
+        this.order.successful_bidder = this.selectedBidder;
+        await axios.put(`/orders/${this.order.orders_id}`, this.order);
+        this.showSelectConfirm = false;
+        this.showBidders = false;
+        this.fetchOrder();
+      } catch (error) {
+        console.error("选择接单者失败", error);
+      }
     },
     nextPage() {
       if (this.currentPage < this.totalPages) {
@@ -350,7 +386,7 @@ export default {
 }
 
 .status-badge.bidding {
-  background-color: #9597f7;
+  background-color: #8bd8fc;
   color: white;
 }
 
@@ -432,6 +468,20 @@ export default {
 
 .view-resume-button:hover {
   background-color: #0056b3;
+}
+
+.select-bidder-button {
+  padding: 5px 10px;
+  background-color: #9e41c9;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.select-bidder-button:hover {
+  background-color: #7d33a0;
 }
 
 .pagination {
