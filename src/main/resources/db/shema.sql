@@ -1,23 +1,24 @@
-DROP TABLE IF EXISTS users;
-DROP TABLE IF EXISTS posts;
-DROP TABLE IF EXISTS comments;
 DROP TABLE IF EXISTS reports;
 DROP TABLE IF EXISTS reviews;
 DROP TABLE IF EXISTS navs;
-DROP TABLE IF EXISTS recommendation;
 DROP TABLE IF EXISTS recommendation_comments;
 DROP TABLE IF EXISTS recommendation_reviews;
-DROP TABLE IF EXISTS activities;
-DROP TABLE IF EXISTS user_activities;
-DROP TABLE IF EXISTS resumes;
-DROP TABLE IF EXISTS resume_reviews;
-DROP TABLE IF EXISTS drafts;
-DROP TABLE IF EXISTS draft_reviews;
-DROP TABLE IF EXISTS orders;
-DROP TABLE IF EXISTS order_reviews;
-DROP TABLE IF EXISTS review_requests;
-DROP TABLE IF EXISTS application_success_messages;
 DROP TABLE IF EXISTS user_recommendation_favorites;
+DROP TABLE IF EXISTS recommendation;
+DROP TABLE IF EXISTS user_activities;
+DROP TABLE IF EXISTS activities;
+DROP TABLE IF EXISTS resume_reviews;
+DROP TABLE IF EXISTS resumes;
+DROP TABLE IF EXISTS draft_reviews;
+DROP TABLE IF EXISTS drafts;
+DROP TABLE IF EXISTS order_reviews;
+DROP TABLE IF EXISTS orders;
+DROP TABLE IF EXISTS application_success_messages;
+DROP TABLE IF EXISTS review_requests;
+DROP TABLE IF EXISTS comments;
+DROP TABLE IF EXISTS posts;
+DROP TABLE IF EXISTS users;
+
 
 
 
