@@ -4,9 +4,9 @@ DROP TABLE IF EXISTS comments;
 DROP TABLE IF EXISTS reports;
 DROP TABLE IF EXISTS reviews;
 DROP TABLE IF EXISTS navs;
-DROP TABLE IF EXISTS pushinfor;
-DROP TABLE IF EXISTS pushinfor_comments;
-DROP TABLE IF EXISTS pushinfor_reviews;
+DROP TABLE IF EXISTS recommendation;
+DROP TABLE IF EXISTS recommendation_comments;
+DROP TABLE IF EXISTS recommendation_reviews;
 DROP TABLE IF EXISTS activities;
 DROP TABLE IF EXISTS user_activities;
 DROP TABLE IF EXISTS resumes;
@@ -17,7 +17,7 @@ DROP TABLE IF EXISTS orders;
 DROP TABLE IF EXISTS order_reviews;
 DROP TABLE IF EXISTS review_requests;
 DROP TABLE IF EXISTS application_success_messages;
-DROP TABLE IF EXISTS user_pushinfor_favorites;
+DROP TABLE IF EXISTS user_recommendation_favorites;
 
 
 
@@ -97,17 +97,17 @@ CREATE TABLE navs (
 );
 
 
-CREATE TABLE pushinfor (
-    pushinfor_id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE recommendation (
+    recommendation_id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     companyName varchar(20) not null ,
     user_id INT  NOT NULL,
     author varchar(30) not null,
-    title VARCHAR(200) NOT NULL,
+    title VARCHAR(200) ,
     content TEXT NOT NULL,
-    abstract TINYTEXT NOT NULL,
+    abstract TINYTEXT ,
     summary varchar(20) not null,
     location VARCHAR(20) NOT NULL,
-    status VARCHAR(20) NOT NULL,
+    status boolean NOT NULL,
     created_time DATETIME NOT NULL,
     publish_time DATETIME NOT NULL,
     max_salary int not null,
@@ -116,26 +116,26 @@ CREATE TABLE pushinfor (
 );
 
 
-CREATE TABLE pushinfor_comments (
+CREATE TABLE recommendation_comments (
     comment_id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    pushinfor_id INT UNSIGNED NOT NULL,
+    recommendation_id INT UNSIGNED NOT NULL,
     user_id INT  NOT NULL,
     content TEXT NOT NULL,
     status VARCHAR(20) NOT NULL,
     comment_time DATETIME NOT NULL,
-    FOREIGN KEY (pushinfor_id) REFERENCES pushinfor(pushinfor_id),
+    FOREIGN KEY (recommendation_id) REFERENCES recommendation(recommendation_id),
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
 
-CREATE TABLE pushinfor_reviews (
+CREATE TABLE recommendation_reviews (
     review_id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    pushinfor_id INT UNSIGNED NOT NULL,
+    recommendation_id INT UNSIGNED NOT NULL,
     user_id INT  NOT NULL,
     result VARCHAR(20) NOT NULL,
     suggestion TINYTEXT NOT NULL,
     review_time DATETIME NOT NULL,
-    FOREIGN KEY (pushinfor_id) REFERENCES pushinfor(pushinfor_id),
+    FOREIGN KEY (recommendation_id) REFERENCES recommendation(recommendation_id),
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
@@ -257,10 +257,10 @@ CREATE TABLE application_success_messages (
 
 
 /*用户收藏内推所用的中间表*/
-CREATE TABLE user_pushinfor_favorites (
+CREATE TABLE user_recommendation_favorites (
   user_id INT NOT NULL,
-  pushinfor_id INT UNSIGNED NOT NULL,
-  PRIMARY KEY (user_id, pushinfor_id),
+  recommendation_id INT UNSIGNED NOT NULL,
+  PRIMARY KEY (user_id, recommendation_id),
   FOREIGN KEY (user_id) REFERENCES users(user_id),
-  FOREIGN KEY (pushinfor_id) REFERENCES pushinfor(pushinfor_id)
+  FOREIGN KEY (recommendation_id) REFERENCES recommendation(recommendation_id)
 );
