@@ -36,4 +36,22 @@ public interface ActivityMapper {
             @Result(property = "activity_id", column = "activity_id")
     })
     public Activity getOneActivitiesWithParticipantsById(int id);
+
+    @Insert("INSERT INTO activities(activity_name, initiator, activity_time, activity_location, activity_description, maxParticipants, currentParticipants, status)" +
+            "VALUES(#{activity_name}, #{initiator}, #{activity_time}, #{activity_location}, #{activity_description}, #{maxParticipants}, #{currentParticipants}, #{status})")
+    @Options(useGeneratedKeys = true, keyProperty = "activity_id")
+    public void insertActivity(Activity activity);
+
+    @Insert("INSERT INTO user_activities(user_id, activity_id,activity_status)" +
+            "VALUES(#{userId}, #{activityId}, #{status})")
+    public void insertUserActivity(int userId, int activityId,String status);
+
+    @Delete("DELETE FROM activities WHERE activity_id = #{activityId}")
+    public void deleteActivityById(int activityId);
+
+    @Select("SELECT * FROM activities WHERE activity_id = #{activityId}")
+    public Activity getActivityById(int activityId);
+
+    @Update("UPDATE activities SET activity_name = #{activity_name}, initiator = #{initiator}, activity_time = #{activity_time}, activity_location = #{activity_location}, activity_description = #{activity_description}, maxParticipants = #{maxParticipants}, currentParticipants = #{currentParticipants}, status = #{status} WHERE activity_id = #{activity_id}")
+    public void updateActivity(Activity activity);
 }

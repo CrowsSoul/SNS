@@ -70,7 +70,7 @@ export default {
 
       const activityTime = new Date(this.time);
       const activity = {
-        id: Date.now(),
+        id: null,
         name: this.name,
         initiator: user.nickname,
         time: [
@@ -87,6 +87,7 @@ export default {
         participantList: [user.nickname],
         status: "审核中",
       };
+      console.log(activity);
 
       try {
         await axios.post("/activities", activity);
