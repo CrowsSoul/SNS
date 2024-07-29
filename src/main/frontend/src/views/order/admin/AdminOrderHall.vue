@@ -41,7 +41,7 @@
               已完成
             </div>
             <div
-              v-else-if="order.successful_bidder !== 'null'"
+              v-else-if="order.successful_bidder !== null"
               class="status-badge in-progress"
             >
               进行中
