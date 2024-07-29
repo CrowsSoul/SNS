@@ -169,9 +169,12 @@ CREATE TABLE user_activities (
 CREATE TABLE resumes (
     resume_id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     user_id INT  NOT NULL,
+    user_name varchar(30),
     content TEXT NOT NULL,
     status VARCHAR(20) NOT NULL,
     created_time DATETIME NOT NULL,
+    work_experience varchar(30),
+    education varchar(30),
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
@@ -275,4 +278,21 @@ CREATE TABLE user_order_complete(
     PRIMARY KEY(user_id,orders_id),
     FOREIGN KEY (user_id) REFERENCES users(user_id),
     FOREIGN KEY (orders_id) REFERENCES orders(orders_id)
+);
+
+
+/*简历中需要的技能表*/
+CREATE TABLE skill(
+    skill_id int AUTO_INCREMENT PRIMARY KEY,
+    skill_name varchar(30)
+);
+
+
+/*用户与技能的中间表*/
+CREATE TABLE user_skill(
+    user_id int ,
+    skill_id int ,
+    PRIMARY KEY (user_id,skill_id),
+    FOREIGN KEY (user_id) REFERENCES users(user_id),
+    FOREIGN KEY (skill_id) REFERENCES skill(skill_id)
 );
