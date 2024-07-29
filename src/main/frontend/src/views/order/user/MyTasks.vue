@@ -294,7 +294,7 @@ export default {
         const user = this.user;
         const newOrder = {
           ...this.newOrder,
-          orders_id: 1, // 简单的订单ID生成方式
+          orders_id: 18886, // 简单的订单ID生成方式
           user: user.nickname,
           orders_status: "pending",
           bidders: [],
@@ -304,6 +304,9 @@ export default {
         await axios.post("/orders", newOrder);
         this.orders.push(newOrder);
         this.setTab("pending");
+        this.$nextTick(() => {
+          this.$forceUpdate();
+        });
       } catch (error) {
         console.error("发布新订单失败", error);
       }
