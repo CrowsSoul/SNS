@@ -128,10 +128,10 @@
             <ul v-if="activeSubMenu === 'order'" class="submenu">
               <template v-if="isAdmin">
                 <li>
-                  <router-link to="/admin/order-review">审核订单</router-link>
+                  <router-link to="/admin/order-hall">订单一览</router-link>
                 </li>
                 <li>
-                  <router-link to="/admin/resume-review">审核简历</router-link>
+                  <router-link to="/admin/order-review">审核订单</router-link>
                 </li>
               </template>
               <template v-else>
@@ -142,10 +142,10 @@
                   <router-link to="/resume-management">简历管理</router-link>
                 </li>
                 <li>
-                  <router-link to="/my-orders">我的发包</router-link>
+                  <router-link to="/my-tasks">我的发包</router-link>
                 </li>
                 <li>
-                  <router-link to="/my-tasks">我的接单</router-link>
+                  <router-link to="/my-orders">我的接单</router-link>
                 </li>
               </template>
             </ul>

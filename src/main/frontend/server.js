@@ -334,12 +334,13 @@ app.delete('/activities/:id', (req, res) => {
   }
 });
 
-// 处理订单相关请求
+// 获取所有订单
 app.get('/orders', (req, res) => {
   const orders = readJsonFile('./data/orders.json');
   res.json(orders);
 });
 
+// 获取单个订单
 app.get('/orders/:id', (req, res) => {
   const orders = readJsonFile('./data/orders.json');
   const order = orders.orders.find(o => o.orders_id === parseInt(req.params.id));
@@ -347,6 +348,77 @@ app.get('/orders/:id', (req, res) => {
     res.json(order);
   } else {
     res.status(404).json({ message: '订单未找到' });
+  }
+});
+
+// 发布新订单
+app.post('/orders', (req, res) => {
+  const ordersData = readJsonFile('./data/orders.json');
+  const orders = Array.isArray(ordersData) ? ordersData : ordersData.orders;
+
+  const newOrder = req.body;
+  orders.push(newOrder);
+
+  writeJsonFile('./data/orders.json', { orders });
+  res.json({ message: '订单发布成功' });
+});
+
+// 更新订单
+app.put('/orders/:id', (req, res) => {
+  const orders = readJsonFile('./data/orders.json');
+  const orderIndex = orders.orders.findIndex(o => o.orders_id === parseInt(req.params.id));
+  if (orderIndex !== -1) {
+    orders.orders[orderIndex] = { ...orders.orders[orderIndex], ...req.body };
+    writeJsonFile('./data/orders.json', orders);
+    res.json(orders.orders[orderIndex]);
+  } else {
+    res.status(404).json({ message: '订单未找到' });
+  }
+});
+
+// 删除订单
+app.delete('/orders/:id', (req, res) => {
+  const ordersData = readJsonFile('./data/orders.json');
+  const orders = Array.isArray(ordersData) ? ordersData : ordersData.orders;
+
+  const orderIndex = orders.findIndex(order => order.orders_id === parseInt(req.params.id));
+
+  if (orderIndex !== -1) {
+    orders.splice(orderIndex, 1);
+    writeJsonFile('./data/orders.json', { orders });
+    res.json({ message: '订单删除成功' });
+  } else {
+    res.status(404).json({ message: '订单未找到' });
+  }
+});
+
+// 获取所有简历
+app.get('/resumes', (req, res) => {
+  const resumes = readJsonFile('./data/resumes.json');
+  res.json({ resumes });
+});
+
+// 获取单个简历
+app.get('/resumes/:user', (req, res) => {
+  const resumes = readJsonFile('./data/resumes.json');
+  const resume = resumes.find(r => r.user === req.params.user);
+  if (resume) {
+    res.json(resume);
+  } else {
+    res.status(404).json({ message: '简历未找到' });
+  }
+});
+
+//修改简历
+app.put('/resumes/:id', (req, res) => {
+  const resumes = readJsonFile('./data/resumes.json');
+  const resumeIndex = resumes.findIndex(r => r.resume_id === parseInt(req.params.id));
+  if (resumeIndex !== -1) {
+    resumes[resumeIndex] = { ...resumes[resumeIndex], ...req.body };
+    writeJsonFile('./data/resumes.json', resumes);
+    res.json(resumes[resumeIndex]);
+  } else {
+    res.status(404).json({ message: '简历未找到' });
   }
 });
 
