@@ -294,7 +294,7 @@ export default {
         const user = this.user;
         const newOrder = {
           ...this.newOrder,
-          orders_id: Date.now(), // 简单的订单ID生成方式
+          orders_id: 1, // 简单的订单ID生成方式
           user: user.nickname,
           orders_status: "pending",
           bidders: [],
