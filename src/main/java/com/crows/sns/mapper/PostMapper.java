@@ -32,7 +32,7 @@ public interface PostMapper {
 
     @Update("UPDATE posts SET title = #{title}, " +
             "content = #{content}, status = #{status}, updated_time = NOW(), " +
-            "author = #{author} WHERE post_id = #{id}")
+            "author = #{author},isRecommended =#{isRecommended} WHERE post_id = #{id}")
     @Options(useGeneratedKeys = true, keyProperty = "id")
     @Results({
             @Result(property = "id", column = "post_id"),

@@ -19,13 +19,13 @@ public class PostOrderController {
     private UserMapper userMapper;
 
     @PostMapping()
-    public Response postOrder(@RequestBody Order order) {
+    public Order postOrder(@RequestBody Order order) {
         //先在user表中获取id
         int userId = userMapper.findUserIdByNickname(order.getNickname());
         //修改order的userId
         order.setUser_id(userId);
         //插入order
         orderMapper.insertOrder(order);
-        return new Response(true, "order created");
+        return order;
     }
 }

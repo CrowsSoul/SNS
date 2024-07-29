@@ -12,4 +12,5 @@ public class PublishNewPostRequest {
     private String content;
     private String author;
     private String status;
+    private boolean isRecommended;
 }
