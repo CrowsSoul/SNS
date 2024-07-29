@@ -142,6 +142,7 @@ export default {
       try {
         const response = await axios.get("/orders");
         this.orders = response.data.orders;
+        console.log(response.data);
       } catch (error) {
         console.error("获取订单列表失败", error);
       } finally {
