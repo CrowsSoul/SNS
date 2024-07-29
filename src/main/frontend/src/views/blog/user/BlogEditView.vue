@@ -66,6 +66,7 @@ export default {
         content: this.content,
         author: user.nickname,
         status: "pending",
+        isRecommened: this.blog.isRecommened,
       };
       try {
         if (this.isEditing) {

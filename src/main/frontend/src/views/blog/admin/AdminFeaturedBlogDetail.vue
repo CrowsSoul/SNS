@@ -54,6 +54,7 @@ export default {
           content: this.blog.content,
           author: this.blog.author,
           isRecommended: updatedStatus,
+          status: this.blog.status,
         });
         this.blog.isRecommended = updatedStatus;
         this.toggleMessage = updatedStatus ? "推荐成功！" : "取消推荐成功！";
