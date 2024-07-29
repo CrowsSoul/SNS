@@ -104,7 +104,7 @@ CREATE TABLE recommendation (
     author varchar(30) not null,
     title VARCHAR(200) NOT NULL,
     content TEXT NOT NULL,
-    abstract TINYTEXT NOT NULL,
+    abstract TINYTEXT ,
     summary varchar(20) not null,
     location VARCHAR(20) NOT NULL,
     status boolean NOT NULL,
