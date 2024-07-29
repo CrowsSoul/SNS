@@ -1,10 +1,7 @@
 package com.crows.sns.mapper;
 
 import com.crows.sns.pojo.Recommendation;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Options;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -26,4 +23,12 @@ public interface RecommendationMapper {
     )
     @Options(useGeneratedKeys = true, keyProperty = "recommendation_id")
     public void addRecommendation(Recommendation recommendation);
+
+    @Update("UPDATE recommendation SET companyName = #{companyName}, " +
+            "author = #{author}, content = #{content}, " +
+            "summary = #{summary}, location = #{location}, status = #{status}, " +
+            "max_salary = #{max_salary}, min_salary = #{min_salary},publish_time = NOW() " +
+            "WHERE recommendation_id = #{recommendation_id}")
+    public void updateRecommendation(Recommendation recommendation);
+
 }

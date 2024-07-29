@@ -21,6 +21,8 @@ public class PostRecommendationServiceImpl implements PostRecommendationService 
         // 再获取user_id
         int user_id = userMapper.findUserIdByNickname(request.getAuthor());
         request.setUser_id(user_id);
+        //设置状态为false
+        request.setStatus(false);
 
         //存入数据库
         recommendationMapper.addRecommendation(request);
