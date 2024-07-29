@@ -165,16 +165,16 @@ VALUES
 
 INSERT INTO resumes (user_id,user_name, content, status, created_time, work_experience,education)
 VALUES
-    (1,'jack', 'Objective: Seeking a software engineer position with XYZ Corp. Skills include Java, Python, and C++. Education: B.S. in Computer Science from University of California, Berkeley.', 'active', NOW(),'已经就业1年','本科'),
-    (2,'john', 'Objective: A highly motivated product manager with over 5 years of experience in launching successful products. Skills include Agile methodologies, product strategy, and stakeholder management. Education: MBA from Stanford Graduate School of Business.', 'active', NOW(),'已经就业2年','硕士'),
-    (3,'alice', 'Objective: Experienced UI/UX designer with a passion for creating intuitive and user-friendly interfaces. Skills include Adobe Creative Suite, Sketch, and Figma. Education: B.F.A. in Graphic Design from Rhode Island School of Design.', 'active', NOW(),'已经就业3年','博士'),
-    (4,'bob', 'Objective: Talented front-end developer with expertise in React, Angular, and Vue.js. Strong background in responsive web design and accessibility. Education: B.S. in Information Technology from Georgia Tech.', 'active', NOW(),'已经就业5年以上','本科'),
-    (5,'carol', 'Objective: Seasoned back-end developer with extensive knowledge of Java, Python, and Node.js. Experience in database design and RESTful API development. Education: M.S. in Computer Science from Carnegie Mellon University.', 'active', NOW(),'已经就业10年','硕士'),
-    (6,'david', 'Objective: Data scientist with a proven track record of leveraging machine learning algorithms to drive business decisions. Skills include Python, R, and SQL. Education: Ph.D. in Statistics from University of Michigan.', 'active', NOW(),'已经就业3年','博士'),
-    (7,'elizabeth', 'Objective: DevOps engineer with a focus on automation and infrastructure as code. Proficient in CI/CD pipelines, Kubernetes, and Docker. Education: B.S. in Computer Engineering from University of Texas at Austin.', 'active', NOW(),'已经就业2年','硕士'),
-    (8,'frank', 'Objective: Quality assurance specialist with a strong attention to detail and a commitment to delivering high-quality software. Experience in manual and automated testing. Education: Certificate in Software Testing from Udacity.', 'active', NOW(),'已经就业1年','硕士'),
-    (9,'george', 'Objective: Full-stack developer with experience in both front-end and back-end technologies. Skills include JavaScript, TypeScript, and Ruby on Rails. Education: B.S. in Computer Science from University of Illinois at Urbana-Champaign.', 'active', NOW(),'已经就业10年','硕士'),
-    (10,'helen', 'Objective: Technical writer with a knack for simplifying complex concepts into clear and concise documentation. Experience in writing user manuals, tutorials, and API documentation. Education: B.A. in English from University of Wisconsin-Madison.', 'active', NOW(),'已经就业7年','本科');
+    (1,'jack', 'Objective: Seeking a software engineer position with XYZ Corp. Skills include Java, Python, and C++. Education: B.S. in Computer Science from University of California, Berkeley.', 'active', NOW(),'学生','高中或以下'),
+    (2,'john', 'Objective: A highly motivated product manager with over 5 years of experience in launching successful products. Skills include Agile methodologies, product strategy, and stakeholder management. Education: MBA from Stanford Graduate School of Business.', 'active', NOW(),'已就业三年以内','硕士'),
+    (3,'alice', 'Objective: Experienced UI/UX designer with a passion for creating intuitive and user-friendly interfaces. Skills include Adobe Creative Suite, Sketch, and Figma. Education: B.F.A. in Graphic Design from Rhode Island School of Design.', 'active', NOW(),'已就业三年以上','博士'),
+    (4,'bob', 'Objective: Talented front-end developer with expertise in React, Angular, and Vue.js. Strong background in responsive web design and accessibility. Education: B.S. in Information Technology from Georgia Tech.', 'active', NOW(),'已就业三年以上','本科'),
+    (5,'carol', 'Objective: Seasoned back-end developer with extensive knowledge of Java, Python, and Node.js. Experience in database design and RESTful API development. Education: M.S. in Computer Science from Carnegie Mellon University.', 'active', NOW(),'已就业三年以内','大专'),
+    (6,'david', 'Objective: Data scientist with a proven track record of leveraging machine learning algorithms to drive business decisions. Skills include Python, R, and SQL. Education: Ph.D. in Statistics from University of Michigan.', 'active', NOW(),'已就业三年以上','博士'),
+    (7,'elizabeth', 'Objective: DevOps engineer with a focus on automation and infrastructure as code. Proficient in CI/CD pipelines, Kubernetes, and Docker. Education: B.S. in Computer Engineering from University of Texas at Austin.', 'active', NOW(),'已就业三年以内','硕士'),
+    (8,'frank', 'Objective: Quality assurance specialist with a strong attention to detail and a commitment to delivering high-quality software. Experience in manual and automated testing. Education: Certificate in Software Testing from Udacity.', 'active', NOW(),'已就业三年以内','高中或以下'),
+    (9,'george', 'Objective: Full-stack developer with experience in both front-end and back-end technologies. Skills include JavaScript, TypeScript, and Ruby on Rails. Education: B.S. in Computer Science from University of Illinois at Urbana-Champaign.', 'active', NOW(),'已就业三年以上','硕士'),
+    (10,'helen', 'Objective: Technical writer with a knack for simplifying complex concepts into clear and concise documentation. Experience in writing user manuals, tutorials, and API documentation. Education: B.A. in English from University of Wisconsin-Madison.', 'active', NOW(),'已就业三年以内','本科');
 
 INSERT INTO resume_reviews (resume_id, user_id, result, comment, reviewed_time)
 VALUES
@@ -301,8 +301,8 @@ VALUES (2,1),(3,1),(4,1),(3,2),(4,2),(5,2),(4,3),(5,3),(6,3),(5,4),
 
 /*向技能表中插入数据*/
 INSERT INTO skill(skill_name)
-VALUES ('前端管理'),('后端管理'),('数据库管理'),('平面设计'),('网络管理'),('UI设计'),('网络管理'),('软件设计'),('进度管理'),('测试');
+VALUES ('前端'),('后端'),('软件设计'),('平面设计'),('网络管理'),('数据分析'),('数据库管理');
 
 /*向用户技能中间表中插入数据*/
 INSERT INTO user_skill(user_id,skill_id)
-VALUES (1,1),(1,2),(1,3),(2,2),(2,3),(2,4),(3,3),(3,4),(3,5),(4,6),(4,2),(5,1),(6,3),(6,4),(6,6),(6,8),(7,4),(7,7),(7,9),(8,9),(8,8),(8,10),(9,1),(9,2),(9,3),(10,5),(10,4),(10,10);
+VALUES (1,1),(1,2),(1,3),(2,2),(2,3),(2,4),(3,3),(3,4),(3,5),(4,6),(4,2),(5,1),(6,3),(6,4),(6,6),(6,7),(7,4),(7,7),(7,6),(8,5),(8,4),(8,3),(9,1),(9,2),(9,3),(10,5),(10,4),(10,7);
