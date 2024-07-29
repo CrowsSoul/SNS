@@ -250,7 +250,7 @@
       "orders_id": 18,
       "user": "1018",
       "orders_name": "Order 118",
-      "orders_introduction": "This order includes 1 unit of Product G and 2 units of Product H.",
+      "orders_introduction": "This order includes 1 unit of Product G and 2 units of Product H...",
       "orders_status": "processing",
       "created_time": "2024-04-28 15:57:41",
       "order_price": 4000,
