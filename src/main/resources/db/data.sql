@@ -163,18 +163,18 @@ VALUES
 
 
 
-INSERT INTO resumes (user_id, content, status, created_time)
+INSERT INTO resumes (user_id,user_name, content, status, created_time, work_experience,education)
 VALUES
-    (1, 'Objective: Seeking a software engineer position with XYZ Corp. Skills include Java, Python, and C++. Education: B.S. in Computer Science from University of California, Berkeley.', 'active', NOW()),
-    (2, 'Objective: A highly motivated product manager with over 5 years of experience in launching successful products. Skills include Agile methodologies, product strategy, and stakeholder management. Education: MBA from Stanford Graduate School of Business.', 'active', NOW()),
-    (3, 'Objective: Experienced UI/UX designer with a passion for creating intuitive and user-friendly interfaces. Skills include Adobe Creative Suite, Sketch, and Figma. Education: B.F.A. in Graphic Design from Rhode Island School of Design.', 'active', NOW()),
-    (4, 'Objective: Talented front-end developer with expertise in React, Angular, and Vue.js. Strong background in responsive web design and accessibility. Education: B.S. in Information Technology from Georgia Tech.', 'active', NOW()),
-    (5, 'Objective: Seasoned back-end developer with extensive knowledge of Java, Python, and Node.js. Experience in database design and RESTful API development. Education: M.S. in Computer Science from Carnegie Mellon University.', 'active', NOW()),
-    (6, 'Objective: Data scientist with a proven track record of leveraging machine learning algorithms to drive business decisions. Skills include Python, R, and SQL. Education: Ph.D. in Statistics from University of Michigan.', 'active', NOW()),
-    (7, 'Objective: DevOps engineer with a focus on automation and infrastructure as code. Proficient in CI/CD pipelines, Kubernetes, and Docker. Education: B.S. in Computer Engineering from University of Texas at Austin.', 'active', NOW()),
-    (8, 'Objective: Quality assurance specialist with a strong attention to detail and a commitment to delivering high-quality software. Experience in manual and automated testing. Education: Certificate in Software Testing from Udacity.', 'active', NOW()),
-    (9, 'Objective: Full-stack developer with experience in both front-end and back-end technologies. Skills include JavaScript, TypeScript, and Ruby on Rails. Education: B.S. in Computer Science from University of Illinois at Urbana-Champaign.', 'active', NOW()),
-    (10, 'Objective: Technical writer with a knack for simplifying complex concepts into clear and concise documentation. Experience in writing user manuals, tutorials, and API documentation. Education: B.A. in English from University of Wisconsin-Madison.', 'active', NOW());
+    (1,'jack', 'Objective: Seeking a software engineer position with XYZ Corp. Skills include Java, Python, and C++. Education: B.S. in Computer Science from University of California, Berkeley.', 'active', NOW(),'学生','高中或以下'),
+    (2,'john', 'Objective: A highly motivated product manager with over 5 years of experience in launching successful products. Skills include Agile methodologies, product strategy, and stakeholder management. Education: MBA from Stanford Graduate School of Business.', 'active', NOW(),'已就业三年以内','硕士'),
+    (3,'alice', 'Objective: Experienced UI/UX designer with a passion for creating intuitive and user-friendly interfaces. Skills include Adobe Creative Suite, Sketch, and Figma. Education: B.F.A. in Graphic Design from Rhode Island School of Design.', 'active', NOW(),'已就业三年以上','博士'),
+    (4,'bob', 'Objective: Talented front-end developer with expertise in React, Angular, and Vue.js. Strong background in responsive web design and accessibility. Education: B.S. in Information Technology from Georgia Tech.', 'active', NOW(),'已就业三年以上','本科'),
+    (5,'carol', 'Objective: Seasoned back-end developer with extensive knowledge of Java, Python, and Node.js. Experience in database design and RESTful API development. Education: M.S. in Computer Science from Carnegie Mellon University.', 'active', NOW(),'已就业三年以内','大专'),
+    (6,'david', 'Objective: Data scientist with a proven track record of leveraging machine learning algorithms to drive business decisions. Skills include Python, R, and SQL. Education: Ph.D. in Statistics from University of Michigan.', 'active', NOW(),'已就业三年以上','博士'),
+    (7,'elizabeth', 'Objective: DevOps engineer with a focus on automation and infrastructure as code. Proficient in CI/CD pipelines, Kubernetes, and Docker. Education: B.S. in Computer Engineering from University of Texas at Austin.', 'active', NOW(),'已就业三年以内','硕士'),
+    (8,'frank', 'Objective: Quality assurance specialist with a strong attention to detail and a commitment to delivering high-quality software. Experience in manual and automated testing. Education: Certificate in Software Testing from Udacity.', 'active', NOW(),'已就业三年以内','高中或以下'),
+    (9,'george', 'Objective: Full-stack developer with experience in both front-end and back-end technologies. Skills include JavaScript, TypeScript, and Ruby on Rails. Education: B.S. in Computer Science from University of Illinois at Urbana-Champaign.', 'active', NOW(),'已就业三年以上','硕士'),
+    (10,'helen', 'Objective: Technical writer with a knack for simplifying complex concepts into clear and concise documentation. Experience in writing user manuals, tutorials, and API documentation. Education: B.A. in English from University of Wisconsin-Madison.', 'active', NOW(),'已就业三年以内','本科');
 
 INSERT INTO resume_reviews (resume_id, user_id, result, comment, reviewed_time)
 VALUES
@@ -223,18 +223,18 @@ VALUES
 
 
 
-INSERT INTO orders (user_id, orders_name,orders_price, orders_introduction, orders_status, created_time)
+INSERT INTO orders (user_id,nickname, orders_name,orders_price, orders_introduction, orders_status, created_time,successful_bidder)
 VALUES
-    (1, 'Order 101',1000, 'This order includes 5 units of Product A and 3 units of Product B.', 'processing', NOW()),
-    (2, 'Order 102',5000, 'This order includes 2 units of Product C and 1 unit of Product D.', 'processing', NOW()),
-    (3, 'Order 103',400, 'This order includes 10 units of Product E and 5 units of Product F.', 'completed', NOW()),
-    (4, 'Order 104',1900, 'This order includes 1 unit of Product G and 2 units of Product H.', 'processing', NOW()),
-    (5, 'Order 105',8000, 'This order includes 3 units of Product I and 4 units of Product J.', 'canceled', NOW()),
-    (6, 'Order 106',12000, 'This order includes 4 units of Product K and 2 units of Product L.', 'processing', NOW()),
-    (7, 'Order 107',6500, 'This order includes 7 units of Product M and 5 units of Product N.', 'completed', NOW()),
-    (8, 'Order 108',1200, 'This order includes 6 units of Product O and 1 unit of Product P.', 'processing', NOW()),
-    (9, 'Order 109',200, 'This order includes 2 units of Product Q and 3 units of Product R.', 'processing', NOW()),
-    (10, 'Order 110',750, 'This order includes 8 units of Product S and 4 units of Product T.', 'completed', NOW());
+    (1,'jack', 'Order 101',500, 'This order includes 5 units of Product A and 3 units of Product B.', 'completed', NOW(),'jack'),
+    (2,'john', 'Order 102',5000, 'This order includes 2 units of Product C and 1 unit of Product D.', 'processing', NOW(),'null'),
+    (3,'alice', 'Order 103',1500, 'This order includes 10 units of Product E and 5 units of Product F.', 'completed', NOW(),'bob'),
+    (4,'bob', 'Order 104',3500, 'This order includes 1 unit of Product G and 2 units of Product H.', 'processing', NOW(),'carol'),
+    (5,'carol', 'Order 105',2000, 'This order includes 3 units of Product I and 4 units of Product J.', 'processing', NOW(),'frank'),
+    (6,'david', 'Order 106',12000, 'This order includes 4 units of Product K and 2 units of Product L.', 'processing', NOW(),'george'),
+    (7,'elizabeth', 'Order 107',8000, 'This order includes 7 units of Product M and 5 units of Product N.', 'processing', NOW(),'null'),
+    (8,'frank', 'Order 108',11000, 'This order includes 6 units of Product O and 1 unit of Product P.', 'pending', NOW(),'null'),
+    (9,'george', 'Order 109',18000, 'This order includes 2 units of Product Q and 3 units of Product R.', 'processing', NOW(),'john'),
+    (10,'helen', 'Order 110',750, 'This order includes 8 units of Product S and 4 units of Product T.', 'completed', NOW(),'elizabeth');
 
 
 
@@ -290,3 +290,19 @@ VALUES
 INSERT INTO user_recommendation_favorites (user_id, recommendation_id)
 VALUES (1, 1), (1, 2), (2, 3), (2, 4), (3, 5),
        (3, 1), (4, 2), (4, 4), (5, 1), (5, 3);
+
+
+/*向订单竞标的中间表中添加数据*/
+INSERT INTO user_order (user_id,orders_id)
+VALUES (2,1),(3,1),(4,1),(3,2),(4,2),(5,2),(4,3),(5,3),(6,3),(5,4),
+       (6,4),(7,4),(6,5),(7,5),(8,5),(7,6),(8,6),(9,6),(8,7),(9,7),
+       (10,7),(9,8),(10,8),(1,8),(2,9),(3,9),(4,9),(5,10),(6,10),(7,10);
+
+
+/*向技能表中插入数据*/
+INSERT INTO skill(skill_name)
+VALUES ('前端'),('后端'),('软件设计'),('平面设计'),('网络管理'),('数据分析'),('数据库管理');
+
+/*向用户技能中间表中插入数据*/
+INSERT INTO user_skill(user_id,skill_id)
+VALUES (1,1),(1,2),(1,3),(2,2),(2,3),(2,4),(3,3),(3,4),(3,5),(4,6),(4,2),(5,1),(6,3),(6,4),(6,6),(6,7),(7,4),(7,7),(7,6),(8,5),(8,4),(8,3),(9,1),(9,2),(9,3),(10,5),(10,4),(10,7);
