@@ -1,27 +1,22 @@
 package com.crows.sns.controller;
 
 import com.crows.sns.pojo.Order;
-import com.crows.sns.pojo.OrderList;
 import com.crows.sns.service.Impl.GetOrderServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
 @RestController
 @RequestMapping("/orders")
-public class GetAllOrdersController {
+public class GetOneOrderController {
     @Autowired
-    private GetOrderServiceImpl getAllOrdersService;
+    private GetOrderServiceImpl getOrderService;
 
-    @GetMapping
-    public OrderList getAllOrders()
+    @GetMapping("/{id}")
+    public Order getOneOrder(@PathVariable int id)
     {
-        OrderList response = new OrderList();
-        List<Order> orders = getAllOrdersService.getAllOrders();
-        response.setOrders(orders);
-        return response;
+        return getOrderService.getOneOrder(id);
     }
 }

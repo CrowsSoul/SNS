@@ -226,13 +226,13 @@ VALUES
 INSERT INTO orders (user_id,nickname, orders_name,orders_price, orders_introduction, orders_status, created_time,successful_bidder)
 VALUES
     (1,'jack', 'Order 101',500, 'This order includes 5 units of Product A and 3 units of Product B.', 'completed', '2024-07-28 01:45:30','alice'),
-    (2,'john', 'Order 102',5000, 'This order includes 2 units of Product C and 1 unit of Product D.', 'processing', '2024-05-28 01:45:30','null'),
-    (3,'alice', 'Order 103',1500, 'This order includes 10 units of Product E and 5 units of Product F.', 'completed', '2025-10-28 01:45:30','bob'),
-    (4,'bob', 'Order 104',3500, 'This order includes 1 unit of Product G and 2 units of Product H.', 'processing', '2026-01-28 01:45:30','carol'),
-    (5,'carol', 'Order 105',2000, 'This order includes 3 units of Product I and 4 units of Product J.', 'processing', '2024-11-28 01:45:30','frank'),
-    (6,'david', 'Order 106',12000, 'This order includes 4 units of Product K and 2 units of Product L.', 'processing', '2026-11-28 01:45:30','george'),
-    (7,'elizabeth', 'Order 107',8000, 'This order includes 7 units of Product M and 5 units of Product N.', 'processing', '2027-07-28 01:45:30','null'),
-    (8,'frank', 'Order 108',11000, 'This order includes 6 units of Product O and 1 unit of Product P.', 'pending','2025-08-28 01:45:30','null'),
+    (2,'john', 'Order 102',5000, 'This order includes 2 units of Product C and 1 unit of Product D.', 'processing', '2023-05-25 01:45:30','null'),
+    (3,'alice', 'Order 103',1500, 'This order includes 10 units of Product E and 5 units of Product F.', 'completed', '2024-07-15 01:45:30','bob'),
+    (4,'bob', 'Order 104',3500, 'This order includes 1 unit of Product G and 2 units of Product H.', 'processing', '2023-01-28 01:45:30','carol'),
+    (5,'carol', 'Order 105',2000, 'This order includes 3 units of Product I and 4 units of Product J.', 'processing', '2024-06-28 01:45:30','frank'),
+    (6,'david', 'Order 106',12000, 'This order includes 4 units of Product K and 2 units of Product L.', 'processing', '2024-05-20 01:45:30','george'),
+    (7,'elizabeth', 'Order 107',8000, 'This order includes 7 units of Product M and 5 units of Product N.', 'processing', '2023-07-01 01:45:30','null'),
+    (8,'frank', 'Order 108',11000, 'This order includes 6 units of Product O and 1 unit of Product P.', 'pending','2022-08-28 01:45:30','null'),
     (9,'george', 'Order 109',18000, 'This order includes 2 units of Product Q and 3 units of Product R.', 'processing', '2024-03-28 01:45:30','john'),
     (10,'helen', 'Order 110',750, 'This order includes 8 units of Product S and 4 units of Product T.', 'completed', '2024-01-28 01:45:30','elizabeth');
 

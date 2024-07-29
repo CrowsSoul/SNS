@@ -19,6 +19,7 @@ public class Order {
     private String nickname;
     private String orders_name;
     private String orders_introduction;
+    @JsonProperty("order_price")
     private int orders_price;
     private String orders_status;
     private LocalDateTime created_time;
