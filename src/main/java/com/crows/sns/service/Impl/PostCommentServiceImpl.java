@@ -19,6 +19,7 @@ public class PostCommentServiceImpl implements PostCommentService
     public Comment addComment(Comment comment) {
         int userId = userMapper.findUserIdByNickname(comment.getAuthor());
         comment.setUserId(userId);
+        commentMapper.addComment(comment);
         return comment;
     }
 }
