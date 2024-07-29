@@ -1,8 +1,7 @@
 package com.crows.sns.mapper;
 
 import com.crows.sns.pojo.Order;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -16,4 +15,32 @@ public interface OrderMapper {
 
     @Select("SELECT * FROM orders WHERE orders_id = #{orderId}")
     public Order getOrderById(int orderId);
+
+    @Insert("INSERT INTO user_order (orders_id, user_id) VALUES (#{orderId}, #{userId})")
+    public void insertOrderIdAndUserId(int orderId, int userId);
+
+    @Delete("DELETE FROM orders WHERE orders_id = #{orderId}")
+    public void deleteOrderById(int orderId);
+
+    @Insert("INSERT INTO orders(user_id, " +
+            "nickname, orders_name, " +
+            "orders_price, orders_introduction, " +
+            "orders_status, created_time, successful_bidder) VALUES " +
+            "(#{user_id}, #{nickname}, #{orders_name}, " +
+            "#{orders_price}, #{orders_introduction}, " +
+            "#{orders_status}, #{created_time}, #{successful_bidder})")
+    public void insertOrder(Order order);
+
+    @Update("UPDATE orders SET " +
+            "nickname = #{nickname}, orders_name = #{orders_name}, " +
+            "orders_price = #{orders_price}, orders_introduction = #{orders_introduction}, " +
+            "orders_status = #{orders_status}, created_time = now(), " +
+            "successful_bidder = #{successful_bidder} WHERE orders_id = #{orders_id}")
+    public void updateOrder(Order order);
+
+    @Delete("DELETE FROM user_order WHERE orders_id = #{orderId}")
+    public void deleteUserIdsByOrderId(int orderId);
+
+    @Update("UPDATE orders SET orders_status = 'processing' WHERE orders_id = #{orders_id}")
+    public void approveOrder(int ordersId);
 }
