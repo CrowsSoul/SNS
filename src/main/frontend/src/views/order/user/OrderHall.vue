@@ -84,7 +84,7 @@ export default {
         (order) =>
           order.orders_status !== "pending" &&
           order.orders_status !== "completed" &&
-          order.successful_bidder === "null" &&
+          order.successful_bidder === null &&
           order.user !== this.user.nickname &&
           !order.bidders.includes(this.user.nickname)
       );
