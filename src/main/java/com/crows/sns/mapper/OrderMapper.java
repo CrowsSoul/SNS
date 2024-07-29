@@ -13,4 +13,7 @@ public interface OrderMapper {
 
     @Select("SELECT user_id FROM user_order WHERE orders_id = #{orderId}")
     public List<Integer> getUserIdsByOrderId(int orderId);
+
+    @Select("SELECT * FROM orders WHERE orders_id = #{orderId}")
+    public Order getOrderById(int orderId);
 }
