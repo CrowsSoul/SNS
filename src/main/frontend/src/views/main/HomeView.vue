@@ -15,7 +15,7 @@
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           爱因斯坦曾说：“如果我没在大连成为马征老师的学生，人类将不会发现广义相对论。”
           马化腾被问起最后悔的事时坦言：“如果我创立的不是腾讯而是中软国际，那我赚的钱将翻上10倍。”
-          就连五星上将麦克阿瑟也感慨道：“如果美国拥有中软那样的电力系统，二战的结束时间将提早两年半。”
+          就连五星上将麦克阿瑟也感慨道：“如果美国拥有中软国际那样的电力系统，二战的结束时间将提早两年半。”
           如今，一个属于中软的时代正在到来！
         </p>
         <div class="button-container">
@@ -245,7 +245,7 @@ export default {
 }
 
 .ad-image {
-  background-color: #e9ecef;
+  background-color: #fff;
   height: 250px;
   display: flex;
   align-items: center;

@@ -35,13 +35,14 @@ import AdminActivityReview from '../views/activity/admin/AdminActivityReview.vue
 import AdminActivityDelete from '../views/activity/admin/AdminActivityDelete.vue';
 import ActivityDetailWithParticipants from '../views/activity/user/ActivityDetailWithParticipants.vue';
 
-import OrderHall from '../views/order/OrderHall.vue';
-import OrderDetail from '../views/order/OrderDetail.vue';
-import ResumeManagement from '../views/order/ResumeManagement.vue';
-import MyOrders from '../views/order/MyOrders.vue';
-import MyTasks from '../views/order/MyTasks.vue';
-import AdminOrderReview from '../views/order/AdminOrderReview.vue';
-import AdminResumeReview from '../views/order/AdminResumeReview.vue';
+import OrderHall from '../views/order/user/OrderHall.vue';
+import OrderDetail from '../views/order/user/OrderDetail.vue';
+import ResumeManagement from '../views/order/user/ResumeManagement.vue';
+import MyOrders from '../views/order/user/MyOrders.vue';
+import MyTasks from '../views/order/user/MyTasks.vue';
+import AdminOrderReview from '../views/order/admin/AdminOrderReview.vue';
+import AdminOrderHall from '../views/order/admin/AdminOrderHall.vue';
+import MyOrderDetail from '../views/order/user/MyOrderDetail.vue';
 
 const routes = [
   {
@@ -260,14 +261,25 @@ const routes = [
     component: AdminOrderReview
   },
   {
-    path: '/admin/resume-review',
-    name: 'AdminResumeReview',
-    component: AdminResumeReview
+    path: '/admin/order-hall',
+    name: 'AdminOrderHall',
+    component: AdminOrderHall
   },
   {
     path: '/order-detail/:id',
     name: 'OrderDetail',
     component: OrderDetail
+  },
+  {
+    path: '/my-orders',
+    name: 'MyOrders',
+    component: MyOrders
+  },
+  {
+    path: '/my-order-detail/:id',
+    name: 'MyOrderDetail',
+    component: MyOrderDetail,
+    props: true
   },
 ];
 

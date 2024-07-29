@@ -1,0 +1,80 @@
+[
+  {
+    "resume_id": 1,
+    "user": "杰克",
+    "content": "我是虾杰克，来自HIT，目前是一名学生，对前端开发非常感兴趣，掌握了HTML、CSS和JavaScript。",
+    "status": "active",
+    "created_time": {
+      "date": "2024-07-28",
+      "time": "10:00:00"
+    },
+    "work_experience": "已就业3年以上",
+    "education": "博士",
+    "skills": [
+      "平面设计",
+      "网络管理",
+      "数据分析",
+      "前端"
+    ]
+  },
+  {
+    "resume_id": 2,
+    "user": "UserI",
+    "content": "我是用户I，已经就业1年，主要从事后端开发，熟悉Java和Spring框架。",
+    "status": "active",
+    "created_time": {
+      "date": "2024-07-28",
+      "time": "11:00:00"
+    },
+    "work_experience": "已就业3年以内",
+    "education": "硕士",
+    "skills": [
+      "后端"
+    ]
+  },
+  {
+    "resume_id": 3,
+    "user": "UserJ",
+    "content": "我是用户J，拥有超过5年的软件设计经验，擅长设计复杂的软件系统。",
+    "status": "active",
+    "created_time": {
+      "date": "2024-07-28",
+      "time": "12:00:00"
+    },
+    "work_experience": "已就业3年以上",
+    "education": "博士",
+    "skills": [
+      "软件设计"
+    ]
+  },
+  {
+    "resume_id": 4,
+    "user": "1004",
+    "content": "我是用户1004，目前是一名平面设计师，熟练使用Photoshop和Illustrator。",
+    "status": "active",
+    "created_time": {
+      "date": "2024-07-28",
+      "time": "13:00:00"
+    },
+    "work_experience": "已就业3年以内",
+    "education": "大专",
+    "skills": [
+      "平面设计"
+    ]
+  },
+  {
+    "resume_id": 5,
+    "user": "UserG",
+    "content": "我是用户G，专注于网络管理，具有3年以上的网络维护经验。",
+    "status": "active",
+    "created_time": {
+      "date": "2024-07-28",
+      "time": "14:00:00"
+    },
+    "work_experience": "已就业3年以上",
+    "education": "本科",
+    "skills": [
+      "网络管理"
+    ]
+  }
+]

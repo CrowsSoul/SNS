@@ -1,42 +1,66 @@
 <template>
   <div class="order-hall">
-    <h1>订单大厅</h1>
+    <h1>订单管理</h1>
     <div class="filters">
-      <input type="text" v-model="searchQuery" placeholder="搜索订单名" />
-      <input type="text" v-model="initiatorQuery" placeholder="发起人名" />
-      <button @click="applyFilters" class="search-button">搜索</button>
+      <input type="text" v-model="searchQuery" placeholder="搜索订单" />
+      <button @click="applySearch" class="search-button">搜索</button>
     </div>
     <div class="advanced-filters">
-      <label for="priceRange">按价格筛选:</label>
-      <select id="priceRange" v-model="priceRange">
+      <label for="priceFilter">按价格筛选:</label>
+      <select id="priceFilter" v-model="priceFilter">
         <option value="all">无限制</option>
-        <option value="below1000">￥1000以下</option>
-        <option value="1000to3000">￥1000-3000</option>
-        <option value="3000to10000">￥3000-10000</option>
-        <option value="above10000">￥10000以上</option>
+        <option value="1000以下">￥1000以下</option>
+        <option value="1000-3000">￥1000-3000</option>
+        <option value="3000-10000">￥3000-10000</option>
+        <option value="10000以上">￥10000以上</option>
       </select>
-      <label for="dateRange">按发布时间筛选:</label>
-      <select id="dateRange" v-model="dateRange">
+
+      <label for="dateFilter">按日期筛选:</label>
+      <select id="dateFilter" v-model="dateFilter">
         <option value="all">无限制</option>
-        <option value="7days">7天内</option>
-        <option value="30days">30天内</option>
-        <option value="180days">180天内</option>
+        <option value="7days">近7天</option>
+        <option value="30days">近30天</option>
+        <option value="180days">近180天</option>
       </select>
+
       <button @click="applyFilters" class="filter-button">应用筛选</button>
     </div>
-    <ul v-if="paginatedOrders.length > 0">
-      <li v-for="order in paginatedOrders" :key="order.orders_id">
-        <h2>{{ order.orders_name }}</h2>
-        <p>价格: ￥{{ order.order_price }}</p>
+    <ul v-if="filteredOrders.length > 0" class="order-list">
+      <li
+        v-for="order in paginatedOrders"
+        :key="order.orders_id"
+        class="order-item"
+      >
+        <div class="order-info">
+          <div class="order-name">{{ order.orders_name }}</div>
+          <div
+            v-if="order.orders_status === 'completed'"
+            class="order-status completed"
+          >
+            已完成
+          </div>
+          <div
+            v-else-if="order.successful_bidder"
+            class="order-status in-progress"
+          >
+            进行中
+          </div>
+          <div v-else class="order-status bidding">竞标中</div>
+          <div class="order-price">￥{{ order.order_price }}</div>
+        </div>
         <router-link
-          :to="{ name: 'OrderDetail', params: { id: order.orders_id } }"
-          class="action-button"
+          :to="{
+            name: 'AdminOrderDetail',
+            params: { id: order.orders_id },
+            query: { from: 'admin-order-hall' },
+          }"
+          class="view-detail-button"
           >查看详情</router-link
         >
       </li>
     </ul>
     <div v-else>
-      <p>没有相关订单...</p>
+      <p>没有符合条件的订单...</p>
     </div>
     <div class="pagination">
       <button @click="prevPage" :disabled="currentPage === 1">上一页</button>
@@ -52,21 +76,23 @@
 import axios from "@/utils/axios";
 
 export default {
-  name: "OrderHall",
+  name: "AdminOrderHall",
   data() {
     return {
       searchQuery: "",
-      initiatorQuery: "",
-      priceRange: "all",
-      dateRange: "all",
+      priceFilter: "all",
+      dateFilter: "all",
       orders: [],
       currentPage: 1,
-      ordersPerPage: 4,
+      ordersPerPage: 5,
+      loading: true,
     };
   },
   computed: {
     filteredOrders() {
-      let filtered = this.orders;
+      let filtered = this.orders.filter(
+        (order) => order.orders_status !== "pending"
+      );
 
       if (this.searchQuery) {
         filtered = filtered.filter((order) =>
@@ -74,34 +100,34 @@ export default {
         );
       }
 
-      if (this.initiatorQuery) {
-        filtered = filtered.filter((order) =>
-          order.user_id.includes(this.initiatorQuery)
-        );
-      }
-
-      if (this.priceRange !== "all") {
+      if (this.priceFilter !== "all") {
         filtered = filtered.filter((order) => {
-          if (this.priceRange === "below1000") return order.order_price < 1000;
-          if (this.priceRange === "1000to3000")
-            return order.order_price >= 1000 && order.order_price <= 3000;
-          if (this.priceRange === "3000to10000")
-            return order.order_price >= 3000 && order.order_price <= 10000;
-          if (this.priceRange === "above10000")
-            return order.order_price > 10000;
+          const price = order.order_price;
+          if (this.priceFilter === "1000以下") {
+            return price < 1000;
+          } else if (this.priceFilter === "1000-3000") {
+            return price >= 1000 && price <= 3000;
+          } else if (this.priceFilter === "3000-10000") {
+            return price >= 3000 && price <= 10000;
+          } else if (this.priceFilter === "10000以上") {
+            return price > 10000;
+          }
+          return true;
         });
       }
 
-      if (this.dateRange !== "all") {
+      if (this.dateFilter !== "all") {
         const now = new Date();
         filtered = filtered.filter((order) => {
-          const orderDate = new Date(order.created_time.replace(/-/g, "/"));
-          if (this.dateRange === "7days")
+          const orderDate = new Date(order.created_time);
+          if (this.dateFilter === "7days") {
             return now - orderDate <= 7 * 24 * 60 * 60 * 1000;
-          if (this.dateRange === "30days")
+          } else if (this.dateFilter === "30days") {
             return now - orderDate <= 30 * 24 * 60 * 60 * 1000;
-          if (this.dateRange === "180days")
+          } else if (this.dateFilter === "180days") {
             return now - orderDate <= 180 * 24 * 60 * 60 * 1000;
+          }
+          return true;
         });
       }
 
@@ -119,11 +145,16 @@ export default {
   methods: {
     async fetchOrders() {
       try {
-        const ordersResponse = await axios.get("/orders");
-        this.orders = ordersResponse.data.orders;
+        const response = await axios.get("/orders");
+        this.orders = response.data.orders;
       } catch (error) {
         console.error("获取订单列表失败", error);
+      } finally {
+        this.loading = false;
       }
+    },
+    applySearch() {
+      this.currentPage = 1;
     },
     applyFilters() {
       this.currentPage = 1;
@@ -148,15 +179,12 @@ export default {
   },
   watch: {
     searchQuery() {
+      this.applySearch();
+    },
+    priceFilter() {
       this.applyFilters();
     },
-    initiatorQuery() {
-      this.applyFilters();
-    },
-    priceRange() {
-      this.applyFilters();
-    },
-    dateRange() {
+    dateFilter() {
       this.applyFilters();
     },
   },
@@ -182,7 +210,6 @@ export default {
 }
 
 .filters input,
-.advanced-filters input,
 .advanced-filters select {
   flex: 1;
   padding: 10px;
@@ -217,42 +244,71 @@ export default {
   background-color: #5a2d91;
 }
 
-ul {
+.order-list {
   list-style: none;
   padding: 0;
 }
 
-li {
+.order-item {
   background: white;
   padding: 20px;
   margin-bottom: 10px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-li h2 {
-  margin: 0;
+.order-info {
+  display: flex;
+  flex-direction: column;
 }
 
-li p {
-  margin: 10px 0;
+.order-name {
+  font-size: 18px;
+  font-weight: bold;
 }
 
-.action-button {
+.order-price {
+  font-size: 16px;
+  color: #666;
+}
+
+.view-detail-button {
   padding: 10px 20px;
-  margin-top: 10px;
   background-color: #007bff;
   color: white;
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  display: inline-block;
-  text-align: center;
   text-decoration: none;
+  text-align: center;
 }
 
-.action-button:hover {
+.view-detail-button:hover {
   background-color: #0056b3;
+}
+
+.order-status {
+  margin-top: 5px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+}
+
+.order-status.completed {
+  background-color: #810c9e;
+}
+
+.order-status.in-progress {
+  background-color: #f36f9b;
+}
+
+.order-status.bidding {
+  background-color: #ff0000;
 }
 
 .pagination {
