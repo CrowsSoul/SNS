@@ -169,7 +169,7 @@ CREATE TABLE user_activities (
 CREATE TABLE resumes (
     resume_id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     user_id INT  NOT NULL,
-    nickname_name varchar(30),
+    nickname varchar(30),
     content TEXT NOT NULL,
     status VARCHAR(20) NOT NULL,
     created_time DATETIME NOT NULL,
