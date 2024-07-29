@@ -89,7 +89,7 @@ export default {
       }
       try {
         const response = await axios.get(`/resumes`);
-        this.resume = response.data.resumes.find(
+        this.resume = response.data.find(
           (r) => r.user === user.nickname
         );
       } catch (error) {
