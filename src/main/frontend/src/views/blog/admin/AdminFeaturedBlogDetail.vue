@@ -50,6 +50,9 @@ export default {
       try {
         const updatedStatus = !this.blog.isRecommended;
         await axios.put(`/blogs/${this.blog.id}`, {
+          title: this.blog.title,
+          content: this.blog.content,
+          author: this.blog.author,
           isRecommended: updatedStatus,
         });
         this.blog.isRecommended = updatedStatus;
