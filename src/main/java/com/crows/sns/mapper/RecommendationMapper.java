@@ -10,4 +10,7 @@ import java.util.List;
 public interface RecommendationMapper {
     @Select("SELECT * FROM recommendation")
     public List<Recommendation> getAllRecommendations();
+
+    @Select("SELECT * FROM recommendation WHERE recommendation_id = #{id}")
+    public Recommendation getRecommendationById(int id);
 }
