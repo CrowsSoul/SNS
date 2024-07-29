@@ -294,12 +294,12 @@ export default {
         const user = this.user;
         const newOrder = {
           ...this.newOrder,
-          orders_id: Date.now(), // 简单的订单ID生成方式
+          orders_id: 1, // 简单的订单ID生成方式
           user: user.nickname,
           orders_status: "pending",
           bidders: [],
           successful_bidder: null,
-          created_time: new Date().toISOString().slice(0, 19).replace("T", " "), // 设置创建时间
+          created_time: new Date().toISOString(), // 设置创建时间
         };
         await axios.post("/orders", newOrder);
         this.orders.push(newOrder);
