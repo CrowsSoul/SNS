@@ -301,12 +301,10 @@ export default {
           successful_bidder: null,
           created_time: new Date().toISOString(), // 设置创建时间
         };
-        await axios.post("/orders", newOrder);
-        this.orders.push(newOrder);
+        const response = await axios.post("/orders", newOrder);
+        window.location.reload();
+        this.orders.push(response);
         this.setTab("pending");
-        this.$nextTick(() => {
-          this.$forceUpdate();
-        });
       } catch (error) {
         console.error("发布新订单失败", error);
       }
