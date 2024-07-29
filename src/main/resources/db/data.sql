@@ -104,7 +104,7 @@ VALUES
 
 
 
-INSERT INTO pushinfor_comments (pushinfor_id, user_id, content, status, comment_time)
+INSERT INTO recommendation_comments (recommendation_id, user_id, content, status, comment_time)
 VALUES
     (1, 2, 'This sounds like a great opportunity!', 'approved', NOW()),
     (1, 3, 'I have experience in software engineering and would love to apply.', 'approved', NOW()),
@@ -118,7 +118,7 @@ VALUES
     (9, 1, 'I am a full stack developer and interested in this position. Can we schedule an interview?', 'approved', NOW());
 
 
-INSERT INTO pushinfor_reviews (pushinfor_id, user_id, result, suggestion, review_time)
+INSERT INTO recommendation_reviews (recommendation_id, user_id, result, suggestion, review_time)
 VALUES
     (1, 3, 'approved', 'Great opportunity, proceed with posting.', NOW()),
     (2, 4, 'approved', 'Post is clear and detailed.', NOW()),
@@ -287,6 +287,6 @@ VALUES
 
 
 /*向用户收藏内推的中间表中加入数据*/
-INSERT INTO user_pushinfor_favorites (user_id, pushinfor_id)
+INSERT INTO user_recommendation_favorites (user_id, recommendation_id)
 VALUES (1, 1), (1, 2), (2, 3), (2, 4), (3, 5),
        (3, 1), (4, 2), (4, 4), (5, 1), (5, 3);
