@@ -163,7 +163,7 @@ VALUES
 
 
 
-INSERT INTO resumes (user_id,user_name, content, status, created_time, work_experience,education)
+INSERT INTO resumes (user_id,nickname, content, status, created_time, work_experience,education)
 VALUES
     (1,'jack', 'Objective: Seeking a software engineer position with XYZ Corp. Skills include Java, Python, and C++. Education: B.S. in Computer Science from University of California, Berkeley.', 'active', NOW(),'学生','高中或以下'),
     (2,'john', 'Objective: A highly motivated product manager with over 5 years of experience in launching successful products. Skills include Agile methodologies, product strategy, and stakeholder management. Education: MBA from Stanford Graduate School of Business.', 'active', NOW(),'已就业三年以内','硕士'),
