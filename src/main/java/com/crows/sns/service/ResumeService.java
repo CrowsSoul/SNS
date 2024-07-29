@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface ResumeService {
     public List<Resume> getAllResumes();
-    public Resume getOneResume(int id);
+    public Resume getOneResume(String nickname);
     public Resume editResume(Resume resume);
 }
