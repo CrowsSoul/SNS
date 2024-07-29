@@ -1,61 +1,6 @@
 <template>
   <div class="order-hall">
-    <h1>订单大厅</h1>
-    <div class="filters">
-      <input type="text" v-model="searchQuery" placeholder="搜索订单" />
-      <button @click="applySearch" class="search-button">搜索</button>
-    </div>
-    <div class="advanced-filters">
-      <label for="priceFilter">按价格筛选:</label>
-      <select id="priceFilter" v-model="priceFilter">
-        <option value="all">无限制</option>
-        <option value="1000以下">￥1000以下</option>
-        <option value="1000-3000">￥1000-3000</option>
-        <option value="3000-10000">￥3000-10000</option>
-        <option value="10000以上">￥10000以上</option>
-      </select>
-
-      <label for="dateFilter">按日期筛选:</label>
-      <select id="dateFilter" v-model="dateFilter">
-        <option value="all">无限制</option>
-        <option value="7days">近7天</option>
-        <option value="30days">近30天</option>
-        <option value="180days">近180天</option>
-      </select>
-
-      <button @click="applyFilters" class="filter-button">应用筛选</button>
-    </div>
-    <ul v-if="filteredOrders.length > 0" class="order-list">
-      <li
-        v-for="order in paginatedOrders"
-        :key="order.orders_id"
-        class="order-item"
-      >
-        <div class="order-info">
-          <div class="order-name">{{ order.orders_name }}</div>
-          <div class="order-price">￥{{ order.order_price }}</div>
-        </div>
-        <router-link
-          :to="{
-            name: 'OrderDetail',
-            params: { id: order.orders_id },
-            query: { from: 'order-hall' },
-          }"
-          class="view-detail-button"
-          >查看详情</router-link
-        >
-      </li>
-    </ul>
-    <div v-else>
-      <p>没有符合条件的订单...</p>
-    </div>
-    <div class="pagination">
-      <button @click="prevPage" :disabled="currentPage === 1">上一页</button>
-      <span>第 {{ currentPage }} 页，共 {{ totalPages }} 页</span>
-      <button @click="nextPage" :disabled="currentPage === totalPages">
-        下一页
-      </button>
-    </div>
+    <h1>审核</h1>
   </div>
 </template>
 

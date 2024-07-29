@@ -42,6 +42,7 @@ import MyOrders from '../views/order/user/MyOrders.vue';
 import MyTasks from '../views/order/user/MyTasks.vue';
 import AdminOrderReview from '../views/order/admin/AdminOrderReview.vue';
 import AdminOrderHall from '../views/order/admin/AdminOrderHall.vue';
+import AdminOrderDetail from '../views/order/admin/AdminOrderDetail.vue';
 import MyOrderDetail from '../views/order/user/MyOrderDetail.vue';
 
 const routes = [
@@ -264,6 +265,11 @@ const routes = [
     path: '/admin/order-hall',
     name: 'AdminOrderHall',
     component: AdminOrderHall
+  },
+  {
+    path: '/admin-order-detail/:id',
+    name: 'AdminOrderDetail',
+    component: () => AdminOrderDetail
   },
   {
     path: '/order-detail/:id',
