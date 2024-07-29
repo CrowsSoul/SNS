@@ -5,7 +5,7 @@
       <div v-if="isCompleted" class="completed-badge">已完成</div>
       <div v-else-if="isSuccessfulBidder" class="success-badge">接单成功</div>
     </div>
-    <p>简介: {{ order.orders_intrudction }}</p>
+    <p>简介: {{ order.orders_introduction }}</p>
     <p>发布时间: {{ order.created_time }}</p>
     <p>价格: ￥{{ order.order_price }}</p>
     <div class="buttons">

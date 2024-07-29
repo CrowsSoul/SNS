@@ -55,7 +55,7 @@
           <label for="order-introduction">简介:</label>
           <textarea
             id="order-introduction"
-            v-model="newOrder.orders_intrudction"
+            v-model="newOrder.orders_introduction"
             required
           ></textarea>
         </div>
@@ -195,7 +195,7 @@ export default {
       newOrder: {
         orders_name: "",
         order_price: 0,
-        orders_intrudction: "",
+        orders_introduction: "",
       },
     };
   },
