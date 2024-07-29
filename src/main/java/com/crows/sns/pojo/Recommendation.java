@@ -30,4 +30,11 @@ public class Recommendation {
         this.salaryRange.setMax_salary(max_salary);
         this.salaryRange.setMin_salary(min_salary);
     }
+
+    public void makeMaxMin()
+    {
+        this.max_salary = this.salaryRange.getMax_salary();
+        this.min_salary = this.salaryRange.getMin_salary();
+    }
+
 }
