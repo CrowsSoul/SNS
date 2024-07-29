@@ -45,6 +45,7 @@ export default {
           const blog = response.data;
           this.title = blog.title;
           this.content = blog.content;
+          this.isRecommended = blog.isRecommended;
           this.isEditing = true;
           this.blogId = blogId;
         } catch (error) {
@@ -66,7 +67,7 @@ export default {
         content: this.content,
         author: user.nickname,
         status: "pending",
-        isRecommended: this.blog.isRecommended,
+        isRecommended: this.isRecommended,
       };
       try {
         if (this.isEditing) {
