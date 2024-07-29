@@ -102,7 +102,7 @@ CREATE TABLE recommendation (
     companyName varchar(20) not null ,
     user_id INT  NOT NULL,
     author varchar(30) not null,
-    title VARCHAR(200) NOT NULL,
+    title VARCHAR(200) ,
     content TEXT NOT NULL,
     abstract TINYTEXT ,
     summary varchar(20) not null,
