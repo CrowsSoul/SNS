@@ -31,4 +31,6 @@ public interface RecommendationMapper {
             "WHERE recommendation_id = #{recommendation_id}")
     public void updateRecommendation(Recommendation recommendation);
 
+    @Delete("DELETE FROM recommendation WHERE recommendation_id = #{id}")
+    public void deleteRecommendationById(int id);
 }
