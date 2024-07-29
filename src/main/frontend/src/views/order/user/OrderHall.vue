@@ -89,7 +89,7 @@ export default {
           !order.bidders.includes(this.user.nickname)
       );
 
-      /*  if (this.searchQuery) {
+      if (this.searchQuery) {
         filtered = filtered.filter((order) =>
           order.orders_name.includes(this.searchQuery)
         );
@@ -124,7 +124,7 @@ export default {
           }
           return true;
         });
-      } */
+      }
 
       return filtered;
     },

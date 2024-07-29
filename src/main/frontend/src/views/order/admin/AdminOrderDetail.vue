@@ -50,7 +50,7 @@ export default {
       return this.order.orders_status === "completed";
     },
     isInProgress() {
-      return this.order.successful_bidder !== null;
+      return this.order.successful_bidder !== "null";
     },
   },
   methods: {
