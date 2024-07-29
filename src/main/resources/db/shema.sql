@@ -235,7 +235,7 @@ CREATE TABLE order_reviews (
     result VARCHAR(20) NOT NULL,
     comment VARCHAR(50) NOT NULL,
     reviewed_time DATETIME NOT NULL,
-    FOREIGN KEY (orders_id) REFERENCES orders(orders_id),
+    FOREIGN KEY (orders_id) REFERENCES orders(orders_id) on delete cascade ,
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
@@ -277,7 +277,7 @@ CREATE TABLE user_order(
     orders_id int UNSIGNED not null,
     PRIMARY KEY(user_id,orders_id),
     FOREIGN KEY (user_id) REFERENCES users(user_id),
-    FOREIGN KEY (orders_id) REFERENCES orders(orders_id)
+    FOREIGN KEY (orders_id) REFERENCES orders(orders_id) on delete cascade
 );
 
 
