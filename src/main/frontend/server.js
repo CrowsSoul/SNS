@@ -334,6 +334,9 @@ app.delete('/activities/:id', (req, res) => {
   }
 });
 
+
+
+
 // 获取所有订单
 app.get('/orders', (req, res) => {
   const orders = readJsonFile('./data/orders.json');
@@ -371,6 +374,21 @@ app.put('/orders/:id', (req, res) => {
     orders.orders[orderIndex] = { ...orders.orders[orderIndex], ...req.body };
     writeJsonFile('./data/orders.json', orders);
     res.json(orders.orders[orderIndex]);
+  } else {
+    res.status(404).json({ message: '订单未找到' });
+  }
+});
+
+// 订单过审
+app.put('/orders/:id/approve', (req, res) => {
+  const orders = readJsonFile('./data/orders.json');
+  const orderId = parseInt(req.params.id, 10);
+  const orderIndex = orders.orders.findIndex((order) => order.orders_id === orderId);
+
+  if (orderIndex !== -1) {
+    orders.orders[orderIndex].orders_status = 'processing';
+    writeJsonFile('./data/orders.json', orders);
+    res.status(200).json({ message: '订单过审成功' });
   } else {
     res.status(404).json({ message: '订单未找到' });
   }

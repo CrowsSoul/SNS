@@ -1,6 +1,79 @@
 <template>
-  <div class="order-hall">
-    <h1>审核</h1>
+  <div class="order-review">
+    <h1>订单审核</h1>
+    <ul v-if="pendingOrders.length > 0" class="order-list">
+      <li
+        v-for="order in paginatedPendingOrders"
+        :key="order.orders_id"
+        class="order-item"
+      >
+        <div class="order-info">
+          <div class="order-name">{{ order.orders_name }}</div>
+          <div class="order-price">￥{{ order.order_price }}</div>
+        </div>
+        <div class="buttons">
+          <button @click="viewDetails(order)" class="view-detail-button">
+            查看详情
+          </button>
+          <button
+            @click="confirmApprove(order.orders_id)"
+            class="approve-button"
+          >
+            过审
+          </button>
+          <button @click="confirmReject(order.orders_id)" class="reject-button">
+            不过审
+          </button>
+        </div>
+      </li>
+    </ul>
+    <div v-else>
+      <p>没有待审核的订单...</p>
+    </div>
+    <div class="pagination">
+      <button @click="prevPage" :disabled="currentPage === 1">上一页</button>
+      <span>第 {{ currentPage }} 页，共 {{ totalPages }} 页</span>
+      <button @click="nextPage" :disabled="currentPage === totalPages">
+        下一页
+      </button>
+    </div>
+
+    <div v-if="showDetails" class="detail-box">
+      <div class="detail-box-content">
+        <h3>订单详情</h3>
+        <p><strong>订单名:</strong> {{ selectedOrder.orders_name }}</p>
+        <p><strong>简介:</strong> {{ selectedOrder.orders_intrudction }}</p>
+        <p><strong>发布时间:</strong> {{ selectedOrder.created_time }}</p>
+        <p><strong>价格:</strong> ￥{{ selectedOrder.order_price }}</p>
+        <p>
+          <strong>接单成功者:</strong>
+          {{ selectedOrder.successful_bidder || "暂无" }}
+        </p>
+        <button @click="closeDetails" class="close-button">返回</button>
+      </div>
+    </div>
+
+    <div v-if="showApproveConfirm" class="confirm-box">
+      <div class="confirm-box-content">
+        <p>您确认该订单过审吗？</p>
+        <div class="confirm-buttons">
+          <button @click="approveOrder" class="confirm-button">是</button>
+          <button @click="cancelApproveConfirm" class="cancel-button">
+            否
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div v-if="showRejectConfirm" class="confirm-box">
+      <div class="confirm-box-content">
+        <p>您确认该订单不过审吗？</p>
+        <div class="confirm-buttons">
+          <button @click="rejectOrder" class="confirm-button">是</button>
+          <button @click="cancelRejectConfirm" class="cancel-button">否</button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -8,78 +81,32 @@
 import axios from "@/utils/axios";
 
 export default {
-  name: "OrderHall",
+  name: "AdminOrderReview",
   data() {
     return {
-      searchQuery: "",
-      priceFilter: "all",
-      dateFilter: "all",
       orders: [],
       currentPage: 1,
       ordersPerPage: 5,
+      showDetails: false,
+      selectedOrder: null,
+      showApproveConfirm: false,
+      showRejectConfirm: false,
+      orderToApprove: null,
+      orderToReject: null,
       loading: true,
     };
   },
   computed: {
-    user() {
-      return JSON.parse(localStorage.getItem("user"));
+    pendingOrders() {
+      return this.orders.filter((order) => order.orders_status === "pending");
     },
-    filteredOrders() {
-      let filtered = this.orders.filter(
-        (order) =>
-          order.orders_status !== "pending" &&
-          order.orders_status !== "completed" &&
-          order.successful_bidder === null &&
-          order.user !== this.user.nickname &&
-          !order.bidders.includes(this.user.nickname)
-      );
-
-      if (this.searchQuery) {
-        filtered = filtered.filter((order) =>
-          order.orders_name.includes(this.searchQuery)
-        );
-      }
-
-      if (this.priceFilter !== "all") {
-        filtered = filtered.filter((order) => {
-          const price = order.order_price;
-          if (this.priceFilter === "1000以下") {
-            return price < 1000;
-          } else if (this.priceFilter === "1000-3000") {
-            return price >= 1000 && price <= 3000;
-          } else if (this.priceFilter === "3000-10000") {
-            return price >= 3000 && price <= 10000;
-          } else if (this.priceFilter === "10000以上") {
-            return price > 10000;
-          }
-          return true;
-        });
-      }
-
-      if (this.dateFilter !== "all") {
-        const now = new Date();
-        filtered = filtered.filter((order) => {
-          const orderDate = new Date(order.created_time);
-          if (this.dateFilter === "7days") {
-            return now - orderDate <= 7 * 24 * 60 * 60 * 1000;
-          } else if (this.dateFilter === "30days") {
-            return now - orderDate <= 30 * 24 * 60 * 60 * 1000;
-          } else if (this.dateFilter === "180days") {
-            return now - orderDate <= 180 * 24 * 60 * 60 * 1000;
-          }
-          return true;
-        });
-      }
-
-      return filtered;
-    },
-    paginatedOrders() {
+    paginatedPendingOrders() {
       const start = (this.currentPage - 1) * this.ordersPerPage;
       const end = start + this.ordersPerPage;
-      return this.filteredOrders.slice(start, end);
+      return this.pendingOrders.slice(start, end);
     },
     totalPages() {
-      return Math.ceil(this.filteredOrders.length / this.ordersPerPage);
+      return Math.ceil(this.pendingOrders.length / this.ordersPerPage);
     },
   },
   methods: {
@@ -93,11 +120,50 @@ export default {
         this.loading = false;
       }
     },
-    applySearch() {
-      this.currentPage = 1;
+    viewDetails(order) {
+      this.selectedOrder = order;
+      this.showDetails = true;
     },
-    applyFilters() {
-      this.currentPage = 1;
+    closeDetails() {
+      this.showDetails = false;
+    },
+    confirmApprove(orderId) {
+      this.orderToApprove = orderId;
+      this.showApproveConfirm = true;
+    },
+    cancelApproveConfirm() {
+      this.showApproveConfirm = false;
+      this.orderToApprove = null;
+    },
+    async approveOrder() {
+      if (!this.orderToApprove) return;
+      try {
+        await axios.put(`/orders/${this.orderToApprove}/approve`);
+        this.fetchOrders();
+        this.showApproveConfirm = false;
+        this.orderToApprove = null;
+      } catch (error) {
+        console.error("订单过审失败", error);
+      }
+    },
+    confirmReject(orderId) {
+      this.orderToReject = orderId;
+      this.showRejectConfirm = true;
+    },
+    cancelRejectConfirm() {
+      this.showRejectConfirm = false;
+      this.orderToReject = null;
+    },
+    async rejectOrder() {
+      if (!this.orderToReject) return;
+      try {
+        await axios.delete(`/orders/${this.orderToReject}`);
+        this.fetchOrders();
+        this.showRejectConfirm = false;
+        this.orderToReject = null;
+      } catch (error) {
+        console.error("订单不过审失败", error);
+      }
     },
     nextPage() {
       if (this.currentPage < this.totalPages) {
@@ -117,71 +183,17 @@ export default {
     this.fetchOrders();
     this.setMenu();
   },
-  watch: {
-    searchQuery() {
-      this.applySearch();
-    },
-    priceFilter() {
-      this.applyFilters();
-    },
-    dateFilter() {
-      this.applyFilters();
-    },
-  },
 };
 </script>
 
 <style scoped>
-.order-hall {
+.order-review {
   padding: 20px;
   background: #f9f9f9;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   max-width: 800px;
   margin: 0 auto;
-}
-
-.filters,
-.advanced-filters {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.filters input,
-.advanced-filters select {
-  flex: 1;
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  margin-right: 10px;
-}
-
-.filters button {
-  padding: 10px 20px;
-  border: none;
-  background-color: #f0ad4e;
-  color: white;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.filters button:hover {
-  background-color: #ec971f;
-}
-
-.advanced-filters button {
-  padding: 10px 20px;
-  border: none;
-  background-color: #6f42c1;
-  color: white;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.advanced-filters button:hover {
-  background-color: #5a2d91;
 }
 
 .order-list {
@@ -215,6 +227,11 @@ export default {
   color: #666;
 }
 
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+
 .view-detail-button {
   padding: 10px 20px;
   background-color: #007bff;
@@ -222,12 +239,39 @@ export default {
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  text-decoration: none;
   text-align: center;
 }
 
 .view-detail-button:hover {
   background-color: #0056b3;
+}
+
+.approve-button {
+  padding: 10px 20px;
+  background-color: #42b983;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.approve-button:hover {
+  background-color: #358a66;
+}
+
+.reject-button {
+  padding: 10px 20px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.reject-button:hover {
+  background-color: #c0392b;
 }
 
 .pagination {
@@ -248,5 +292,99 @@ export default {
 
 .pagination button:hover {
   background-color: #358a66;
+}
+
+.detail-box {
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.detail-box-content {
+  background: #2c3e50;
+  padding: 40px;
+  border-radius: 30px;
+  text-align: left;
+  width: 400px;
+  max-width: 90%;
+}
+
+.close-button {
+  padding: 10px 20px;
+  background-color: #42b983;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.close-button:hover {
+  background-color: #358a66;
+}
+
+.confirm-box {
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.confirm-box-content {
+  background: #2c3e50;
+  padding: 40px;
+  border-radius: 30px;
+  text-align: center;
+  width: 400px;
+  max-width: 90%;
+}
+
+.confirm-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.confirm-button,
+.cancel-button {
+  padding: 15px 30px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  flex: 1;
+  margin: 0 10px;
+}
+
+.confirm-button {
+  background-color: #42b983;
+  color: white;
+}
+
+.confirm-button:hover {
+  background-color: #358a66;
+}
+
+.cancel-button {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.cancel-button:hover {
+  background-color: #c0392b;
 }
 </style>

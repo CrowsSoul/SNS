@@ -14,7 +14,7 @@ public interface UserMapper {
             "VALUES (#{username}, #{nickname}, #{password}, #{email}, #{role}, NOW(), NOW())")
     void insertUser(User user);
 
-    @Select("SELECT nickname FROM users WHERE id = #{id}")
+    @Select("SELECT nickname FROM users WHERE user_id = #{id}")
     public String findNicknameById(int id);
 
     @Select("SELECT user_id FROM users WHERE nickname = #{nickname}")

@@ -1,6 +1,6 @@
 <template>
   <div class="order-hall">
-    <h1>订单管理</h1>
+    <h1>管理员订单一览</h1>
     <div class="filters">
       <input type="text" v-model="searchQuery" placeholder="搜索订单" />
       <button @click="applySearch" class="search-button">搜索</button>
@@ -32,20 +32,22 @@
         class="order-item"
       >
         <div class="order-info">
-          <div class="order-name">{{ order.orders_name }}</div>
-          <div
-            v-if="order.orders_status === 'completed'"
-            class="order-status completed"
-          >
-            已完成
+          <div class="order-header">
+            <div class="order-name">{{ order.orders_name }}</div>
+            <div
+              v-if="order.orders_status === 'completed'"
+              class="status-badge completed"
+            >
+              已完成
+            </div>
+            <div
+              v-else-if="order.successful_bidder !== null"
+              class="status-badge in-progress"
+            >
+              进行中
+            </div>
+            <div v-else class="status-badge bidding">竞标中</div>
           </div>
-          <div
-            v-else-if="order.successful_bidder"
-            class="order-status in-progress"
-          >
-            进行中
-          </div>
-          <div v-else class="order-status bidding">竞标中</div>
           <div class="order-price">￥{{ order.order_price }}</div>
         </div>
         <router-link
@@ -265,9 +267,36 @@ export default {
   flex-direction: column;
 }
 
+.order-header {
+  display: flex;
+  align-items: center;
+}
+
 .order-name {
   font-size: 18px;
   font-weight: bold;
+  margin-right: 10px;
+}
+
+.status-badge {
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.status-badge.completed {
+  background-color: #810c9e;
+  color: white;
+}
+
+.status-badge.in-progress {
+  background-color: #f36f9b;
+  color: white;
+}
+
+.status-badge.bidding {
+  background-color: #ff0000;
+  color: white;
 }
 
 .order-price {
@@ -290,25 +319,151 @@ export default {
   background-color: #0056b3;
 }
 
-.order-status {
-  margin-top: 5px;
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  padding: 10px 20px;
+  background-color: #42b983;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.pagination button:hover {
+  background-color: #358a66;
+}
+</style>
+
+<style scoped>
+.order-hall {
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.filters,
+.advanced-filters {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.filters input,
+.advanced-filters select {
+  flex: 1;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+}
+
+.filters button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #f0ad4e;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.filters button:hover {
+  background-color: #ec971f;
+}
+
+.advanced-filters button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #6f42c1;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.advanced-filters button:hover {
+  background-color: #5a2d91;
+}
+
+.order-list {
+  list-style: none;
+  padding: 0;
+}
+
+.order-item {
+  background: white;
+  padding: 20px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.order-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.order-header {
+  display: flex;
+  align-items: center;
+}
+
+.order-name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.status-badge {
+  margin-left: 10px;
   padding: 5px 10px;
   border-radius: 10px;
-  font-size: 12px;
-  font-weight: bold;
+  font-size: 14px;
+}
+
+.status-badge.completed {
+  background-color: #810c9e;
   color: white;
 }
 
-.order-status.completed {
-  background-color: #810c9e;
-}
-
-.order-status.in-progress {
+.status-badge.in-progress {
   background-color: #f36f9b;
+  color: white;
 }
 
-.order-status.bidding {
-  background-color: #ff0000;
+.status-badge.bidding {
+  background-color: #8bd8fc;
+  color: white;
+}
+
+.order-price {
+  font-size: 16px;
+  color: #666;
+}
+
+.view-detail-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+}
+
+.view-detail-button:hover {
+  background-color: #0056b3;
 }
 
 .pagination {

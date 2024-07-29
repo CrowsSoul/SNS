@@ -84,12 +84,12 @@ export default {
         (order) =>
           order.orders_status !== "pending" &&
           order.orders_status !== "completed" &&
-          order.successful_bidder === null &&
+          order.successful_bidder === "null" &&
           order.user !== this.user.nickname &&
           !order.bidders.includes(this.user.nickname)
       );
 
-      if (this.searchQuery) {
+      /*  if (this.searchQuery) {
         filtered = filtered.filter((order) =>
           order.orders_name.includes(this.searchQuery)
         );
@@ -124,7 +124,7 @@ export default {
           }
           return true;
         });
-      }
+      } */
 
       return filtered;
     },
@@ -142,6 +142,7 @@ export default {
       try {
         const response = await axios.get("/orders");
         this.orders = response.data.orders;
+        console.log(response.data);
       } catch (error) {
         console.error("获取订单列表失败", error);
       } finally {
