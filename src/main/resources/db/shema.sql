@@ -97,8 +97,8 @@ CREATE TABLE navs (
 );
 
 
-CREATE TABLE pushinfor (
-    pushinfor_id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE recommendation (
+    recommendation_id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     companyName varchar(20) not null ,
     user_id INT  NOT NULL,
     author varchar(30) not null,
@@ -107,7 +107,7 @@ CREATE TABLE pushinfor (
     abstract TINYTEXT NOT NULL,
     summary varchar(20) not null,
     location VARCHAR(20) NOT NULL,
-    status VARCHAR(20) NOT NULL,
+    status boolean NOT NULL,
     created_time DATETIME NOT NULL,
     publish_time DATETIME NOT NULL,
     max_salary int not null,
@@ -123,7 +123,7 @@ CREATE TABLE pushinfor_comments (
     content TEXT NOT NULL,
     status VARCHAR(20) NOT NULL,
     comment_time DATETIME NOT NULL,
-    FOREIGN KEY (pushinfor_id) REFERENCES pushinfor(pushinfor_id),
+    FOREIGN KEY (pushinfor_id) REFERENCES recommendation(recommendation_id),
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
@@ -135,7 +135,7 @@ CREATE TABLE pushinfor_reviews (
     result VARCHAR(20) NOT NULL,
     suggestion TINYTEXT NOT NULL,
     review_time DATETIME NOT NULL,
-    FOREIGN KEY (pushinfor_id) REFERENCES pushinfor(pushinfor_id),
+    FOREIGN KEY (pushinfor_id) REFERENCES recommendation(recommendation_id),
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
@@ -262,5 +262,5 @@ CREATE TABLE user_pushinfor_favorites (
   pushinfor_id INT UNSIGNED NOT NULL,
   PRIMARY KEY (user_id, pushinfor_id),
   FOREIGN KEY (user_id) REFERENCES users(user_id),
-  FOREIGN KEY (pushinfor_id) REFERENCES pushinfor(pushinfor_id)
+  FOREIGN KEY (pushinfor_id) REFERENCES recommendation(recommendation_id)
 );

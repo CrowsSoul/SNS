@@ -88,18 +88,18 @@ VALUES
 
 
 
-INSERT INTO pushinfor (companyName,user_id,author, title, content, abstract, summary,location, status, created_time, publish_time,max_salary,min_salary)
+INSERT INTO recommendation (companyName,user_id,author, title, content, abstract, summary,location, status, created_time, publish_time,max_salary,min_salary)
 VALUES
-    ('huawei',1, 'jack','Software Engineer Internship', 'We are looking for talented software engineers to join our team...', 'Looking for software engineers...','employee', 'San Francisco', 'approved', NOW(), NOW(),'10000','5000'),
-    ('ali',2, 'john','Product Manager Role', 'Exciting opportunity for a product manager to lead our new product launch...', 'Opportunity for a product manager...', 'employee','New York', 'approved', NOW(), NOW(),'8000','6000'),
-    ('tengxun',3,'alice', 'UI/UX Designer Position', 'Join our design team and help shape the future of our product...', 'Join our design team...','leader', 'Los Angeles', 'approved', NOW(), NOW(),'6000','4000'),
-    ('xiaomi',4,'bob', 'Frontend Developer Needed', 'We need experienced frontend developers who can build responsive web applications...', 'Experienced frontend developers needed...','employee', 'Chicago', 'notapproved', NOW(), NOW(),'8000','6000'),
-    ('huawei',5,'carol', 'Backend Developer Wanted', 'Seeking backend developers with experience in Java and Python...', 'Seeking backend developers...', 'leader','Boston', 'approved', NOW(), NOW(),'9000','6000'),
-    ('tiktok',6,'david', 'Data Scientist Opportunity', 'Looking for data scientists to analyze large datasets and provide insights...', 'Data scientist opportunity...', 'employee','Seattle', 'approved', NOW(), NOW(),'6000','3000'),
-    ('tiktok',7, 'elizabeth','DevOps Engineer Role', 'Join our DevOps team and help us automate and optimize our infrastructure...', 'Join our DevOps team...', 'employee','Austin', 'approved', NOW(), NOW(),'9000','5000'),
-    ('byd',8, 'frank','Quality Assurance Tester', 'We need testers to ensure the quality of our software releases...', 'Quality assurance tester needed...', 'leader','Atlanta', 'approved', NOW(), NOW(),'12000','6000'),
-    ('huawei',9,'george', 'Full Stack Developer Position', 'Seeking full stack developers with experience in both frontend and backend technologies...', 'Full stack developer position...', 'employee','Denver', 'notapproved', NOW(), NOW(),'11000','10000'),
-    ('xiaomi',10, 'helen','Technical Writer Job', 'Join our documentation team and help us create clear and concise technical documentation...', 'Technical writer job...', 'employee','Philadelphia', 'approved', NOW(), NOW(),'9000','8000');
+    ('huawei',1, 'jack','Software Engineer Internship', 'We are looking for talented software engineers to join our team...', 'Looking for software engineers...','employee', 'San Francisco', true, NOW(), NOW(),'10000','5000'),
+    ('ali',2, 'john','Product Manager Role', 'Exciting opportunity for a product manager to lead our new product launch...', 'Opportunity for a product manager...', 'employee','New York', true, NOW(), NOW(),'8000','6000'),
+    ('tengxun',3,'alice', 'UI/UX Designer Position', 'Join our design team and help shape the future of our product...', 'Join our design team...','leader', 'Los Angeles', true, NOW(), NOW(),'6000','4000'),
+    ('xiaomi',4,'bob', 'Frontend Developer Needed', 'We need experienced frontend developers who can build responsive web applications...', 'Experienced frontend developers needed...','employee', 'Chicago', false, NOW(), NOW(),'8000','6000'),
+    ('huawei',5,'carol', 'Backend Developer Wanted', 'Seeking backend developers with experience in Java and Python...', 'Seeking backend developers...', 'leader','Boston', true, NOW(), NOW(),'9000','6000'),
+    ('tiktok',6,'david', 'Data Scientist Opportunity', 'Looking for data scientists to analyze large datasets and provide insights...', 'Data scientist opportunity...', 'employee','Seattle', true, NOW(), NOW(),'6000','3000'),
+    ('tiktok',7, 'elizabeth','DevOps Engineer Role', 'Join our DevOps team and help us automate and optimize our infrastructure...', 'Join our DevOps team...', 'employee','Austin', true, NOW(), NOW(),'9000','5000'),
+    ('byd',8, 'frank','Quality Assurance Tester', 'We need testers to ensure the quality of our software releases...', 'Quality assurance tester needed...', 'leader','Atlanta', true, NOW(), NOW(),'12000','6000'),
+    ('huawei',9,'george', 'Full Stack Developer Position', 'Seeking full stack developers with experience in both frontend and backend technologies...', 'Full stack developer position...', 'employee','Denver', false, NOW(), NOW(),'11000','10000'),
+    ('xiaomi',10, 'helen','Technical Writer Job', 'Join our documentation team and help us create clear and concise technical documentation...', 'Technical writer job...', 'employee','Philadelphia', true, NOW(), NOW(),'9000','8000');
 
 
 
