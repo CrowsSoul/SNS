@@ -40,4 +40,7 @@ public interface OrderMapper {
 
     @Delete("DELETE FROM user_order WHERE orders_id = #{orderId}")
     public void deleteUserIdsByOrderId(int orderId);
+
+    @Update("UPDATE orders SET orders_status = 'processing' WHERE orders_id = #{orders_id}")
+    public void approveOrder(int ordersId);
 }
