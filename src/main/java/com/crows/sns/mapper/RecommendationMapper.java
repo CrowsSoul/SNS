@@ -33,4 +33,13 @@ public interface RecommendationMapper {
 
     @Delete("DELETE FROM recommendation WHERE recommendation_id = #{id}")
     public void deleteRecommendationById(int id);
+
+    @Select("SELECT recommendation_id FROM user_recommendation_favorites WHERE user_id = #{user_id}")
+    public List<Integer> getCollectedRecommendationIdsByUserId(int userId);
+
+    @Delete("Delete FROM user_recommendation_favorites WHERE user_id = #{user_id}")
+    public void deleteCollectedRecommendationsByUserId(int userId);
+
+    @Insert("INSERT INTO user_recommendation_favorites(user_id, recommendation_id) VALUES (#{user_id}, #{recommendation_id})")
+    public void addUserRecommendation(int user_id, int recommendation_id);
 }
