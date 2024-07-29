@@ -223,18 +223,18 @@ VALUES
 
 
 
-INSERT INTO orders (user_id, orders_name,orders_price, orders_introduction, orders_status, created_time)
+INSERT INTO orders (user_id,nickname, orders_name,orders_price, orders_introduction, orders_status, created_time,successful_bidder)
 VALUES
-    (1, 'Order 101',1000, 'This order includes 5 units of Product A and 3 units of Product B.', 'processing', NOW()),
-    (2, 'Order 102',5000, 'This order includes 2 units of Product C and 1 unit of Product D.', 'processing', NOW()),
-    (3, 'Order 103',400, 'This order includes 10 units of Product E and 5 units of Product F.', 'completed', NOW()),
-    (4, 'Order 104',1900, 'This order includes 1 unit of Product G and 2 units of Product H.', 'processing', NOW()),
-    (5, 'Order 105',8000, 'This order includes 3 units of Product I and 4 units of Product J.', 'canceled', NOW()),
-    (6, 'Order 106',12000, 'This order includes 4 units of Product K and 2 units of Product L.', 'processing', NOW()),
-    (7, 'Order 107',6500, 'This order includes 7 units of Product M and 5 units of Product N.', 'completed', NOW()),
-    (8, 'Order 108',1200, 'This order includes 6 units of Product O and 1 unit of Product P.', 'processing', NOW()),
-    (9, 'Order 109',200, 'This order includes 2 units of Product Q and 3 units of Product R.', 'processing', NOW()),
-    (10, 'Order 110',750, 'This order includes 8 units of Product S and 4 units of Product T.', 'completed', NOW());
+    (1,'jack', 'Order 101',1000, 'This order includes 5 units of Product A and 3 units of Product B.', 'completed', NOW(),'jack'),
+    (2,'john', 'Order 102',5000, 'This order includes 2 units of Product C and 1 unit of Product D.', 'processing', NOW(),'null'),
+    (3,'alice', 'Order 103',400, 'This order includes 10 units of Product E and 5 units of Product F.', 'completed', NOW(),'bob'),
+    (4,'bob', 'Order 104',1900, 'This order includes 1 unit of Product G and 2 units of Product H.', 'processing', NOW(),'carol'),
+    (5,'carol', 'Order 105',8000, 'This order includes 3 units of Product I and 4 units of Product J.', 'processing', NOW(),'frank'),
+    (6,'david', 'Order 106',12000, 'This order includes 4 units of Product K and 2 units of Product L.', 'processing', NOW(),'george'),
+    (7,'elizabeth', 'Order 107',6500, 'This order includes 7 units of Product M and 5 units of Product N.', 'processing', NOW(),'null'),
+    (8,'frank', 'Order 108',1200, 'This order includes 6 units of Product O and 1 unit of Product P.', 'pending', NOW(),'null'),
+    (9,'george', 'Order 109',200, 'This order includes 2 units of Product Q and 3 units of Product R.', 'processing', NOW(),'john'),
+    (10,'helen', 'Order 110',750, 'This order includes 8 units of Product S and 4 units of Product T.', 'completed', NOW(),'elizabeth');
 
 
 
@@ -290,3 +290,10 @@ VALUES
 INSERT INTO user_recommendation_favorites (user_id, recommendation_id)
 VALUES (1, 1), (1, 2), (2, 3), (2, 4), (3, 5),
        (3, 1), (4, 2), (4, 4), (5, 1), (5, 3);
+
+
+/*向订单竞标的中间表中添加数据*/
+INSERT INTO user_order_complete (user_id,orders_id)
+VALUES (2,1),(3,1),(4,1),(3,2),(4,2),(5,2),(4,3),(5,3),(6,3),(5,4),
+       (6,4),(7,4),(6,5),(7,5),(8,5),(7,6),(8,6),(9,6),(8,7),(9,7),
+       (10,7),(9,8),(10,8),(1,8),(2,9),(3,9),(4,9),(5,10),(6,10),(7,10);

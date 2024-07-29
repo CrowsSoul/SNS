@@ -212,13 +212,15 @@ CREATE TABLE draft_reviews (
 
 
 CREATE TABLE orders (
-    orders_id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    orders_id INT  UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     user_id INT  NOT NULL,
+    nickname varchar(20),
     orders_name VARCHAR(20) NOT NULL,
     orders_price int not null,
     orders_introduction TEXT NOT NULL,
     orders_status VARCHAR(20) NOT NULL,
     created_time DATETIME NOT NULL,
+    successful_bidder varchar(20),
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
@@ -263,4 +265,14 @@ CREATE TABLE user_recommendation_favorites (
   PRIMARY KEY (user_id, recommendation_id),
   FOREIGN KEY (user_id) REFERENCES users(user_id),
   FOREIGN KEY (recommendation_id) REFERENCES recommendation(recommendation_id)
+);
+
+
+/*订单竞标的中间表,多对多*/
+CREATE TABLE user_order_complete(
+    user_id int not null,
+    orders_id int UNSIGNED not null,
+    PRIMARY KEY(user_id,orders_id),
+    FOREIGN KEY (user_id) REFERENCES users(user_id),
+    FOREIGN KEY (orders_id) REFERENCES orders(orders_id)
 );
