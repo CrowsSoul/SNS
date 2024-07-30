@@ -179,9 +179,7 @@ export default {
     async viewResume(bidder) {
       try {
         const response = await axios.get(`/resumes`);
-        this.currentResume = response.data.resumes.find(
-          (r) => r.user === bidder
-        );
+        this.currentResume = response.data.find((r) => r.user === bidder);
         this.showResume = true;
       } catch (error) {
         console.error("获取简历失败", error);
