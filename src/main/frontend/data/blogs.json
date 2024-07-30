@@ -5,7 +5,7 @@
     "author": "张伟",
     "publishedAt": "2023-01-15",
     "content": "编程技能的提升需要不断的实践和学习...",
-    "isRecommended": true,
+    "isRecommended": false,
     "status": "published"
   },
   {
@@ -85,9 +85,9 @@
     "title": "哈尔滨工业大学是个好大学",
     "author": "杰克",
     "publishedAt": "2024-07-24",
-    "content": "规格严格，功夫到家",
+    "content": "规格严格，功夫到家！！！",
     "isRecommended": false,
-    "status": "published"
+    "status": "pending"
   },
   {
     "id": 11,
@@ -104,6 +104,15 @@
     "author": "杰克",
     "publishedAt": "2024-07-26",
     "content": "222",
+    "isRecommended": false,
+    "status": "pending"
+  },
+  {
+    "id": 13,
+    "title": "测试博文",
+    "author": "杰克",
+    "publishedAt": "2024-07-30",
+    "content": "我偏要提交",
     "isRecommended": false,
     "status": "pending"
   }
