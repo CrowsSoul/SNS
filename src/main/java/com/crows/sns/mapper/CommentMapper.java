@@ -39,4 +39,7 @@ public interface CommentMapper {
     @Update("UPDATE comments SET isReported = true WHERE comment_id = #{id}")
     public void reportCommentById(int id);
 
+    @Update("UPDATE comments SET status = 'approved',isReported = false WHERE comment_id = #{id}")
+    public void passCommentById(int id);
+
 }
