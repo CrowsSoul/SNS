@@ -288,7 +288,7 @@ export default {
 }
 
 nav {
-  background: linear-gradient(to bottom, #697685, #394149);
+  background: linear-gradient(to bottom, #697685, #404852);
   padding: 20px;
   width: 180px;
 }
@@ -300,7 +300,7 @@ nav ul {
 
 nav ul li {
   margin-bottom: 10px;
-  background-color: #46505a;
+  background-color: #3d454d;
   border-radius: 10px;
 }
 
@@ -317,8 +317,8 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  background-color: #1b2329;
-  color: white;
+  background-color: #80e289;
+  color: rgb(255, 255, 255);
 }
 
 nav ul li a.active {
