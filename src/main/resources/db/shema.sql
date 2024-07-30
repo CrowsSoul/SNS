@@ -267,7 +267,7 @@ CREATE TABLE user_recommendation_favorites (
   recommendation_id INT UNSIGNED NOT NULL,
   PRIMARY KEY (user_id, recommendation_id),
   FOREIGN KEY (user_id) REFERENCES users(user_id),
-  FOREIGN KEY (recommendation_id) REFERENCES recommendation(recommendation_id)
+  FOREIGN KEY (recommendation_id) REFERENCES recommendation(recommendation_id) on delete cascade
 );
 
 
