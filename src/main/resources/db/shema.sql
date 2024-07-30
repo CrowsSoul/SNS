@@ -135,7 +135,7 @@ CREATE TABLE recommendation_reviews (
     result VARCHAR(20) NOT NULL,
     suggestion TINYTEXT NOT NULL,
     review_time DATETIME NOT NULL,
-    FOREIGN KEY (recommendation_id) REFERENCES recommendation(recommendation_id),
+    FOREIGN KEY (recommendation_id) REFERENCES recommendation(recommendation_id) on delete cascade ,
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
