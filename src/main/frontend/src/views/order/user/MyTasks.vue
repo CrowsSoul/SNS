@@ -294,15 +294,16 @@ export default {
         const user = this.user;
         const newOrder = {
           ...this.newOrder,
-          orders_id: 1, // 简单的订单ID生成方式
+          orders_id: 18886, // 简单的订单ID生成方式
           user: user.nickname,
           orders_status: "pending",
           bidders: [],
           successful_bidder: null,
           created_time: new Date().toISOString(), // 设置创建时间
         };
-        await axios.post("/orders", newOrder);
-        this.orders.push(newOrder);
+        const response = await axios.post("/orders", newOrder);
+        window.location.reload();
+        this.orders.push(response);
         this.setTab("pending");
       } catch (error) {
         console.error("发布新订单失败", error);

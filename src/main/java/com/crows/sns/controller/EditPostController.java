@@ -23,6 +23,7 @@ public class EditPostController {
         String title = request.getTitle();
         String content = request.getContent();
         String status = request.getStatus();
+        boolean isRecommended = request.isRecommended();
 
         int userId = userMapper.findUserIdByNickname(author);
         Post post = new Post();
@@ -32,6 +33,7 @@ public class EditPostController {
         post.setUserId(userId);
         post.setStatus(status);
         post.setId(id);
+        post.setRecommended(isRecommended);
 
         postMapper.updatePost(post);
         return post;

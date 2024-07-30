@@ -363,7 +363,7 @@ app.post('/orders', (req, res) => {
   orders.push(newOrder);
 
   writeJsonFile('./data/orders.json', { orders });
-  res.json({ message: '订单发布成功' });
+  res.json({  order: newOrder});
 });
 
 // 更新订单

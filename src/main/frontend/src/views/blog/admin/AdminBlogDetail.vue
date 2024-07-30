@@ -48,6 +48,7 @@ export default {
           author: this.blog.author,
           content: this.blog.content,
           status: "published", // 设置status为published
+          isRecommended: this.blog.isRecommended,
         });
         console.log("过审成功", response.data);
         this.$router.push("/admin/blog-review");
