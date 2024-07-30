@@ -19,8 +19,6 @@ public class EditRecommendationController {
         request.setRecommendation_id(id);
         //再设置max和min
         request.makeMaxMin();
-        //再设置status
-        request.setStatus(false);
         //更新数据库
         recommendationMapper.updateRecommendation(request);
         return request;
