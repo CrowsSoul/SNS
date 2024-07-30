@@ -18,6 +18,7 @@ public class PostNewRecommendationController
     @PostMapping
     public Recommendation postNewRecommendation(@RequestBody Recommendation request)
     {
+        request.setStatus(false);
         return postRecommendationService.postRecommendation(request);
     }
 
