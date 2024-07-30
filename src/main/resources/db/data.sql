@@ -34,7 +34,7 @@ VALUES
     (2, 3,'alice', 'Thanks for the tips on exploring new technologies!', 'approved',0, NOW(), NOW()),
     (3, 4,'bob','Admin tips are always appreciated. Thanks for sharing!', 'approved',0, NOW(), NOW()),
     (4, 5,'carol', 'I found the learning programming guide very helpful.', 'approved',0, NOW(), NOW()),
-    (5, 6,'david', 'Security is indeed important. Good read!', 'approved', 0,NOW(), NOW()),
+    (5, 6,'david', 'Security is indeed important. Good read!', 'approved', 1,NOW(), NOW()),
     (6, 7,'elizabeth', 'Moderation best practices are essential for community management.', 'approved',0, NOW(), NOW()),
     (7, 8,'frank', 'Advanced features are great for power users. Looking forward to trying them out.', 'approved',0, NOW(), NOW()),
     (8, 9,'george', 'Community engagement strategies are key to building a strong community.', 'approved', 1,NOW(), NOW()),
