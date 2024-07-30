@@ -10,7 +10,10 @@ main {
 }
 #app {
   height: 100%;
-  
+}
+
+main{
+  background: linear-gradient(to bottom, #e2e2e2, #ffffff);
 }
 
 * {

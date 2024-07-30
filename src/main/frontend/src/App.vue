@@ -288,9 +288,9 @@ export default {
 }
 
 nav {
-  background-color: #637180;
+  background: linear-gradient(to bottom, #697685, #394149);
   padding: 20px;
-  width: 200px;
+  width: 180px;
 }
 
 nav ul {
@@ -300,7 +300,7 @@ nav ul {
 
 nav ul li {
   margin-bottom: 10px;
-  background-color: #4c6886;
+  background-color: #46505a;
   border-radius: 10px;
 }
 
@@ -317,13 +317,13 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  background-color: #42b983;
+  background-color: #1b2329;
   color: white;
 }
 
 nav ul li a.active {
-  background-color: #42b983;
-  color: white;
+  background-color: #80e289;
+  color: rgb(0, 0, 0);
 }
 
 .nav-icon {
@@ -333,7 +333,8 @@ nav ul li a.active {
 .submenu {
   list-style: none;
   padding-left: 20px;
-  margin: 10px 0 0 0;
+  margin: 10px;
+  width: 100px;
 }
 
 .submenu li a {
@@ -353,7 +354,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #1a1718ce;
+  background: linear-gradient(to right, #1a1718ce, #1a1718ce);
   color: white;
   padding: 10px;
   text-align: center;
