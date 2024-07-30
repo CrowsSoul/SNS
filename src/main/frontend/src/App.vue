@@ -2,7 +2,7 @@
   <div id="app">
     <header v-if="showHeader" class="header">
       <img src="./assets/icon.png" alt="Logo" class="logo" />
-      <h1>SNS平台</h1>
+      <h1>中软国际SNS平台</h1>
       <div class="user-info">
         <img src="./assets/man.png" alt="Logo" class="circle-image" />
         <span>{{ user ? user.username : "访客" }}</span>

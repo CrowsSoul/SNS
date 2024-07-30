@@ -34,7 +34,6 @@
           <select id="role" v-model="role" required>
             <option value="student">在校学生</option>
             <option value="employed_student">已就业学生</option>
-            <option value="admin">管理员</option>
           </select>
         </div>
         <div v-if="error" class="error">{{ error }}</div>
