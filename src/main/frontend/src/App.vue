@@ -2,8 +2,9 @@
   <div id="app">
     <header v-if="showHeader" class="header">
       <img src="./assets/icon.png" alt="Logo" class="logo" />
-      <h1>超级无敌SNS平台</h1>
+      <h1>SNS平台</h1>
       <div class="user-info">
+        <img src="./assets/man.png" alt="Logo" class="circle-image" />
         <span>{{ user ? user.username : "访客" }}</span>
         <button @click="logout">退出</button>
       </div>
@@ -258,6 +259,14 @@ export default {
   height: 100%;
 }
 
+.circle-image {
+  width: 50px; /* 设置图像的宽度 */
+  height: 50px; /* 设置图像的高度 */
+  border-radius: 50%; /* 设置圆角半径为50%，即形成圆形 */
+  object-fit: cover; /* 确保图像填充整个容器 */
+  margin-right: 10px;
+}
+
 .logo {
   width: 50px;
   height: 50px;
@@ -279,7 +288,7 @@ export default {
 }
 
 nav {
-  background-color: #35495e;
+  background-color: #637180;
   padding: 20px;
   width: 200px;
 }
