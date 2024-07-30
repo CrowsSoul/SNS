@@ -1,15 +1,18 @@
-html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    /*overflow: hidden; /* 防止页面超出视口 */
-  }
+html, body{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  /*overflow: hidden; /* 防止页面超出视口 */
+}
+
+main {
+  flex: 1;
+}
+#app {
+  height: 100%;
   
-  #app {
-    height: 100%;
-  }
-  
-  * {
-    box-sizing: border-box;
-  }
-  
+}
+
+* {
+  box-sizing: border-box;
+}

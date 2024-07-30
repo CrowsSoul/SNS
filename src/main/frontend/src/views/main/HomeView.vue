@@ -2,7 +2,7 @@
   <div class="home-content">
     <div class="header">
       <h1 v-if="user" class="welcome-message">
-        欢迎来到超级无敌SNS平台, {{ user.nickname }}！
+        欢迎来到SNS平台, {{ user.nickname }}！
       </h1>
     </div>
     <div class="ads">

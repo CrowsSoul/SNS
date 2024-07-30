@@ -1,18 +1,5 @@
 [
   {
-    "id": 1,
-    "companyName": "阿里巴巴",
-    "city": "杭州",
-    "salaryRange": {
-      "min": 15000,
-      "max": 25000
-    },
-    "author": "王小明",
-    "summary": "前端开发岗位",
-    "content": "阿里巴巴的前端开发岗位，主要负责集团内部产品的前端开发和维护工作，要求熟悉HTML、CSS、JavaScript等前端技术，熟悉Vue.js或React.js框架，有良好的团队合作精神和沟通能力。工作地点位于杭州，提供有竞争力的薪资和福利待遇。",
-    "approved": true
-  },
-  {
     "id": 2,
     "companyName": "腾讯",
     "city": "深圳",
@@ -36,7 +23,7 @@
     "author": "陈晓",
     "summary": "数据分析师",
     "content": "字节跳动的数据分析师岗位，主要负责对海量数据进行分析和挖掘，提供数据支持和决策依据。要求熟悉SQL、Python等数据分析工具，有较强的数据敏感度和逻辑思维能力。工作地点位于北京，薪资待遇优厚，发展前景广阔。",
-    "approved": true
+    "approved": false
   },
   {
     "id": 4,
@@ -166,6 +153,6 @@
     },
     "author": "坤坤",
     "content": "哈哈哈哈哈哈",
-    "approved": false
+    "approved": true
   }
 ]
