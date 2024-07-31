@@ -31,6 +31,8 @@ public class GetActivityServiceImpl implements GetActivityService {
         Integer minute = ldt.getMinute();     // 分钟（0-59）
 
         activity.makeTime(year, month, day, hour, minute);
+        //重设人数
+        activity.setCurrentParticipants(activity.getParticipantList().size());
         return activity;
     }
 
@@ -46,6 +48,8 @@ public class GetActivityServiceImpl implements GetActivityService {
             Integer hour = ldt.getHour();         // 小时（0-23）
             Integer minute = ldt.getMinute();     // 分钟（0-59）
             activity.makeTime(year, month, day, hour, minute);
+            //重设人数
+            activity.setCurrentParticipants(activity.getParticipantList().size());
         }
         // 使用 Map 去重
         Map<Integer, Activity> activityMap = new HashMap<>();
