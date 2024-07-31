@@ -151,6 +151,7 @@ VALUES
 INSERT INTO user_activities (user_id, activity_id, activity_status)
 VALUES
     (1, 1, 'registered'),
+    (2, 1, 'registered'),
     (2, 2, 'registered'),
     (3, 3, 'attended'),
     (4, 4, 'registered'),
