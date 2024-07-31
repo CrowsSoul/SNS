@@ -35,7 +35,7 @@ public interface ActivityMapper {
                     many = @Many(select = "selectParticipants")),
             @Result(property = "activity_id", column = "activity_id")
     })
-    public Activity getOneActivitiesWithParticipantsById(int id);
+    public List<Activity> getOneActivitiesWithParticipantsById(int id);
 
     @Insert("INSERT INTO activities(activity_name, initiator, activity_time, activity_location, activity_description, maxParticipants, currentParticipants, status)" +
             "VALUES(#{activity_name}, #{initiator}, #{activity_time}, #{activity_location}, #{activity_description}, #{maxParticipants}, #{currentParticipants}, #{status})")
@@ -54,4 +54,7 @@ public interface ActivityMapper {
 
     @Update("UPDATE activities SET activity_name = #{activity_name}, initiator = #{initiator}, activity_time = #{activity_time}, activity_location = #{activity_location}, activity_description = #{activity_description}, maxParticipants = #{maxParticipants}, currentParticipants = #{currentParticipants}, status = #{status} WHERE activity_id = #{activity_id}")
     public void updateActivity(Activity activity);
+
+    @Delete("DELETE FROM user_activities WHERE activity_id = #{activityId}")
+    public void deleteUserActivityByActivityId(int activityId);
 }
