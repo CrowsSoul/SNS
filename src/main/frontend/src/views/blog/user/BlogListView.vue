@@ -34,7 +34,7 @@
           <li v-for="blog in paginatedRecommendedBlogs" :key="blog.id">
             <h2>{{ blog.title }}</h2>
             <p>作者: {{ blog.author }}</p>
-            <p>发布时间: {{ blog.publishedAt }}</p>
+            <p>发布时间: {{ formatDatetime(blog.publishedAt )}}</p>
             <router-link
               :to="{
                 name: 'BlogDetail',
@@ -50,7 +50,7 @@
       <li v-else v-for="blog in paginatedBlogs" :key="blog.id">
         <h2>{{ blog.title }}</h2>
         <p>作者: {{ blog.author }}</p>
-        <p>发布时间: {{ blog.publishedAt }}</p>
+        <p>发布时间: {{ formatDatetime(blog.publishedAt) }}</p>
         <router-link
           :to="{
             name: 'BlogDetail',
@@ -153,6 +153,10 @@ export default {
     },
   },
   methods: {
+    formatDatetime(datetime) {
+      // 使用replace方法将'T'替换为空格
+      return datetime.replace('T', ' ');
+    },
     async fetchBlogs() {
       try {
         const response = await axios.get("/blogs");

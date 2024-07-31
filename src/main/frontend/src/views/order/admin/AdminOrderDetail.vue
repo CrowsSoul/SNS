@@ -9,7 +9,7 @@
       <div v-else class="status-badge bidding">竞标中</div>
     </div>
     <p>简介: {{ order.orders_intrudction }}</p>
-    <p>发布时间: {{ order.created_time }}</p>
+    <p>发布时间: {{ formatDatetime(order.created_time) }}</p>
     <p>价格: ￥{{ order.order_price }}</p>
     <div class="buttons">
       <router-link :to="getBackRoute()" class="back-button">返回</router-link>
@@ -54,6 +54,10 @@ export default {
     },
   },
   methods: {
+    formatDatetime(datetime) {
+      // 使用replace方法将'T'替换为空格
+      return datetime.replace('T', ' ');
+    },
     async fetchOrder() {
       const orderId = this.$route.params.id;
       try {

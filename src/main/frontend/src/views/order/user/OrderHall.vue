@@ -138,6 +138,10 @@ export default {
     },
   },
   methods: {
+    formatDatetime(datetime) {
+      // 使用replace方法将'T'替换为空格
+      return datetime.replace('T', ' ');
+    },
     async fetchOrders() {
       try {
         const response = await axios.get("/orders");

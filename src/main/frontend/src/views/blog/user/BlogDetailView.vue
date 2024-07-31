@@ -2,7 +2,7 @@
   <div class="blog-detail" v-if="blog">
     <h1>{{ blog.title }}</h1>
     <p>作者: {{ blog.author }}</p>
-    <p>发布时间: {{ blog.publishedAt }}</p>
+    <p>发布时间: {{ formatDatetime(blog.publishedAt) }}</p>
     <div v-html="blog.content" class="content"></div>
     <div v-if="isReviewMode" class="review-actions">
       <button @click="approveBlog" class="approve-button">过审核</button>
@@ -18,7 +18,7 @@
         <li v-for="comment in paginatedComments" :key="comment.id">
           <p class="comment-author">
             {{ comment.author }}
-            <button @click="reportComment(comment.id)" class="report-button">
+            <button v-if="IsNotMyComment(comment.author)" @click="reportComment(comment.id)" class="report-button">
               举报
             </button>
           </p>
@@ -81,9 +81,17 @@ export default {
     },
     isReviewMode() {
       return this.$route.params.isReview === "true";
-    },
+    }
   },
   methods: {
+    IsNotMyComment(name) {
+      const user = JSON.parse(localStorage.getItem("user"));
+      return user.nickname !== name;
+    },
+    formatDatetime(datetime) {
+      // 使用replace方法将'T'替换为空格
+      return datetime.replace('T', ' ');
+    },
     getBackRoute() {
       if (this.isReviewMode) {
         return "/admin/blog-review";

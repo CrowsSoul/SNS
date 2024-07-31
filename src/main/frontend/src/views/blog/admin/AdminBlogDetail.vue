@@ -2,7 +2,7 @@
   <div class="admin-blog-detail" v-if="blog">
     <h1>{{ blog.title }}</h1>
     <p>作者: {{ blog.author }}</p>
-    <p>发布时间: {{ blog.publishedAt }}</p>
+    <p>发布时间: {{ formatDatetime(blog.publishedAt )}}</p>
     <div v-html="blog.content" class="content"></div>
     <div class="review-actions">
       <router-link to="/admin/blog-review" class="action-button"
@@ -32,6 +32,10 @@ export default {
     };
   },
   methods: {
+    formatDatetime(datetime) {
+      // 使用replace方法将'T'替换为空格
+      return datetime.replace('T', ' ');
+    },
     async fetchBlog() {
       const blogId = this.$route.params.id;
       try {

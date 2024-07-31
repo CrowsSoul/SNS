@@ -242,7 +242,7 @@ VALUES
     (10,'helen', 'Order 111',200, 'This order includes 8 units of Product S and 4 units of Product T.', 'completed', '2023-01-28 01:45:30','杰克'),
     (1,'杰克', 'Order 112',7500, 'This order includes 8 units of Product S and 4 units of Product T.', 'pending', '2024-07-28 01:45:30',null),
     (1,'杰克', 'Order 113',7500, 'This order includes 8 units of Product S and 4 units of Product T.', 'processing', '2024-07-29 01:45:30',null),
-    (1,'杰克', 'Order 114',7500, 'This order includes 8 units of Product S and 4 units of Product T.', 'completed', '2024-07-30 01:45:30','elizabeth');
+    (1,'杰克', 'Order 114',7500, 'This order includes 8 units of Product S and 4 units of Product T.', 'processing', '2024-07-30 01:45:30','elizabeth');
 
 
 
@@ -304,7 +304,7 @@ VALUES (1, 1), (1, 2), (2, 3), (2, 4), (3, 5),
 INSERT INTO user_order (user_id,orders_id)
 VALUES (2,1),(3,1),(4,1),(3,2),(4,2),(5,2),(4,3),(5,3),(6,3),(5,4),
        (6,4),(7,4),(6,5),(7,5),(8,5),(7,6),(8,6),(9,6),(8,7),(9,7),
-       (10,7),(9,8),(10,8),(1,8),(2,9),(3,9),(4,9),(5,10),(6,10),(7,10);
+       (10,7),(9,8),(10,8),(1,8),(2,9),(3,9),(4,9),(5,10),(6,10),(7,10),(2,13),(3,13),(4,13);
 
 
 /*向技能表中插入数据*/

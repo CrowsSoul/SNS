@@ -43,7 +43,7 @@
         <h3>订单详情</h3>
         <p><strong>订单名:</strong> {{ selectedOrder.orders_name }}</p>
         <p><strong>简介:</strong> {{ selectedOrder.orders_intrudction }}</p>
-        <p><strong>发布时间:</strong> {{ selectedOrder.created_time }}</p>
+        <p><strong>发布时间:</strong> {{ formatDatetime(selectedOrder.created_time) }}</p>
         <p><strong>价格:</strong> ￥{{ selectedOrder.order_price }}</p>
         <p>
           <strong>接单成功者:</strong>
@@ -110,6 +110,10 @@ export default {
     },
   },
   methods: {
+    formatDatetime(datetime) {
+      // 使用replace方法将'T'替换为空格
+      return datetime.replace('T', ' ');
+    },
     async fetchOrders() {
       try {
         const response = await axios.get("/orders");
