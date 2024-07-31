@@ -17,15 +17,15 @@ VALUES
 INSERT INTO posts (user_id, author,title, content, status,isRecommended, created_time, updated_time)
 VALUES
     (1,'杰克', '中软国际是个好公司', '中软国际是一家杰出的公司，专注于信息技术服务和解决方案。作为行业领先者，他们提供广泛的IT服务，包括软件开发、系统集成和咨询服务。公司以创新驱动，致力于为客户提供高效、优质的解决方案，赢得了众多客户的信赖和赞誉。中软国际的员工团队专业且充满活力，不断追求卓越，为公司的持续发展注入了强大动力。选择中软国际，就是选择卓越的IT服务和无限的未来可能性。', 'published',true, '2022-08-28 01:45:30', NOW()),
-    (2, 'john','Exploring New Technologies', 'A detailed exploration of the latest technologies and how they can be used in web development.', 'published', false,NOW(), NOW()),
-    (3, 'alice','Admin Tips and Tricks', 'Tips for managing users and moderating content on your website.', 'published',false, NOW(), NOW()),
-    (4, 'bob','Learning Programming', 'A beginner\'s guide to programming and some useful resources.', 'pending', false,NOW(), NOW()),
-    (5, 'carol','The Importance of Security', 'Why security is crucial for any online platform and how to improve it.', 'rejected',false, NOW(), NOW()),
-    (6, 'david','Moderation Best Practices', 'Best practices for moderating comments and maintaining a healthy community.', 'published',false, NOW(), NOW()),
-    (7, 'elizabeth','Advanced Features Unlocked', 'Unlocking advanced features in the blogging platform for power users.', 'pending',false, NOW(), NOW()),
-    (8, 'frank','Community Engagement Strategies', 'Strategies for engaging with your community and building a loyal following.', 'rejected',false, NOW(), NOW()),
-    (9, 'george','Managing Large Datasets', 'How to manage and analyze large datasets efficiently.', 'pending',true, NOW(), NOW()),
-    (10, 'helen','Creating a Positive Online Environment', 'Tips for creating a positive and welcoming environment for all users.', 'published',false, NOW(), NOW()),
+    (2, 'john', '探索新技术', '详细探索最新技术及其在网页开发中的应用。', 'published', false, NOW(), NOW()),
+    (3, 'alice', '管理员提示和技巧', '管理用户和审核网站内容的技巧。', 'published', false, NOW(), NOW()),
+    (4, 'bob', '学习编程', '编程入门指南和一些有用的资源。', 'pending', false, NOW(), NOW()),
+    (5, 'carol', '安全性的重要性', '为什么安全性对于任何在线平台都至关重要以及如何提高安全性。', 'rejected', false, NOW(), NOW()),
+    (6, 'david', '审核最佳实践', '审核评论和维护健康社区的最佳实践。', 'published', false, NOW(), NOW()),
+    (7, 'elizabeth', '解锁高级功能', '为高级用户解锁博客平台的高级功能。', 'pending', false, NOW(), NOW()),
+    (8, 'frank', '社区参与策略', '与社区互动并建立忠实粉丝的策略。', 'rejected', false, NOW(), NOW()),
+    (9, 'george', '管理大型数据集', '如何高效地管理和分析大型数据集。', 'pending', false, NOW(), NOW()),
+    (10, 'helen', '创建积极的在线环境', '为所有用户创建积极和欢迎环境的技巧。', 'published', false, NOW(), NOW()),
     (1,'杰克', '哈尔滨工业大学是个好大学', '哈尔滨工业大学是一所著名的重点大学，以其卓越的工科实力和全面的教育质量而闻名。作为国家“双一流”建设高校，哈工大在航空航天、机械工程、计算机科学等领域具有领先地位。学校拥有一流的师资力量和科研条件，为学生提供了优质的学习和研究环境。多年来，哈工大培养了众多优秀人才，为国家的科技进步和社会发展做出了重要贡献。选择哈尔滨工业大学，就是选择创新和卓越的未来。', 'published',false, '2023-05-04 03:45:30', NOW()),
     (1,'杰克', '原神是个好游戏', '《原神》是一款出色的开放世界冒险游戏，由米哈游开发。游戏以其精美的画面、丰富的剧情和开放的世界设定吸引了大量玩家。玩家可以在广阔的提瓦特大陆上自由探索，体验不同角色的独特技能和战斗风格。游戏中的多样化任务和活动，让每个玩家都能找到自己的乐趣所在。《原神》不仅在玩法上极具创新性，还不断更新，带来新的内容和惊喜，保持了游戏的新鲜感和吸引力。选择《原神》，享受无尽的冒险与探索。', 'rejected',false, '2024-01-06 15:45:30', NOW()),
     (10, 'helen','关于前端>后端的论证', '前端开发在现代Web开发中具有重要地位，甚至优于后端开发。首先，前端直接影响用户体验。一个优秀的用户界面和交互设计能显著提升用户满意度和留存率。其次，随着Web应用的复杂性增加，前端技术如React、Vue.js等不断发展，使得开发高效、灵活且更具维护性。前端开发者需掌握UI/UX设计、响应式布局等多方面技能，具有更广泛的技术覆盖面。此外，前端性能优化直接影响网站的加载速度和搜索引擎排名，对业务价值至关重要。因此，前端的重要性日益凸显。', 'published',true, '2024-01-31 18:45:30', NOW()),
@@ -69,7 +69,7 @@ VALUES
     (2, 5, 'approved', 'Interesting insights, well-written!', NOW()),
     (3, 4, 'rejected', 'Needs more details and references.', NOW()),
     (4, 2, 'approved', 'Draft looks fine, go ahead and publish.', NOW()),
-    (5, 1, 'approved', 'Excellent content, no changes needed.', NOW()),
+    (5, 1, 'approved', 'Excellent conent, no changes needed.', NOW()),
     (6, 6, 'approved', 'Moderation tips are spot on.', NOW()),
     (7, 7, 'rejected', 'Too technical for the average reader.', NOW()),
     (8, 8, 'approved', 'Engaging content, well done!', NOW()),
@@ -96,16 +96,16 @@ VALUES
 
 INSERT INTO recommendation (companyName,user_id,author, title, content, abstract, summary,location, status, created_time, publish_time,max_salary,min_salary)
 VALUES
-    ('huawei',1, '杰克','Software Engineer Internship', 'We are looking for talented software engineers to join our team...', 'Looking for software engineers...','employee', 'San Francisco', true, NOW(), NOW(),'10000','5000'),
-    ('ali',2, 'john','Product Manager Role', 'Exciting opportunity for a product manager to lead our new product launch...', 'Opportunity for a product manager...', 'employee','New York', true, NOW(), NOW(),'8000','6000'),
-    ('tengxun',3,'alice', 'UI/UX Designer Position', 'Join our design team and help shape the future of our product...', 'Join our design team...','leader', 'Los Angeles', true, NOW(), NOW(),'6000','4000'),
-    ('xiaomi',4,'bob', 'Frontend Developer Needed', 'We need experienced frontend developers who can build responsive web applications...', 'Experienced frontend developers needed...','employee', 'Chicago', false, NOW(), NOW(),'8000','6000'),
-    ('huawei',5,'carol', 'Backend Developer Wanted', 'Seeking backend developers with experience in Java and Python...', 'Seeking backend developers...', 'leader','Boston', true, NOW(), NOW(),'9000','6000'),
-    ('tiktok',6,'david', 'Data Scientist Opportunity', 'Looking for data scientists to analyze large datasets and provide insights...', 'Data scientist opportunity...', 'employee','Seattle', true, NOW(), NOW(),'6000','3000'),
-    ('tiktok',7, 'elizabeth','DevOps Engineer Role', 'Join our DevOps team and help us automate and optimize our infrastructure...', 'Join our DevOps team...', 'employee','Austin', true, NOW(), NOW(),'9000','5000'),
-    ('byd',8, 'frank','Quality Assurance Tester', 'We need testers to ensure the quality of our software releases...', 'Quality assurance tester needed...', 'leader','Atlanta', true, NOW(), NOW(),'12000','6000'),
-    ('huawei',9,'george', 'Full Stack Developer Position', 'Seeking full stack developers with experience in both frontend and backend technologies...', 'Full stack developer position...', 'employee','Denver', false, NOW(), NOW(),'11000','10000'),
-    ('xiaomi',10, 'helen','Technical Writer Job', 'Join our documentation team and help us create clear and concise technical documentation...', 'Technical writer job...', 'employee','Philadelphia', true, NOW(), NOW(),'9000','8000');
+    ('华为', 1, '杰克', '软件工程师实习', '我们正在寻找有才华的软件工程师加入我们的团队...', '寻找软件工程师...', '员工', '旧金山', true, NOW(), NOW(), '10000', '5000'),
+    ('阿里', 2, 'john', '产品经理职位', '这是一个令人兴奋的机会，让产品经理领导我们的新产品发布...', '产品经理机会...', '员工', '纽约', true, NOW(), NOW(), '8000', '6000'),
+    ('腾讯', 3, 'alice', 'UI/UX设计师职位', '加入我们的设计团队，帮助塑造我们产品的未来...', '加入我们的设计团队...', '领导', '洛杉矶', true, NOW(), NOW(), '18000', '12000'),
+    ('小米', 4, 'bob', '需要前端开发人员', '我们需要有经验的前端开发人员，可以构建响应式Web应用程序...', '需要有经验的前端开发人员...', '员工', '芝加哥', false, NOW(), NOW(), '8000', '6000'),
+    ('华为', 5, 'carol', '招聘后端开发人员', '我们正在寻找有Java和Python经验的后端开发人员...', '招聘后端开发人员...', '领导', '波士顿', true, NOW(), NOW(), '12000', '6000'),
+    ('抖音', 6, 'david', '数据科学家机会', '寻找数据科学家来分析大数据集并提供洞见...', '数据科学家机会...', '员工', '西雅图', true, NOW(), NOW(), '6000', '3000'),
+    ('抖音', 7, 'elizabeth', 'DevOps工程师职位', '加入我们的DevOps团队，帮助我们自动化和优化基础设施...', '加入我们的DevOps团队...', '员工', '奥斯汀', true, NOW(), NOW(), '12000', '10000'),
+    ('比亚迪', 8, 'frank', '质量保证测试员', '我们需要测试人员来确保我们的软件发布质量...', '需要质量保证测试员...', '领导', '亚特兰大', true, NOW(), NOW(), '25000', '20000'),
+    ('华为', 9, 'george', '全栈开发人员职位', '寻找有前端和后端技术经验的全栈开发人员...', '全栈开发人员职位...', '员工', '丹佛', false, NOW(), NOW(), '11000', '10000'),
+    ('小米', 10, 'helen', '技术写作职位', '加入我们的文档团队，帮助我们创建清晰简明的技术文档...', '技术写作职位...', '员工', '费城', true, NOW(), NOW(), '9000', '8000');
 
 
 
@@ -141,38 +141,35 @@ VALUES
 
 INSERT INTO activities (activity_name,initiator, activity_type, activity_time, activity_location, activity_description,maxParticipants, currentParticipants,status)
 VALUES
-    ('Tech Talk', '杰克','Seminar', '2025-12-22 20:12:10', 'San Francisco', 'A seminar on the latest tech trends and innovations.', 50,30,'approved'),
-    ('Hackathon','john', 'Event','2024-11-22 20:12:10', 'New York', 'A weekend-long coding competition with prizes.', 100,45,'approved'),
-    ('Networking Event','alice', 'Social', '2024-12-22 20:12:10', 'Los Angeles', 'An evening of networking with industry professionals.', 75,20,'approved'),
-    ('Workshop', 'bob','Training', '2024-08-22 20:12:10', 'Chicago', 'A hands-on workshop on cloud computing.', 30,29,'approved'),
-    ('Book Club Meeting', 'carol','Discussion', '2024-10-22 20:12:10', 'Boston', 'Monthly book club meeting discussing tech books.', 20,12,'rejected'),
-    ('Startup Pitch Night','david', 'Event', '2025-06-22 20:12:10', 'Seattle', 'A night where startups pitch their ideas to investors.', 150,120,'pending'),
-    ('Coding Bootcamp','elizabeth', 'Training', '2025-04-22 20:12:10', 'Austin', 'A two-week intensive bootcamp for aspiring developers.', 25,20,'pending'),
-    ('Charity Run', 'frank','Event', '2025-01-22 20:12:10', 'Atlanta', 'A charity run to support local tech education initiatives.', 300,225,'approved'),
-    ('Product Launch Party', 'george','Celebration', '2025-02-22 20:12:10', 'Denver', 'A party celebrating the launch of a new product.', 100,89,'rejected'),
-    ('Volunteer Day', 'helen','Community', '2026-10-22 20:12:10', 'Philadelphia', 'A day dedicated to volunteering at local tech nonprofits.', 40,33,'approved');
+    ('企业实训', 'john', '研讨会', '2025-12-22 20:12:10', '大连', '大连中软国际企业实训活动旨在为学生和职场新人提供真实的企业项目实战体验。参与者将有机会在专业导师的指导下，参与软件开发、系统集成等实际项目，提高实战技能，了解行业动态，积累宝贵的工作经验，为未来职业发展打下坚实基础。此次实训活动不仅提升技术能力，更注重培养团队协作和项目管理能力。', 10, 7, 'approved'),
+    ('黑客马拉松', 'john', '活动', '2024-11-22 20:12:10', '纽约', '为期一个周末的编程比赛，设有奖品。', 10, 4, 'approved'),
+    ('社交活动', 'alice', '社交', '2023-12-22 20:12:10', '洛杉矶', '与行业专业人士的社交晚会。', 15, 4, 'approved'),
+    ('工作坊', 'bob', '培训', '2024-08-22 20:12:10', '芝加哥', '关于云计算的实践工作坊。', 30, 9, 'approved'),
+    ('读书俱乐部会议', 'carol', '讨论', '2024-10-22 20:12:10', '波士顿', '每月一次的技术书籍讨论读书俱乐部会议。', 120, 1, 'rejected'),
+    ('创业展示之夜', 'david', '活动', '2025-06-22 20:12:10', '西雅图', '初创公司向投资者展示他们的创意的夜晚。', 150, 1, 'pending'),
+    ('编程训练营', 'elizabeth', '培训', '2025-04-22 20:12:10', '奥斯汀', '为期两周的密集训练营，面向有志成为开发者的人士。', 25, 1, 'pending'),
+    ('慈善跑', 'frank', '活动', '2025-01-22 20:12:10', '亚特兰大', '支持本地技术教育计划的慈善跑活动。', 10, 5, 'approved'),
+    ('产品发布派对', '杰克', '庆祝', '2025-02-22 20:12:10', '丹佛', '庆祝新产品发布的派对。', 5, 3, 'approved');
 
 
 
 INSERT INTO user_activities (user_id, activity_id, activity_status)
 VALUES
-    (1, 1, 'registered'),
-    (2, 1, 'registered'),
-    (2, 2, 'registered'),
-    (3, 3, 'attended'),
-    (4, 4, 'registered'),
-    (5, 5, 'attended'),
-    (6, 6, 'registered'),
-    (7, 7, 'attended'),
-    (8, 8, 'registered'),
-    (9, 9, 'attended'),
-    (10, 10, 'registered');
+    (1, 1, null),(2, 1, null),(3, 1, null),(4, 1, null),(5, 1, null),(6, 1, null),(7, 1, null),
+    (2, 2, null),(5, 2, null),(8, 2, null),(9, 2, null),
+    (1, 3, null),(3, 3, null),(7, 3, null),(10, 3, null),
+    (4, 4, null),(1, 4, null),(2, 4, null),(3, 4, null),(9, 4, null),(5, 4, null),(6, 4, null),(7, 4, null),(8, 4, null),
+    (5, 5, null),
+    (6, 6, null),
+    (7, 7, null),
+    (8, 8, null),
+    (9, 9, null),(3, 9, null),(4, 9, null);
 
 
 
 INSERT INTO resumes (user_id,nickname, content, status, created_time, work_experience,education)
 VALUES
-    (1,'杰克', 'Objective: Seeking a software engineer position with XYZ Corp. Skills include Java, Python, and C++. Education: B.S. in Computer Science from University of California, Berkeley.', 'active', NOW(),'学生','高中或以下'),
+    (1,'杰克', '20岁，是学生，熟练c++,python,java等单词的拼写，擅长idea,visual studio code,dev c++等ide的安装。', 'active', NOW(),'学生','高中或以下'),
     (2,'john', 'Objective: A highly motivated product manager with over 5 years of experience in launching successful products. Skills include Agile methodologies, product strategy, and stakeholder management. Education: MBA from Stanford Graduate School of Business.', 'active', NOW(),'已就业三年以内','硕士'),
     (3,'alice', 'Objective: Experienced UI/UX designer with a passion for creating intuitive and user-friendly interfaces. Skills include Adobe Creative Suite, Sketch, and Figma. Education: B.F.A. in Graphic Design from Rhode Island School of Design.', 'active', NOW(),'已就业三年以上','博士'),
     (4,'bob', 'Objective: Talented front-end developer with expertise in React, Angular, and Vue.js. Strong background in responsive web design and accessibility. Education: B.S. in Information Technology from Georgia Tech.', 'active', NOW(),'已就业三年以上','本科'),
@@ -240,8 +237,12 @@ VALUES
     (6,'david', 'Order 106',12000, 'This order includes 4 units of Product K and 2 units of Product L.', 'processing', '2024-05-20 01:45:30',null),
     (7,'elizabeth', 'Order 107',8000, 'This order includes 7 units of Product M and 5 units of Product N.', 'processing', '2023-07-01 01:45:30',null),
     (8,'frank', 'Order 108',11000, 'This order includes 6 units of Product O and 1 unit of Product P.', 'pending','2022-08-28 01:45:30',null),
-    (9,'george', 'Order 109',18000, 'This order includes 2 units of Product Q and 3 units of Product R.', 'processing', '2024-03-28 01:45:30','john'),
-    (10,'helen', 'Order 110',750, 'This order includes 8 units of Product S and 4 units of Product T.', 'completed', '2024-01-28 01:45:30','elizabeth');
+    (9,'george', 'Order 109',18000, 'This order includes 2 units of Product Q and 3 units of Product R.', 'processing', '2024-03-28 01:45:30','杰克'),
+    (10,'helen', 'Order 110',7500, 'This order includes 8 units of Product S and 4 units of Product T.', 'completed', '2024-01-28 01:45:30','elizabeth'),
+    (10,'helen', 'Order 111',200, 'This order includes 8 units of Product S and 4 units of Product T.', 'completed', '2023-01-28 01:45:30','杰克'),
+    (1,'杰克', 'Order 112',7500, 'This order includes 8 units of Product S and 4 units of Product T.', 'pending', '2024-07-28 01:45:30',null),
+    (1,'杰克', 'Order 113',7500, 'This order includes 8 units of Product S and 4 units of Product T.', 'processing', '2024-07-29 01:45:30',null),
+    (1,'杰克', 'Order 114',7500, 'This order includes 8 units of Product S and 4 units of Product T.', 'completed', '2024-07-30 01:45:30','elizabeth');
 
 
 

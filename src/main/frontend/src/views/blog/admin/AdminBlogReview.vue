@@ -87,7 +87,7 @@ export default {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   max-width: 800px;
   margin: 0 auto;
-  text-align: center;
+  text-align: left;
 }
 
 .blog-list ul {

@@ -4,7 +4,7 @@
     <div class="comment-list">
       <ul v-if="paginatedComments.length > 0">
         <li v-for="comment in paginatedComments" :key="comment.id">
-          <p>{{ comment.content }}</p>
+          <p class="comment-content"><strong>{{ comment.content }}</strong></p>
           <p>评论者: {{ comment.author }}</p>
           <p>博文: {{ getBlogTitle(comment.blogId) }}</p>
           <router-link
@@ -101,7 +101,7 @@ export default {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   max-width: 800px;
   margin: 0 auto;
-  text-align: center;
+  text-align: left;
 }
 
 .comment-list ul {
@@ -119,6 +119,10 @@ export default {
 
 .comment-list li p {
   margin: 10px 0;
+}
+
+.comment-content{
+  font-size: 25px;
 }
 
 .action-button {
