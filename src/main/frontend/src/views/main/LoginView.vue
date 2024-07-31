@@ -60,7 +60,7 @@ export default {
           localStorage.setItem("user", JSON.stringify(userData));
           // 等待用户信息刷新，然后导航到主页
           setTimeout(() => {
-            this.$router.push("/");
+            this.$router.push("/home");
           }, 100); // 100 毫秒的延迟
         } else {
           this.error = response.data.message;

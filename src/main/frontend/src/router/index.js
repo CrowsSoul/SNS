@@ -61,7 +61,7 @@ const routes = [
     component: RegisterView
   },
   {
-    path: '/',
+    path: '/home',
     name: '主页',
     component: HomeView
   },

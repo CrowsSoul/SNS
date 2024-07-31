@@ -13,7 +13,7 @@
       <nav v-if="showNav">
         <ul>
           <li>
-            <router-link to="/">
+            <router-link to="/home">
               <font-awesome-icon icon="home" class="nav-icon" /> 主页
             </router-link>
           </li>
