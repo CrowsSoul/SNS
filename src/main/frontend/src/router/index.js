@@ -47,6 +47,10 @@ import MyOrderDetail from '../views/order/user/MyOrderDetail.vue';
 
 const routes = [
   {
+    path: '/',
+    redirect: '/login' // 默认重定向到登录页面
+  },
+  {
     path: '/login',
     name: '登录',
     component: LoginView
