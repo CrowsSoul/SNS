@@ -3,6 +3,6 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/SNStest
     username: root
-    password: root
+    password: Yaoleo040509
 server:
   port: 3000

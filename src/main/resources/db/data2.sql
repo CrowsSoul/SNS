@@ -1,6 +1,6 @@
 INSERT INTO users (username,nickname, password, email, role, created_time, updated_time)
 VALUES
-    ('2','杰克', '2', 'jack@example.com', 'student', NOW(), NOW()),
+    ('2','jack', '2', 'jack@example.com', 'student', NOW(), NOW()),
     ('john223', 'john','Pass456', 'john@example.com', 'student', NOW(), NOW()),
     ('1', 'alice','1', 'alice@example.com', 'admin', NOW(), NOW()),
     ('bob514', 'bob','Pass101', 'bob@example.com', 'student', NOW(), NOW()),
@@ -9,42 +9,36 @@ VALUES
     ('elizabeth9089', 'elizabeth','Pass404', 'elizabeth@example.com', 'student', NOW(), NOW()),
     ('frank4060', 'frank','Pass505', 'frank@example.com', 'student', NOW(), NOW()),
     ('george345', 'george','Pass606', 'george@example.com', 'student', NOW(), NOW()),
-    ('helen1234', 'helen','Pass707', 'helen@example.com', 'student', NOW(), NOW()),
-    ('YDQ', '于大淇','Pass606', 'george@example.com', 'student', NOW(), NOW());
+    ('helen1234', 'helen','Pass707', 'helen@example.com', 'student', NOW(), NOW());
 
 
 
 INSERT INTO posts (user_id, author,title, content, status,isRecommended, created_time, updated_time)
 VALUES
-    (1,'杰克', '中软国际是个好公司', '中软国际是一家杰出的公司，专注于信息技术服务和解决方案。作为行业领先者，他们提供广泛的IT服务，包括软件开发、系统集成和咨询服务。公司以创新驱动，致力于为客户提供高效、优质的解决方案，赢得了众多客户的信赖和赞誉。中软国际的员工团队专业且充满活力，不断追求卓越，为公司的持续发展注入了强大动力。选择中软国际，就是选择卓越的IT服务和无限的未来可能性。', 'published',true, '2022-08-28 01:45:30', NOW()),
+    (1,'jack', 'My First Post', 'This is my first blog post about getting started with blogging.', 'published',true, NOW(), NOW()),
     (2, 'john','Exploring New Technologies', 'A detailed exploration of the latest technologies and how they can be used in web development.', 'published', false,NOW(), NOW()),
-    (3, 'alice','Admin Tips and Tricks', 'Tips for managing users and moderating content on your website.', 'published',false, NOW(), NOW()),
+    (3, 'alice','Admin Tips and Tricks', 'Tips for managing users and moderating content on your website.', 'published',true, NOW(), NOW()),
     (4, 'bob','Learning Programming', 'A beginner\'s guide to programming and some useful resources.', 'pending', false,NOW(), NOW()),
     (5, 'carol','The Importance of Security', 'Why security is crucial for any online platform and how to improve it.', 'rejected',false, NOW(), NOW()),
-    (6, 'david','Moderation Best Practices', 'Best practices for moderating comments and maintaining a healthy community.', 'published',false, NOW(), NOW()),
+    (6, 'david','Moderation Best Practices', 'Best practices for moderating comments and maintaining a healthy community.', 'published',true, NOW(), NOW()),
     (7, 'elizabeth','Advanced Features Unlocked', 'Unlocking advanced features in the blogging platform for power users.', 'pending',false, NOW(), NOW()),
     (8, 'frank','Community Engagement Strategies', 'Strategies for engaging with your community and building a loyal following.', 'rejected',false, NOW(), NOW()),
     (9, 'george','Managing Large Datasets', 'How to manage and analyze large datasets efficiently.', 'pending',true, NOW(), NOW()),
-    (10, 'helen','Creating a Positive Online Environment', 'Tips for creating a positive and welcoming environment for all users.', 'published',false, NOW(), NOW()),
-    (1,'杰克', '哈尔滨工业大学是个好大学', '哈尔滨工业大学是一所著名的重点大学，以其卓越的工科实力和全面的教育质量而闻名。作为国家“双一流”建设高校，哈工大在航空航天、机械工程、计算机科学等领域具有领先地位。学校拥有一流的师资力量和科研条件，为学生提供了优质的学习和研究环境。多年来，哈工大培养了众多优秀人才，为国家的科技进步和社会发展做出了重要贡献。选择哈尔滨工业大学，就是选择创新和卓越的未来。', 'published',false, '2023-05-04 03:45:30', NOW()),
-    (1,'杰克', '原神是个好游戏', '《原神》是一款出色的开放世界冒险游戏，由米哈游开发。游戏以其精美的画面、丰富的剧情和开放的世界设定吸引了大量玩家。玩家可以在广阔的提瓦特大陆上自由探索，体验不同角色的独特技能和战斗风格。游戏中的多样化任务和活动，让每个玩家都能找到自己的乐趣所在。《原神》不仅在玩法上极具创新性，还不断更新，带来新的内容和惊喜，保持了游戏的新鲜感和吸引力。选择《原神》，享受无尽的冒险与探索。', 'rejected',false, '2024-01-06 15:45:30', NOW()),
-    (10, 'helen','关于前端>后端的论证', '前端开发在现代Web开发中具有重要地位，甚至优于后端开发。首先，前端直接影响用户体验。一个优秀的用户界面和交互设计能显著提升用户满意度和留存率。其次，随着Web应用的复杂性增加，前端技术如React、Vue.js等不断发展，使得开发高效、灵活且更具维护性。前端开发者需掌握UI/UX设计、响应式布局等多方面技能，具有更广泛的技术覆盖面。此外，前端性能优化直接影响网站的加载速度和搜索引擎排名，对业务价值至关重要。因此，前端的重要性日益凸显。', 'published',true, '2024-01-31 18:45:30', NOW()),
-    (8, 'frank','Vue进化简史', 'Vue.js是一款由尤雨溪（Evan You）于2013年开发的渐进式JavaScript框架，自发布以来经历了多次演变，逐步发展成为前端开发的重要工具。2013年发布的初始版本以其简洁和易用性吸引了开发者的关注。2016年发布的Vue 2.0版本引入了虚拟DOM和增强的响应式系统，大幅提升了性能和开发体验。随着Vue CLI、Vue Router和Vuex等工具的成熟，Vue.js的生态系统逐渐完善。2019年，Vue 3的开发启动，2020年正式发布的Vue 3.0版本带来了Composition API、新的虚拟DOM和Tree-shaking功能，显著提升了代码复用性和性能。Vue.js通过持续优化和社区贡献，保持在前端框架中的领先地位，未来将继续致力于提升开发者体验和性能优化。', 'published',true, '2024-07-28 18:45:30', NOW());
+    (10, 'helen','Creating a Positive Online Environment', 'Tips for creating a positive and welcoming environment for all users.', 'published',false, NOW(), NOW());
 
 
 INSERT INTO comments (post_id, user_id,author, content, status, isReported,created_time, updated_time)
 VALUES
-    (1, 1,'杰克', 'Great post! I learned a lot about blogging.', 'approved',0, NOW(), NOW()),
-    (1, 2,'john', 'I agree, starting with blogging can be challenging but rewarding.', 'approved', 0,NOW(), NOW()),
+    (1, 1,'jack', 'Great post! I learned a lot about blogging.', 'approved',0, NOW(), NOW()),
+    (1, 2,'john', 'I agree, starting with blogging can be challenging but rewarding.', 'approved', 1,NOW(), NOW()),
     (2, 3,'alice', 'Thanks for the tips on exploring new technologies!', 'approved',0, NOW(), NOW()),
     (3, 4,'bob','Admin tips are always appreciated. Thanks for sharing!', 'approved',0, NOW(), NOW()),
     (4, 5,'carol', 'I found the learning programming guide very helpful.', 'approved',0, NOW(), NOW()),
-    (5, 6,'david', 'Security is indeed important. Good read!', 'approved', 0,NOW(), NOW()),
+    (5, 6,'david', 'Security is indeed important. Good read!', 'approved', 1,NOW(), NOW()),
     (6, 7,'elizabeth', 'Moderation best practices are essential for community management.', 'approved',0, NOW(), NOW()),
     (7, 8,'frank', 'Advanced features are great for power users. Looking forward to trying them out.', 'approved',0, NOW(), NOW()),
-    (8, 9,'george', '非常好文章，使我受益匪浅！', 'approved', 1,NOW(), NOW()),
-    (9, 10,'helen', 'Managing large datasets is a challenge I face often. Thanks for the advice.', 'approved',0, NOW(), NOW()),
-    (13, 10,'于大淇', '我完全不同意这样的观点！', 'approved',0, NOW(), NOW());
+    (8, 9,'george', 'Community engagement strategies are key to building a strong community.', 'approved', 1,NOW(), NOW()),
+    (9, 10,'helen', 'Managing large datasets is a challenge I face often. Thanks for the advice.', 'approved',0, NOW(), NOW());
 
 
 
@@ -96,7 +90,7 @@ VALUES
 
 INSERT INTO recommendation (companyName,user_id,author, title, content, abstract, summary,location, status, created_time, publish_time,max_salary,min_salary)
 VALUES
-    ('huawei',1, '杰克','Software Engineer Internship', 'We are looking for talented software engineers to join our team...', 'Looking for software engineers...','employee', 'San Francisco', true, NOW(), NOW(),'10000','5000'),
+    ('huawei',1, 'jack','Software Engineer Internship', 'We are looking for talented software engineers to join our team...', 'Looking for software engineers...','employee', 'San Francisco', true, NOW(), NOW(),'10000','5000'),
     ('ali',2, 'john','Product Manager Role', 'Exciting opportunity for a product manager to lead our new product launch...', 'Opportunity for a product manager...', 'employee','New York', true, NOW(), NOW(),'8000','6000'),
     ('tengxun',3,'alice', 'UI/UX Designer Position', 'Join our design team and help shape the future of our product...', 'Join our design team...','leader', 'Los Angeles', true, NOW(), NOW(),'6000','4000'),
     ('xiaomi',4,'bob', 'Frontend Developer Needed', 'We need experienced frontend developers who can build responsive web applications...', 'Experienced frontend developers needed...','employee', 'Chicago', false, NOW(), NOW(),'8000','6000'),
@@ -141,7 +135,7 @@ VALUES
 
 INSERT INTO activities (activity_name,initiator, activity_type, activity_time, activity_location, activity_description,maxParticipants, currentParticipants,status)
 VALUES
-    ('Tech Talk', '杰克','Seminar', '2025-12-22 20:12:10', 'San Francisco', 'A seminar on the latest tech trends and innovations.', 50,30,'approved'),
+    ('Tech Talk', 'jack','Seminar', '2025-12-22 20:12:10', 'San Francisco', 'A seminar on the latest tech trends and innovations.', 50,30,'approved'),
     ('Hackathon','john', 'Event','2024-11-22 20:12:10', 'New York', 'A weekend-long coding competition with prizes.', 100,45,'approved'),
     ('Networking Event','alice', 'Social', '2024-12-22 20:12:10', 'Los Angeles', 'An evening of networking with industry professionals.', 75,20,'approved'),
     ('Workshop', 'bob','Training', '2024-08-22 20:12:10', 'Chicago', 'A hands-on workshop on cloud computing.', 30,29,'approved'),
@@ -171,7 +165,7 @@ VALUES
 
 INSERT INTO resumes (user_id,nickname, content, status, created_time, work_experience,education)
 VALUES
-    (1,'杰克', 'Objective: Seeking a software engineer position with XYZ Corp. Skills include Java, Python, and C++. Education: B.S. in Computer Science from University of California, Berkeley.', 'active', NOW(),'学生','高中或以下'),
+    (1,'jack', 'Objective: Seeking a software engineer position with XYZ Corp. Skills include Java, Python, and C++. Education: B.S. in Computer Science from University of California, Berkeley.', 'active', NOW(),'学生','高中或以下'),
     (2,'john', 'Objective: A highly motivated product manager with over 5 years of experience in launching successful products. Skills include Agile methodologies, product strategy, and stakeholder management. Education: MBA from Stanford Graduate School of Business.', 'active', NOW(),'已就业三年以内','硕士'),
     (3,'alice', 'Objective: Experienced UI/UX designer with a passion for creating intuitive and user-friendly interfaces. Skills include Adobe Creative Suite, Sketch, and Figma. Education: B.F.A. in Graphic Design from Rhode Island School of Design.', 'active', NOW(),'已就业三年以上','博士'),
     (4,'bob', 'Objective: Talented front-end developer with expertise in React, Angular, and Vue.js. Strong background in responsive web design and accessibility. Education: B.S. in Information Technology from Georgia Tech.', 'active', NOW(),'已就业三年以上','本科'),
@@ -231,7 +225,7 @@ VALUES
 
 INSERT INTO orders (user_id,nickname, orders_name,orders_price, orders_introduction, orders_status, created_time,successful_bidder)
 VALUES
-    (1,'杰克', 'Order 101',500, 'This order includes 5 units of Product A and 3 units of Product B.', 'completed', '2024-07-28 01:45:30','alice'),
+    (1,'jack', 'Order 101',500, 'This order includes 5 units of Product A and 3 units of Product B.', 'completed', '2024-07-28 01:45:30','alice'),
     (2,'john', 'Order 102',5000, 'This order includes 2 units of Product C and 1 unit of Product D.', 'processing', '2023-05-25 01:45:30',null),
     (3,'alice', 'Order 103',1500, 'This order includes 10 units of Product E and 5 units of Product F.', 'completed', '2024-07-15 01:45:30','bob'),
     (4,'bob', 'Order 104',3500, 'This order includes 1 unit of Product G and 2 units of Product H.', 'processing', '2023-01-28 01:45:30','carol'),

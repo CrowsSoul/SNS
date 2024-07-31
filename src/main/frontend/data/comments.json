@@ -1,12 +1,5 @@
 [
   {
-    "id": 1,
-    "author": "王伟",
-    "blogId": 1,
-    "content": "这篇文章很有帮助，我学到了很多提升编程技能的方法。",
-    "isReported": true
-  },
-  {
     "id": 2,
     "author": "李娜",
     "blogId": 1,
@@ -75,13 +68,6 @@
     "blogId": 6,
     "content": "现代Web开发工具介绍得很全面，我学到了很多新知识。",
     "isReported": false
-  },
-  {
-    "id": 12,
-    "author": "赵丽",
-    "blogId": 6,
-    "content": "这篇文章让我了解了更多的现代Web开发工具，谢谢。",
-    "isReported": true
   },
   {
     "id": 13,
