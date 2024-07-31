@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 public class Comment {
     private int id;
     private String author;
-    private String blogId;
+    private int blogId;
     private String content;
     @JsonProperty("isReported")
     private boolean isReported;
