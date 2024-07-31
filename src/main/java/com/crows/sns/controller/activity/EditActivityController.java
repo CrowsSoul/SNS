@@ -20,6 +20,7 @@ public class EditActivityController {
     @PutMapping("/{id}")
     public void editActivity(@PathVariable int id,@RequestBody Activity request)
     {
+        request.setCurrentParticipants(request.getParticipantList().size());
         request.setActivityTime();
         activityMapper.updateActivity(request);
         //然后需要更新关联表

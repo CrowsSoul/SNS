@@ -17,6 +17,7 @@ public class PostNewActivityController {
     @PostMapping
     public Activity postNewActivity(@RequestBody Activity request)
     {
+        request.setCurrentParticipants(1);
         return postNewActivityService.postNewActivity(request);
     }
 }
